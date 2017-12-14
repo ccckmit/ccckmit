@@ -1,0 +1,37 @@
+{
+  "name": "mdbook",
+  "version": "1.4.3",
+  "description": "Markdown Book Editing System",
+  "main": "bookServer.js",
+  "dependencies": {
+    "aslk": "^0.6.8",
+    "async-busboy": "^0.4.0",
+    "co-body": "^5.1.1",
+    "handlebars": "^4.0.6",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-logger": "^2.0.1",
+    "koa-router": "^7.0.1",
+    "koa-session": "^5.0.0",
+    "koa-static": "^3.0.0",
+    "mdo": "^1.0.4",
+    "mongodb": "*",
+    "mz": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node bookServer.js"
+  },
+  "bin": {},
+  "keywords": [],
+  "homepage": "https://github.com/ccckmit/mdbook",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/ccckmit/mdbook.git"
+  },
+  "author": {
+    "name": "Chung-Chen Chen",
+    "email": "ccckmit@gmail.com"
+  },
+  "license": "MIT"
+}

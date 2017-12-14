@@ -1,0 +1,47 @@
+<div id="smsBox" class="content" style="height:80vh; overflow: auto">  
+  <textarea id="newPost" placeholder="Post new message !"></textarea>
+  <button type="button" class="pure-button pure-button-primary mt" data-mt="Post=留言" onclick="SMS.post(window.id('newPost').value)"></button>
+  <div id="posts">
+    <div id="post111" class="postDiv">
+      <label class="mt" data-mt="Post=訊息"></label> : 
+      <div style="float:right">
+        <i class="fa fa-user" aria-hidden="true" title="Author"></i> <a href="/view/ccc">ccc</a> &nbsp;
+        <i class="fa fa-pencil-square-o" aria-hidden="true" title="edit" onclick="SMS.editPostToggle('111')"></i> &nbsp;
+        <i class="fa fa-times" aria-hidden="true" title="delete" onclick="SMS.deletePost('111')"></i> &nbsp;
+        <i class="fa fa-clock-o" aria-hidden="true" title="20130705"></i>
+      </div>
+      <div style="display:none">
+        <textarea id="postMd111"># title1</textarea>
+        <button type="button" class="pure-button mt" data-mt="Submit=送出修改" onclick="SMS.editPostSubmit('111')"></button>
+      </div>
+      <div id="postHtml111" class="post"><!--MDB.md2html(post.msg)--></div>
+      <div id="replyList111">
+      </div>
+      <div>
+        <div><a class="mt" onclick="SMS.showReply('111')" data-mt="Reply=新增回應">Add</a></div>
+        <textarea id="replyArea111" class="replyArea" onkeyup="SMS.replyKeyup('111', this.value)"></textarea>
+      </div>
+    </div>
+    <div id="post222" class="postDiv">
+      <label class="mt" data-mt="Post=訊息"></label> : 
+      <div style="float:right">
+        <i class="fa fa-user" aria-hidden="true" title="Author"></i> <a href="/view/ccc">ccc</a> &nbsp;
+        <i class="fa fa-pencil-square-o" aria-hidden="true" title="edit" onclick="SMS.editPostToggle('222')"></i> &nbsp;
+        <i class="fa fa-times" aria-hidden="true" title="delete" onclick="SMS.deletePost('222')"></i> &nbsp;
+        <i class="fa fa-clock-o" aria-hidden="true" title="20170301"></i>
+      </div>
+      <div style="display:none">
+        <textarea id="postMd222"># 222222</textarea>
+        <button type="button" class="pure-button mt" data-mt="Submit=送出修改" onclick="SMS.editPostSubmit('222')"></button>
+      </div>
+      <div id="postHtml222" class="post"><!--MDB.md2html(post.msg)--></div>
+      <div id="replyList222">
+      </div>
+      <div>
+        <div><a class="mt" onclick="SMS.showReply('222')" data-mt="Reply=新增回應">Add</a></div>
+        <textarea id="replyArea222" class="replyArea" onkeyup="SMS.replyKeyup('222', this.value)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+

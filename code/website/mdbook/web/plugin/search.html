@@ -1,0 +1,11 @@
+<div class="content">
+  <form class="pure-form pure-form-aligned" onsubmit="return false"> 
+    <fieldset>
+      <div class="pure-control-group">
+        <input id="searchQuery" onkeyup="SE.searchKeyup(window.event)" type="text" placeholder="search" size="10" style="border-radius: 5px;"> 
+        <button type="button" class="pure-button pure-button-primary mt" data-mt="Search=搜尋" onclick="SE.doSearch()">Search</button>
+       </div>
+    </fieldset>
+  </form>
+  <div class="content" id="searchBox"></div>
+</div>

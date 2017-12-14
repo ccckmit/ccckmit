@@ -1,0 +1,1 @@
+https://github.com/marcolanaro/JS-Fuzzy/tree/master/examples

@@ -1,0 +1,36 @@
+0020  // 00    RESET:  LD    X   
+2021  // 01            ADD   Y
+3021  // 02            SUB   Y
+4021  // 03            MUL   Y
+5021  // 04            DIV   Y
+7021  // 05            OR    Y		       
+6021  // 06            AND   Y
+8021  // 07            XOR   Y
+0020  // 08            LD    X
+F503  // 09            SHL   A, 3
+F603  // 0A            SHR   A, 3
+F701  // 0B            ADDI  1
+0023  // 0C            LD    STACKEND
+F230  // 0D            MOV   SP, A
+E011  // 0E            JSUB  MIN
+0022  // 0F            LD    Z
+A010  // 10    HALT:   JMP   HALT        
+F301  // 11    MIN:    PUSH  LR
+0020  // 12            LD    X
+9021  // 13            CMP   Y
+FD00  // 14            NSW
+C018  // 15            JLT   ELSE
+1022  // 16            ST    Z
+A019  // 17            JMP   NEXT
+0021  // 18    ELSE:   LD    Y
+1022  // 19    NEXT:   ST    Z
+F401  // 1A            POP   LR
+FE00  // 1B            RET
+0000  // 1C    
+0000  // 1D    
+0000  // 1E
+0000  // 1F
+0003  // 20    X:      WORD  3
+0005  // 21    Y:      WORD  5
+0000  // 22    Z:      WORD  0 
+007F  // 23    STACKEND: WORD 127

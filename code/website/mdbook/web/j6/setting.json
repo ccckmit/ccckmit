@@ -1,0 +1,13 @@
+{
+	"port":80,
+	"portSsl":443,
+	"loginToSave" : true,
+	"passwords": {
+  	  "root":"123"
+	},
+	"key":"@#$TYHaadfa1",
+	"redirect":"/rlab.html",
+	"mongodb":{
+		"dburl":"mongodb://localhost:27017/fdbserver"
+	}
+}

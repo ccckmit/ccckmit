@@ -1,0 +1,21 @@
+<html>
+<head>
+  <meta charset='utf-8'> 
+</head>
+<body>
+  <div id="time"></div>	
+  <script>
+  var n=10;
+	function showtime(){
+	  document.getElementById("time").innerHTML=n+'';
+	  if(n===0){
+	    alert("時間到了");
+	  } else {		 
+	    setTimeout(showtime,1000);
+    }
+	  n=n-1;
+  }  		
+	showtime();			   
+  </script>
+</body>
+</html>

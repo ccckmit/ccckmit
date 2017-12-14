@@ -1,0 +1,114 @@
+post={"_id":"111","msg":"# title1","date":"20130705","user":"ccc","replys":[{"_id":"1aaa","msg":"Nice!","date":"20130706","user":"ccc"}]}
+reply={"_id":"1aaa","msg":"Nice!","date":"20130706","user":"ccc"}
+post={"_id":"222","msg":"# 222222","date":"20170301","user":"ccc","replys":[{"_id":"2bbb","msg":"Good!","date":"20170302","user":"bbb"},{"_id":"2ddd","msg":"Excellent!","date":"20170302","user":"ddd"},{"_id":"2ccc","msg":"Thanks!","date":"20170303","user":"ccc"}]}
+reply={"_id":"2bbb","msg":"Good!","date":"20170302","user":"bbb"}
+reply={"_id":"2ddd","msg":"Excellent!","date":"20170302","user":"ddd"}
+reply={"_id":"2ccc","msg":"Thanks!","date":"20170303","user":"ccc"}
+post={"_id":"111","msg":"# title1","date":"20130705","user":"ccc","replys":[{"_id":"1aaa","msg":"Nice!","date":"20130706","user":"ccc"}]}
+reply={"_id":"1aaa","msg":"Nice!","date":"20130706","user":"ccc"}
+post={"_id":"222","msg":"# 222222","date":"20170301","user":"ccc","replys":[{"_id":"2bbb","msg":"Good!","date":"20170302","user":"bbb"},{"_id":"2ddd","msg":"Excellent!","date":"20170302","user":"ddd"},{"_id":"2ccc","msg":"Thanks!","date":"20170303","user":"ccc"}]}
+reply={"_id":"2bbb","msg":"Good!","date":"20170302","user":"bbb"}
+reply={"_id":"2ddd","msg":"Excellent!","date":"20170302","user":"ddd"}
+reply={"_id":"2ccc","msg":"Thanks!","date":"20170303","user":"ccc"}
+
+<div id="smsBox" class="content" style="height:80vh; overflow: auto">  
+  <textarea id="newPost" placeholder="Post new message !"></textarea>
+  <button type="button" class="pure-button pure-button-primary mt" data-mt="Post=留言" onclick="SMS.post(window.id('newPost').value)"></button>
+  <div id="posts">
+    
+    <!--postHtml-->
+    <div id="post111" class="postDiv">
+      <label class="mt" data-mt="Post=訊息"></label> : 
+      <div style="float:right">
+        <i class="fa fa-user" aria-hidden="true" title="Author"></i> <a href="/view/ccc">ccc</a> &nbsp;
+        <i class="fa fa-pencil-square-o" aria-hidden="true" title="edit" onclick="SMS.editPostToggle('111')"></i> &nbsp;
+        <i class="fa fa-times" aria-hidden="true" title="delete" onclick="SMS.deletePost('111')"></i> &nbsp;
+        <i class="fa fa-clock-o" aria-hidden="true" title="20130705"></i>
+      </div>
+      <div style="display:none">
+        <textarea id="postMd111"># title1</textarea>
+        <button type="button" class="pure-button mt" data-mt="Submit=送出修改" onclick="SMS.editPostSubmit('111')"></button>
+      </div>
+      <div id="postHtml111" class="postHtml"><!--MDB.md2html(post.msg)--></div>
+      <div id="replyList111">
+        
+<!--replyHtml-->
+<div id="reply1aaa" class="reply">
+  <div contenteditable="true" class="replyMsg" onkeyup="SMS.replyEditKeyup('111', '1aaa', this.innerText, this)">Nice!</div>
+  <div style="float:right">
+    <i class="fa fa-user" aria-hidden="true" title="Author"></i>
+    <a href="/view/ccc">ccc</a>
+    <i class="fa fa-times" aria-hidden="true" title="delete" onclick="SMS.deleteReply('111','1aaa')"></i> &nbsp;
+    <i class="fa fa-clock-o" aria-hidden="true" title="20130706"></i>
+  </div>
+</div>
+
+      </div>
+      <div>
+        <textarea id="replyArea111" class="replyArea" onkeyup="SMS.replyAddKeyup('111', this.value)" placeholder="Reply"></textarea>
+      </div>
+    </div>
+    <!--/postHtml-->
+    
+
+    <!--postHtml-->
+    <div id="post222" class="postDiv">
+      <label class="mt" data-mt="Post=訊息"></label> : 
+      <div style="float:right">
+        <i class="fa fa-user" aria-hidden="true" title="Author"></i> <a href="/view/ccc">ccc</a> &nbsp;
+        <i class="fa fa-pencil-square-o" aria-hidden="true" title="edit" onclick="SMS.editPostToggle('222')"></i> &nbsp;
+        <i class="fa fa-times" aria-hidden="true" title="delete" onclick="SMS.deletePost('222')"></i> &nbsp;
+        <i class="fa fa-clock-o" aria-hidden="true" title="20170301"></i>
+      </div>
+      <div style="display:none">
+        <textarea id="postMd222"># 222222</textarea>
+        <button type="button" class="pure-button mt" data-mt="Submit=送出修改" onclick="SMS.editPostSubmit('222')"></button>
+      </div>
+      <div id="postHtml222" class="postHtml"><!--MDB.md2html(post.msg)--></div>
+      <div id="replyList222">
+        
+<!--replyHtml-->
+<div id="reply2bbb" class="reply">
+  <div contenteditable="true" class="replyMsg" onkeyup="SMS.replyEditKeyup('222', '2bbb', this.innerText, this)">Good!</div>
+  <div style="float:right">
+    <i class="fa fa-user" aria-hidden="true" title="Author"></i>
+    <a href="/view/bbb">bbb</a>
+    
+    <i class="fa fa-clock-o" aria-hidden="true" title="20170302"></i>
+  </div>
+</div>
+
+
+<!--replyHtml-->
+<div id="reply2ddd" class="reply">
+  <div contenteditable="true" class="replyMsg" onkeyup="SMS.replyEditKeyup('222', '2ddd', this.innerText, this)">Excellent!</div>
+  <div style="float:right">
+    <i class="fa fa-user" aria-hidden="true" title="Author"></i>
+    <a href="/view/ddd">ddd</a>
+    
+    <i class="fa fa-clock-o" aria-hidden="true" title="20170302"></i>
+  </div>
+</div>
+
+
+<!--replyHtml-->
+<div id="reply2ccc" class="reply">
+  <div contenteditable="true" class="replyMsg" onkeyup="SMS.replyEditKeyup('222', '2ccc', this.innerText, this)">Thanks!</div>
+  <div style="float:right">
+    <i class="fa fa-user" aria-hidden="true" title="Author"></i>
+    <a href="/view/ccc">ccc</a>
+    <i class="fa fa-times" aria-hidden="true" title="delete" onclick="SMS.deleteReply('222','2ccc')"></i> &nbsp;
+    <i class="fa fa-clock-o" aria-hidden="true" title="20170303"></i>
+  </div>
+</div>
+
+      </div>
+      <div>
+        <textarea id="replyArea222" class="replyArea" onkeyup="SMS.replyAddKeyup('222', this.value)" placeholder="Reply"></textarea>
+      </div>
+    </div>
+    <!--/postHtml-->
+    
+  </div>
+</div>
+

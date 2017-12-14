@@ -1,0 +1,24 @@
+<html>
+<body>
+
+<script type="text/javascript">
+
+var george = {
+  "name": "George",
+  "age": 25,
+  "friends": [
+     {"name": "John", "age": 22 },
+     {"name": "Mary", "age": 28 }
+  ]
+};
+
+document.write("george.age="+george.age+"<br/>");
+document.write("george.friends:\n<ol>");
+var friends = george.friends;
+for (i in friends)
+  document.write("<li>"+friends[i].name+" is "+friends[i].age+"years old!</li>");
+document.write("</ol>");
+</script>
+ 
+</body>
+</html>

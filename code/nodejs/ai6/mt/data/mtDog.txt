@@ -1,0 +1,17 @@
+一 隻 狗 = a dog
+小 狗 = puppy
+小 貓 = kitten
+黑 狗 = black dog
+黑 貓 = black cat
+小 黑 狗 = black puppy
+小 黑 貓 = black kitten
+一 隻 小 黑 狗 = a black puppy
+一 隻 小 狗 = a puppy
+他 有 一 隻 狗 = he has a dog
+她 愛 貓 = she love cat
+他 愛 貓 = he love cat
+她 愛 狗 = she love dog
+她 愛 小 狗 = she love puppy
+他 不 愛 狗 = he do not love dog
+她 愛 小 貓 = she love kitten
+他 愛 小 花 貓 = she love kitten

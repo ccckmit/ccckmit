@@ -1,0 +1,26 @@
+{
+  "name": "KoaStaticServer",
+  "version": "0.1.0",
+  "description": "KoaStaticServer",
+  "main": "staticServer",
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-logger": "^3.1.0",
+    "koa-static": "^4.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "bin": {},
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/ccckmit/KoaStaticServer.git"
+  },
+  "author": {
+    "name": "Chung-Chen Chen",
+    "email": "ccckmit@gmail.com"
+  },
+  "license": "MIT"
+}

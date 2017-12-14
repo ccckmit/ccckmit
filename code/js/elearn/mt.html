@@ -1,0 +1,191 @@
+<!-- firefox 似乎不支援 ruby tag : http://www.w3schools.com/tags/tag_ruby.asp -->
+<html>
+<head>
+<meta charset="utf-8" />
+  <link rel="icon" href="favicon.ico">
+  <!-- Bootstrap -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="elearn.css" rel="stylesheet">
+  <title>英翻中</title>
+</head>
+<body onload="load()">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" style="color:#cccc33;font-family:標楷體">英翻中</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a id="dictname" class="dropdown-toggle" data-toggle="dropdown">字典:e2cTV<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a onclick="switchDict('e2cTV')">e2cTV</a></li>
+              </ul>
+            </li>
+            <li id="tabMT" class="tab"><a href="#MT" onclick="switchPanel('MT')">翻譯</a></li>
+            <li id="tabHelp" class="tab"><a href="#Help" onclick="switchPanel('Help')">說明</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Begin page content : 英翻中 -->
+    <div id="panelMT" class="container panel">
+      <p class="lead">
+        <form name="formMT" class="lead">
+          <div class="row" style="height:300px">
+            <div class="col-md-6">
+              <div class="page-header">
+                <span>原文</span>
+                <input type="text" id="query" equired autofocus data-mt="Query" placeholder="" size="12"/> 
+                <button class="btn btn-primary" type="button" data-mt="Query">查詢</button>
+                <input type="button" value="翻譯" onclick="doMT()" class="btn btn-success" style="float:right"/>
+              </div>
+              <textarea id="ebox" class="form-control" style="height:100%">
+The snow glows white on the mountain tonight.
+Not a footprint to be seen.
+A kingdom of isolation, and it looks like I'm the Queen.
+The wind is howling like this swirling storm inside.
+Couldn't keep it in; Heaven knows I've tried.
+
+Don't let them in, don't let them see.
+Be the good girl you always have to be.
+Conceal, don't feel, don't let them know.
+Well now they know.
+
+Let it go, let it go.
+Can't hold it back any more.
+Let it go, let it go.
+Turn away and slam the door.
+I don't care.
+What they're going to say.
+Let the storm rage on, the cold never bothered me anyway.
+	      </textarea>
+            </div>
+            <div class="col-md-6">
+              <div class="page-header">
+                <span>翻譯結果</span>
+                <input type="text" id="queryResult" equired autofocus data-mt="queryResult" placeholder="" size="15"/>
+                <button class="btn btn-primary" type="button" data-mt="Save">儲存</button>
+                <button class="btn btn-success" type="button" data-mt="Forget" onclick="forget()" style="float:right">忘記</button>
+              </div>
+              <div id="cbox" style="width:100%; height:100%; border:1px dotted #888; overflow:auto;" class="form-control"></div>
+            </div>
+            <div></div>
+          </div> <!-- row -->
+        </form>
+      </p>
+    </div>
+
+    <!-- Begin page content : 說明 -->
+    <div id="panelHelp" class="container panel">
+      <div class="page-header"><h1>說明</h1></div>
+      <p class="lead">
+        作者 ：陳鍾誠 <br/>
+        Email：ccckmit@gmail.com <br/>
+        授權 ：採用 Mozilla Public License
+      </p>
+    </div>
+    <!-- footer -->
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">
+          <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-2">
+            </div>
+          </div>
+        </p>
+      </div>
+    </footer>    
+<script>
+var ebox, cbox, dict;
+var dictmap = {};
+
+function load() {
+  ebox   = document.getElementById("ebox");
+  cbox    = document.getElementById("cbox");
+  switchPanel("MT");
+  dict = e2cTV;
+  dictmap.e2cTV = e2cTV;
+  var dbKnowWords = DB.load('knowWords');
+  if (dbKnowWords !== undefined)
+    knowWords = dbKnowWords;
+}
+
+function forget() {
+  DB.forget('knowWords');
+  knowWords = {};
+}
+
+function switchDict(name) {
+  dict = dictmap[name];
+}
+
+function switchPanel(name) {
+  $(".panel" ).css( "display", "none" );
+  $("#panel"+name).css("display", "block");
+  $(".tab" ).removeClass("active");
+  $("#tab"+name).addClass("active");
+}
+
+function normalize(e) {
+  return e.replace("'", '_').toLowerCase();
+}
+
+function mt(str) {
+  var re = /([\w']+)/gi;  
+  var toStr = "";
+  var si = 0;
+  while (m = re.exec(str)) {
+    var eword = m[1], elower=eword.toLowerCase();
+    var cword = dict[eword.toLowerCase()];
+    toStr += str.substring(si, re.lastIndex-eword.length);
+    if (cword === undefined || knowWords[elower] !== undefined)
+      cword = "";
+    toStr += '<ruby class="'+normalize(eword)+'"><rb>'+eword+'</rb><rt>'+cword+'</rt></ruby>';
+    si = re.lastIndex;
+  }
+  return toStr;
+}
+
+function doMT() {
+  var cstr = mt(ebox.value);
+  cbox.innerHTML = cstr.replace(/\n/g, "<BR/>");
+  $('ruby').click(function() {
+    var e = $(this).find('rb').text().toLowerCase();
+    var c = $(this).find('rt').text();
+    knowWords[e] = c;
+    $('#query').val(e);
+    $('#queryResult').val(e+'='+c);
+    $('.'+normalize(e)).find('rt').hide();
+  });
+}
+
+window.onbeforeunload = function(){
+  DB.save('knowWords', knowWords);
+};
+</script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../../js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../js/bootstrap.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../js/bootstrap-filestyle.min.js"></script>
+    <script src="../../js/e2c.js"></script>
+    <script src="spa.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<div class="content">
+  <div style="width:50vw; margin-top:10vh">
+  <form id="uploadForm" onsubmit="return uploadSubmit(this)" action="/upload/test" method="post" enctype="multipart/form-data" class="pure-form pure-form-aligned"> 
+    <fieldset>
+      <div class="pure-control-group">
+        <label for="Upload" class="mt" data-mt="Upload"></label>
+        <div class="fileUpload pure-button pure-button-primary">
+        <span class="mt" data-mt="Files">Files</span>
+          <input id="files" name="files" multiple type="file" class="upload"/>
+        </div>
+      </div>
+
+      <div class="pure-controls">
+        <button type="submit" value="Submit" class="pure-button pure-button-primary mt" data-mt="Submit">Submit</button>
+        <button type="button" class="pure-button pure-button-primary mt" data-mt="GoBack" onclick="window.history.back()"></button>        
+      </div>
+    </fieldset>
+  </form>     
+  </div>
+</div>
+<script>
+function uploadSubmit(e) {
+  try {
+    var form = document.getElementById("uploadForm");
+    var book = window.location.hash.substring("#book:".length);
+    ajaxFormPost('/upload/'+book, form, function(r) {
+      if (r.status === 200)
+        alert("Success:"+r.responseText);
+      else
+        alert("Error:"+r.responseText);  
+    });
+  } catch (e) {}
+  return false;
+}
+</script>

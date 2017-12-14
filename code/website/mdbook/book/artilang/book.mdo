@@ -1,0 +1,21 @@
+title:Artilang=人造語
+locale:繁體中文
+editor:ccc
+chapters:
+title        | link
+-------------|---------
+Introduction=簡介      | README.md
+1. Syntax   =1. 語法   | syntax.md
+2. Semantics=2. 語義   | semantics.md
+3. Software =3. 程式   | mt.md
+4. Dictionary=4. 字典  | dictionary.md
+5. Application=5. 應用 | application.md
+6. Research =6. 研究   | research.md
+ArtiEnglish=人造英語         | ArtiEnglish.md
+ArtiChinese=人造漢語         | ArtiChinese.md
+TokiPona=道本語        | TokiPona.md
+CPona=簡化漢語         | CPona.md
+Future=未來展望        | future.md
+Foundation=人造語協會  | foundation.md
+Community=社群         | community.md
+

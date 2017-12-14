@@ -1,0 +1,138 @@
+<h1>Node.js 實作：基於 markdown 的電子書出版系統</h1>
+<h2>Markdown 模組</h2>
+<p>GFM 格式的表格</p>
+<table>
+<thead>
+<tr>
+<th>Heading 1</th>
+<th>Heading 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cell 1</td>
+<td>Cell 2</td>
+</tr>
+<tr>
+<td>Cell 3</td>
+<td>Cell 4</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center">Header 1</th>
+<th align="right">Header 2</th>
+<th align="left">Header 3</th>
+<th>Header 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Cell 1</td>
+<td align="right">Cell 2</td>
+<td align="left">Cell 3</td>
+<td>Cell 4</td>
+</tr>
+<tr>
+<td align="center">Cell 5</td>
+<td align="right">Cell 6</td>
+<td align="left">Cell 7</td>
+<td>Cell 8</td>
+</tr>
+</tbody>
+</table>
+<pre><code>Test code</code></pre>
+<table>
+<thead>
+<tr>
+<th>Header 1</th>
+<th>Header 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cell 1</td>
+<td>Cell 2</td>
+</tr>
+<tr>
+<td>Cell 3</td>
+<td>Cell 4</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Header 1</th>
+<th align="center">Header 2</th>
+<th align="right">Header 3</th>
+<th>Header 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Cell 1</td>
+<td align="center">Cell 2</td>
+<td align="right">Cell 3</td>
+<td>Cell 4</td>
+</tr>
+<tr>
+<td align="left"><em>Cell 5</em></td>
+<td align="center">Cell 6</td>
+<td align="right">Cell 7</td>
+<td>Cell 8</td>
+</tr>
+</tbody>
+</table>
+<p>pandoc 格式的表格</p>
+<table>
+<thead>
+<tr>
+<th>markdown 專案</th>
+<th>特色   </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>showdown</td>
+<td>較早開發的 markdown 轉換程式</td>
+</tr>
+<tr>
+<td>pagedown</td>
+<td>修改自 showdown，使用在 Stackoverflow 網站中的 markdown 轉換程式</td>
+</tr>
+<tr>
+<td>marked</td>
+<td>強調速度與彈性的 markdown 轉換程式 (支援的表格是 GFM 格式)</td>
+</tr>
+<tr>
+<td>markx</td>
+<td>與樣版引擎 jade 結合的 markdown 轉換程式</td>
+</tr>
+</tbody>
+</table>
+<p>如何讓 node.js 的程式變成可直接執行的指令 -- <a href="http://www.hacksparrow.com/commandline-node-js-scripts-utilities-modules.html">http://www.hacksparrow.com/commandline-node-js-scripts-utilities-modules.html</a></p>
+<h2>參考文獻</h2>
+<ul>
+<li><a href="http://stackoverflow.com/questions/134235/is-there-any-good-markdown-javascript-library-or-control">http://stackoverflow.com/questions/134235/is-there-any-good-markdown-javascript-library-or-control</a><ul>
+<li>Jquery-Markedit - This was forked from wmd-edit quite some time ago and refactored to use jQuery. Seems good at first sight.</li>
+<li>EpicEditor - is also still maintained, has a flexible parser and, as you can see below, the author is highly responsive (see below). IT seems to have good documentation as well. Sadly not working with IE9.</li>
+<li>MarkdownDeep is a third option that is still current. The interesting point with this one is support for Markdown Extra. Has a dependency on JQuery (actually you can also implement without JQuery). Based on the .NET version so documentation is more aligned to that than the JS version. This also works with IE9. It is very easy to use (with JQuery) &amp; very simple. No significant development happening with this though as far as I can see.</li>
+<li>js-markdown-extra is a fairly accurate port of the PHP library and is still under maintenance. It supports Markdown Extra of course.</li>
+</ul>
+</li>
+<li><a href="https://github.com/coreyti/showdown">https://github.com/coreyti/showdown</a></li>
+<li><a href="https://code.google.com/p/pagedown/">https://code.google.com/p/pagedown/</a><ul>
+<li>Stackoverflow 所使用的 markdown 轉 html 引擎。</li>
+<li><a href="https://code.google.com/p/pagedown/wiki/PageDown">https://code.google.com/p/pagedown/wiki/PageDown</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/jgallen23/markx">https://github.com/jgallen23/markx</a><ul>
+<li><a href="http://thechangelog.com/markx-convert-markdown-jade-and-more-to-static-html-with/">http://thechangelog.com/markx-convert-markdown-jade-and-more-to-static-html-with/</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/andris9/node-markdown">https://github.com/andris9/node-markdown</a></li>
+<li><a href="https://github.com/chjj/marked">https://github.com/chjj/marked</a></li>
+</ul>

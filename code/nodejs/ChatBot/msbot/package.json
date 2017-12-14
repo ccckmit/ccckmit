@@ -1,0 +1,15 @@
+{
+  "name": "msbot",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "botbuilder": "^3.12.0",
+    "restify": "^6.3.3"
+  }
+}

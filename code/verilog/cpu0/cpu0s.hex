@@ -1,0 +1,51 @@
+00 DF 00 B6  //  0           LD   R13, StackEnd
+08 40 00 04  //  4           ADDI R4, 4
+08 50 00 08  //  8           ADDI R5, 8
+05 4D 50 00  //  c           STR  R4, [R13+R5]
+04 6D 50 00  // 10           LDR  R6, [R13+R5]
+07 5D 40 00  // 14           SBR  R5, [R13+R4]
+06 6D 40 00  // 18           LBR  R6, [R13+R4]
+08 E0 FF FF  // 1C           ADDI R14,R0,-1
+30 E0 00 00  // 20           PUSH R14
+13 85 40 00  // 24           ADD  R8, R5, R4
+14 85 40 00  // 28           SUB  R8, R5, R4
+15 85 40 00  // 2c           MUL  R8, R5, R4
+16 85 40 00  // 30           DIV  R8, R5, R4
+18 85 40 00  // 34           AND  R8, R5, R4
+19 85 40 00  // 38           OR   R8, R5, R4
+1A 85 40 00  // 3c           XOR  R8, R5, R4
+1E 85 00 03  // 40           SHL  R8, R5, 3
+1F 85 00 02  // 44           SHR  R8, R5, 2
+10 45 00 00  // 48           CMP  R4, R5
+20 00 00 18  // 4c           JEQ  L1
+23 00 00 14  // 50           JGT  L1
+25 00 00 10  // 54           JGE  L1
+22 00 00 0C  // 58           JLT  L1
+24 00 00 08  // 5c           JLE  L1
+21 00 00 04  // 60           JNE  L1
+26 00 00 00  // 64           JMP  L1
+08 10 00 0A  // 68   L1:     ADDI R1, R0, 10
+2B 00 00 08  // 6c           CALL SUM
+31 E0 00 00  // 70           POP  R14
+2C 00 00 00  // 74           RET
+30 E0 00 00  // 78   SUM:    PUSH R14
+12 30 00 00  // 7c           MOV  R3, R0     // R3 = i = 0
+02 4F 00 24  // 80           LDB  R4, k1     // R4 = 1
+08 20 00 00  // 84           ADDI R2, 0      // SUM = R2 = 0
+13 22 30 00  // 88   LOOP:   ADD  R2, R2, R3 // SUM = SUM + i
+13 33 40 00  // 8c           ADD  R3, R3, R4 // i = i + 1
+10 31 00 00  // 90           CMP  R3, R1     // if (i < R1)
+24 FF FF F0  // 94           JLE  LOOP       //   goto LOOP
+01 2F 00 0D  // 98           ST   R2, s
+03 3F 00 0D  // 9c           STB  R3, i
+31 E0 00 00  // a0           POP  R14
+2C 00 00 00  // a4           RET                   // return
+01           // a8   k1:     BYTE 1                // char K1=1
+00 00 00 00  // a9   s:      WORD 0                // int s
+00           // ad   i:      BYTE 0                // char i=1
+00 01 02 03  // ae   Stack:  BYTE  0, 1, 2, 3, 4, 5, 6, 7, 8, 9 , 10, 11
+04 05 06 07  // b2
+08 09 0A 0B  // b6
+00 00 00 BA  // ba   StackEnd: WORD StackEnd
+01 02 03 04  // be   Data:   BYTE 0, 1, 2, 3, 4, 5, 6, 7, 8
+05 06 07 08  // c2

@@ -1,0 +1,14 @@
+title:敏捷程式學習
+editor:ccc
+chapters:
+title            | link
+-----------------|---------
+前言             | README.md
+1. 盡早做專案    | chapter1.md
+2. 用自己的程式  | chapter2.md
+3. 第一手資訊    | chapter3.md
+4. 新技術的使用  | chapter4.md
+5. 失敗的模式    | chapter5.md
+6. 社群與學習    | chapter6.md
+7. 閱讀程式碼    | chapter7.md
+8. 潛意識的影響  | chapter8.md

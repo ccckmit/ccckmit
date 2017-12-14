@@ -1,0 +1,55 @@
+# linux
+*.o
+*.log
+
+# VisualStudio generate
+Release
+Debug
+
+# vscode
+.vs
+
+# Node rules:
+## Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+## Dependency directory
+## Commenting this out is preferred by some people, see
+## https://docs.npmjs.com/misc/faq#should-i-check-my-node_modules-folder-into-git
+node_modules
+bak
+
+# Book build output
+_book
+
+
+
+# eBook build output
+*.epub
+*.mobi
+*.pdf
+
+# Office
+*.ppt
+*.doc
+*.xls
+*.pptx
+*.docx
+*.xlsx
+*.odt
+*.odp
+
+
+# big file
+*.zip
+
+# image file
+*.jpg
+*.png
+*.bmp
+*.gif
+
+csharp
+csharpPhone
+vhdl
+java

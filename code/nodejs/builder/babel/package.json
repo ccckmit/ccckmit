@@ -1,0 +1,17 @@
+{
+  "name": "gulpTest",
+  "version": "0.0.1",
+  "description": "Gulp Test",
+  "main": "test.js",
+  "dependencies": {
+    "marked": "^0.3.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1"
+  },
+  "scripts": {},
+  "repository": {},
+  "license": "MIT"
+}

@@ -1,0 +1,8 @@
+title:Book Title
+editor:ccc
+chapters:
+title        | link
+-------------|---------
+README       | README.md
+notSpecified | notSpecified.md
+cc_by_sa     | cc_by_sa.md

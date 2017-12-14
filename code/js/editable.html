@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<div id="example-one" contenteditable="true">
+<style scoped>
+  #example-one { margin-bottom: 10px; }
+  [contenteditable="true"] { padding: 10px; outline: 2px dashed #CCC; }
+  [contenteditable="true"]:hover { outline: 2px dashed #0090D2; }
+</style>
+<p>
+Everything contained within this div is editable in browsers that support <code>HTML5</code>. Go on, give it a try: click it and start typing.
+</p>
+</div>
+
+<pre contenteditable="true">
+var R = require("../source/R");
+
+var x = rnorm(25, 5, 2);
+C.log("x=%s\nmean(x)=%d sd(x)=%d", str(x), mean(x), sd(x,1));
+
+var t = ttest(5.2, x, 2);
+C.log("t=%j", t);
+
+C.log("qnorm(0.5, 5, 2)="+qnorm(0.5, 5, 2));
+
+C.log("qunif(0.5, 3, 5)="+qunif(0.5, 3, 5));
+
+</pre>
+</body>
+</html>

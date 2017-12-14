@@ -1,0 +1,6 @@
+一隻 狗 = a dog
+一隻 貓 = a cat
+黑 狗 = black dog
+黑 貓 = black cat
+一隻 黑 狗 = a black dog
+一隻 黑 貓 = a black cat

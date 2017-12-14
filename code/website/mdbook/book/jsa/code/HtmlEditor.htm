@@ -1,0 +1,66 @@
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+textarea, #showbox { border: 1px solid #9f9f9f; }
+</style>
+<style id="showboxstyle">
+</style>
+<script type="text/javascript">
+function convert() {
+  var cssbox  = document.getElementById("cssbox");
+  var editbox = document.getElementById("editbox");
+  var showbox = document.getElementById("showbox");
+  var showboxstyle = document.getElementById("showboxstyle");
+  showbox.innerHTML = editbox.value;
+  showboxstyle.innerHTML = cssbox.value;
+}
+</script>	
+<body>
+<form>
+<table width="95%" style="border-collapse: collapse; border: 0px;"><tr>
+<tr><td colspan="2" style="text-align:center">HTML 原始碼　　<input type="button" value=" → " onclick="JavaScript:convert()"/>　　　顯示結果</td></tr>
+<td width="50%">
+<textarea id="cssbox" style="width:100%; height:100px;" >
+<!-- 預設貼入的CSS：開始 -->
+td, th { padding:10px; }
+th { background-color:black; color:white; }
+table { border-collapse: collapse; border: 1px solid #373737; }
+<!---預設貼入的CSS：結束 -->
+</textarea>
+<textarea id="editbox" style="width:100%; height:400px;">
+<!-- 預設貼入的HTML：開始 -->
+Hello! <a href="http://tw.yahoo.com">Yahoo</a><br/></br>
+<table>
+<tr><th></th><th>欄 1</th><th>欄 2</th></tr>
+<tr><th>列 1</th><td>1,1</td><td>1,2</td></tr>
+<tr><th>列 2</th><td>2,1</td><td>2,2</td></tr>
+</table><br/>
+<form action="signup" method="post">
+帳號: <input type="text" name="user"/><br/>
+密碼: <input type="password" name="password"/><br/>
+信箱: <input type="email" name="email"/><br/>
+生日: <input type="date" name="birthday"/><br/>
+照片: <input type="file" name="picture"/><br/>
+性別: <input type="radio" name="sex" value="male" checked/> 男
+      <input type="radio" name="sex" value="female"/> 女<br/>
+血型: <select name="BloodType">
+        <option value="A">A 型</option>
+        <option value="B">B 型</option>
+        <option value="AB">AB 型</option>
+        <option value="O">O 型</option>
+      </select> <br/>
+自我介紹： <br/>
+<input type="submit" value="送出"/><input type="reset" value="清除"/><br/>
+</form>
+<!-- 預設貼入的HTML：結束 -->
+</textarea> 
+</td>
+<td>
+<div id="showbox" style="width:100%; height:500px;">
+</div>
+</td>
+</tr></table>
+</form>
+</body>
+</html>

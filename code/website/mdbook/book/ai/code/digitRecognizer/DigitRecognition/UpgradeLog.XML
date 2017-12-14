@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Painter">
+</Property><Property Name="方案檔" Value="C:\ccc\cs\PainterSave\Painter\Painter.sln">
+</Property><Property Name="使用者選項檔" Value="C:\ccc\cs\PainterSave\Painter\Painter.suo">
+</Property><Property Name="Date" Value="2014年5月6日">
+</Property><Property Name="Time" Value="上午 09:32">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Painter.sln" Description="檔案已成功備份為 C:\ccc\cs\PainterSave\Painter\Backup\Painter.sln">
+</Event><Event ErrorLevel="0" Project="" Source="Painter.suo" Description="檔案已成功備份為 C:\ccc\cs\PainterSave\Painter\Backup\Painter.suo">
+</Event><Event ErrorLevel="0" Project="Painter" Source="Painter\Painter.csproj" Description="專案檔已成功備份為 C:\ccc\cs\PainterSave\Painter\Backup\Painter\Painter.csproj">
+</Event><Event ErrorLevel="0" Project="Painter" Source="Painter\Form1.cs" Description="檔案已成功備份為 C:\ccc\cs\PainterSave\Painter\Backup\Painter\Form1.cs">
+</Event><Event ErrorLevel="0" Project="Painter" Source="Painter\Form1.Designer.cs" Description="檔案已成功備份為 C:\ccc\cs\PainterSave\Painter\Backup\Painter\Form1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Painter" Source="Painter\Program.cs" Description="檔案已成功備份為 C:\ccc\cs\PainterSave\Painter\Backup\Painter\Program.cs">
+</Event><Event ErrorLevel="0" Project="Painter" Source="Painter\Properties\AssemblyInfo.cs" Description="檔案已成功備份為 C:\ccc\cs\PainterSave\Painter\Backup\Painter\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Painter" Source="Painter\Properties\Resources.Designer.cs" Description="檔案已成功備份為 C:\ccc\cs\PainterSave\Painter\Backup\Painter\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Painter" Source="Painter\Properties\Settings.Designer.cs" Description="檔案已成功備份為 C:\ccc\cs\PainterSave\Painter\Backup\Painter\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="Painter" Source="Painter\Properties\Settings.settings" Description="檔案已成功備份為 C:\ccc\cs\PainterSave\Painter\Backup\Painter\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="Painter" Source="Painter\Form1.resx" Description="檔案已成功備份為 C:\ccc\cs\PainterSave\Painter\Backup\Painter\Form1.resx">
+</Event><Event ErrorLevel="0" Project="Painter" Source="Painter\Properties\Resources.resx" Description="檔案已成功備份為 C:\ccc\cs\PainterSave\Painter\Backup\Painter\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="Painter" Source="Painter\Painter.csproj" Description="專案轉換成功">
+</Event><Event ErrorLevel="3" Project="Painter" Source="Painter\Painter.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Painter.sln" Description="方案轉換成功">
+</Event><Event ErrorLevel="3" Project="" Source="Painter.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Painter" Source="Painter\Painter.csproj" Description="掃描完成: 專案檔不需要升級。">
+</Event></UpgradeLog>

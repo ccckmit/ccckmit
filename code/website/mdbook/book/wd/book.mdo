@@ -1,0 +1,7 @@
+title:Book Title
+editor:ccc
+chapters:
+title        | link
+-------------|---------
+README       | README.md
+Chapter1     | chapter1.md

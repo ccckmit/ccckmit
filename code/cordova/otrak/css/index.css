@@ -1,0 +1,582 @@
+#sideMenu {
+    font-size: large;
+}
+
+#topBar {
+    font-size: large;    
+}
+/* ---- google map --------------*/
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+#map {
+    height: 100%;
+}
+
+#main {
+    padding: 0;
+    margin: 0;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- mdbook ---------*/
+.footnote { text-align:center; font-family:標楷體; width:20em; padding-top:1em;  }
+/* .footnote a { border-top: dotted #a9a9a9 1px; } */
+body { background-color: #f5f5f5; }
+.header .fa { color: #c0c0c0; font-size: 1.2em; vertical-align:middle; }
+.pure-menu-heading .fa { color: white }
+
+.replyArea { height:2em; padding:0.1em; }
+.replyBox { width:auto; overflow:hidden; display:inline-block; }
+.replyMsg , .replyMt { overflow:hidden; display:inline; }
+#newPost { height:4em }
+#posts { border:solid #a9a9a9 1px; margin-top:1em; }
+.reply { border-bottom:dotted #d9d9d9 1px; }
+.postDiv { margin:1em; border-bottom:solid #a9a9a9 1px; }
+.postDiv h1 { text-align:left; }
+
+#watch  { border:dotted #336699 1px; }
+#watch .cut { color:#9f9f9f; position: relative; top: 1em; left: -1em; font-size: 0.8em;}
+
+div { margin-bottom:0.5em; }
+ruby { color:#3f3f3f; }
+rt { font-size:1em; color:#336699; padding:10px 0 10px 0; letter-spacing: 0px;  };
+.tag { color:#bb66aa; position: relative; top: 1em; left: -1em; font-size: 0.8em;}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.header .pure-menu-item {
+	font-weight:bold;
+}
+
+.header .pure-menu-item a {
+	color:#bbbbbb;
+	background-color:#191818;
+}
+
+.header .pure-menu-link {
+	color:#bbbbbb;
+	background-color:#191818;
+}
+
+.header .pure-menu-item a:hover {
+  background-color:#333;
+}
+
+body {
+    color: #222222;
+    overflow-y:scroll;
+}
+
+code {
+  font-family:MingLiU, monospace;
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+pre {
+  border: 1px dotted #686868;
+  padding: 0px;
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+blockquote {
+  padding: 10px;
+  border: 3px double #373737;
+  color:#333333;  
+}
+
+a { 
+  color:#336699; 
+	text-decoration:none;
+}
+
+textarea {
+  width:100%;
+  height:70vh;
+  margin:10px;
+  font-family:MingLiU, monospace;
+  padding:10px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+
+h1 { font-size: 1.8em; color:#050505; text-align:center; margin:1em; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h2 { font-size: 1.6em; color:#8B008B; margin-top:1em; margin-bottom:1em; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h3 { font-size: 1.4em; color:#000080; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h4 { font-size: 1.2em;  color:#4B0082; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h5 { font-size: 1.1em;  color:#708090; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h6 { font-size: 1.0em; color:#000080; }
+
+/*
+h1, h1 a { font-size: xx-large; color:#050505; text-align:center; margin:30px; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h2, h2 a { font-size: x-large; color:#8B008B; margin-top:30px; margin-bottom:30px; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h3, h3 a { font-size: large; color:#000080; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h4, h4 a { font-size: medium;  color:#4B0082; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h5, h5 a { font-size: small ;  color:#708090; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h6, h6 a { font-size: x-small; color:#000080; }
+*/
+
+h1, h2, h3, h4, h5, h6:first-letter {
+/* text-transform:capitalize; */
+}
+
+p:first-letter {
+/* text-transform:capitalize; */
+}
+
+p {
+  font-family: 'Tahoma', 'Pmingliu';
+  margin: 15px 0px 15px 0px;
+  font-size:100%;
+  color:#222222; /*555555;*/
+	line-height:180%;
+}
+
+table, th, td, p { 
+  line-height:180% 
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #686868;
+  margin-bottom: 20px;
+  text-align: left;
+  margin-left:auto; 
+  margin-right:auto;
+}
+
+th {
+  padding: 10px;
+  background-color:black;
+  color:white;
+}
+
+td  {
+  padding: 10px 15px 10px 15px;
+  vertical-align: middle;
+  border: 1px solid #a0a0a0;
+}
+
+/* from : http://purecss.io/layouts/side-menu/ */
+
+body {
+    color: #222222;
+}
+
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+/*
+Add transition to containers so they can push in and out.
+*/
+#layout,
+#menu,
+.menu-link {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+*/
+#layout {
+    position: relative;
+/*    padding-left: 0; */
+    padding: 0;
+    margin: 0;
+}
+    #layout.active #menu {
+        left: 150px;
+        width: 150px;
+    }
+
+    #layout.active .menu-link {
+        left: 150px;
+    }
+/*
+The content `<div>` is where all your content goes.
+*/
+.content {
+    margin: 0 auto;
+/*    padding: 0 1em;
+    max-width: 800px;
+		margin-top: 1em;
+    margin-bottom: 50px; */
+    line-height: 1.6em;
+}
+
+.header {
+     margin: 0;
+/*     padding: 0; */
+     color: #333;
+     text-align: right;
+/*     border-bottom: 1px solid #eee; */
+	 background-color:#191818;
+/*     height:2.7em; */
+ }
+/*
+    .header a {
+		  color:#8888ff;
+			text-decoration:none;
+			padding: 0.2em;
+			border: 1px solid #a0a0a0;
+			background-color:#eeeeee;
+		}
+*/		
+    .header h1 {
+        margin: 0.2em 0;
+        font-size: 3em;
+        font-weight: 300;
+    }
+     .header h2 {
+        font-weight: 300;
+        color: #ccc;
+        padding: 0;
+        margin-top: 0;
+    }
+
+.content-subhead {
+    margin: 50px 0 20px 0;
+    font-weight: 300;
+    color: #888;
+}
+
+
+
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
+appears on the left side of the page.
+*/
+
+#menu {
+    margin-left: -150px; /* "#menu" width */
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000; /* so the menu or its navicon stays above all content */
+    background: #191818;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+    /*
+    All anchors inside the menu should be styled like this.
+    */
+    #menu a {
+        color: #999;
+        border: none;
+        padding: 0.6em 0 0.6em 0.6em;
+    }
+
+    /*
+    Remove all background/borders, since we are applying them to #menu.
+    */
+     #menu .pure-menu,
+     #menu .pure-menu ul {
+        border: none;
+        background: transparent;
+    }
+
+    /*
+    Add that light border to separate items into groups.
+    */
+    #menu .pure-menu ul,
+    #menu .pure-menu .menu-item-divided {
+        border-top: 1px solid #333;
+    }
+        /*
+        Change color of the anchor links on hover/focus.
+        */
+        #menu .pure-menu li a:hover,
+        #menu .pure-menu li a:focus {
+            background: #333;
+        }
+
+    /*
+    This styles the selected menu item `<li>`.
+    */
+    #menu .pure-menu-selected,
+    #menu .pure-menu-heading {
+        background: #336699;
+    }
+        /*
+        This styles a link within a selected menu item `<li>`.
+        */
+        #menu .pure-menu-selected a {
+            color: #fff;
+        }
+
+    /*
+    This styles the menu heading.
+    */
+    #menu .pure-menu-heading {
+        font-size: 110%;
+        color: #fff;
+        margin: 0;
+    }
+
+/* -- Dynamic Button For Responsive Menu -------------------------------------*/
+
+/*
+The button to open/close the Menu is custom-made and not part of Pure. Here's
+how it works:
+*/
+
+/*
+`.menu-link` represents the responsive menu toggle that shows/hides on
+small screens.
+*/
+.menu-link {
+    position: fixed;
+    display: block; /* show this only on small screens */
+    top: 0;
+    left: 0; /* "#menu width" */
+    background: #000;
+    background: rgba(0,0,0,0.7);
+    font-size: 10px; /* change this value to increase/decrease button size */
+    z-index: 10;
+    width: 2em;
+    height: auto;
+    padding: 2.1em 1.6em;
+}
+
+    .menu-link:hover,
+    .menu-link:focus {
+        background: #000;
+    }
+
+    .menu-link span {
+        position: relative;
+        display: block;
+    }
+
+    .menu-link span,
+    .menu-link span:before,
+    .menu-link span:after {
+        background-color: #fff;
+        width: 100%;
+        height: 0.2em;
+    }
+
+        .menu-link span:before,
+        .menu-link span:after {
+            position: absolute;
+            margin-top: -0.6em;
+            content: " ";
+        }
+
+        .menu-link span:after {
+            margin-top: 0.6em;
+        }
+
+
+/* -- Responsive Styles (Media Queries) ------------------------------------- */
+
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+*/
+@media (min-width: 48em) {
+    #bookTitle { display:inline-block }
+
+    .header,
+    .content {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    #layout {
+        padding-left: 150px; /* left col width "#menu" */
+        left: 0;
+    }
+    #menu {
+        left: 150px;
+    }
+
+    .menu-link {
+        position: fixed;
+        left: 150px;
+        display: none;
+    }
+
+    #layout.active .menu-link {
+        left: 150px;
+    }
+}
+
+@media (max-width: 48em) {
+    #bookTitle { display:none }
+    /* Only apply this when the window is small. Otherwise, the following
+    case results in extra padding on the left:
+        * Make the window small.
+        * Tap the menu to trigger the active state.
+        * Make the window large again.
+    */
+    #layout.active {
+        position: relative;
+        left: 150px;
+    }
+}
+
+
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+/*    background-color:#E4E4E4; */
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}

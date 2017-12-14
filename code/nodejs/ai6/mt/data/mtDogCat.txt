@@ -1,0 +1,12 @@
+一 隻 狗 = a dog
+一 隻 貓 = a cat
+小 狗 = puppy
+小 貓 = kitten
+黑 狗 = black dog
+黑 貓 = black cat
+小 黑 狗 = black puppy
+小 黑 貓 = black kitten
+一 隻 小 黑 狗 = a black puppy
+一 隻 小 黑 貓 = a black kitten
+一 隻 小 狗 = a puppy
+一 隻 小 貓 = a kitten

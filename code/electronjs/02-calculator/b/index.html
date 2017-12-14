@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+input { width:30px }      
+    </style>
+  </head>
+  <body>
+<script>
+  function calculate() {
+    var a = document.getElementById('a')
+    var op = document.getElementById('op')
+    var b = document.getElementById('b')
+    var result = document.getElementById('result')
+    result.innerText = eval(a.value + op.value + b.value)
+  }
+</script>    
+    <input id="a" type="text" value="3"/>
+    <select id="op">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*" selected>*</option>
+      <option value="/">/</option>
+    </select>
+<!--    <input id="op" type="text" value="*"/>-->
+    <input id="b" type="text" value="5"/>
+     = <label id="result"></label><br/><br/>
+    <button onclick="calculate()">計算</button>
+  </body>
+</html>

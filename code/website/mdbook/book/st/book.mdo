@@ -1,0 +1,22 @@
+title:機率統計 -- 使用 R 軟體
+editor:ccc
+chapters:
+title             | link
+------------------|---------
+前言              | README.md
+1. 簡介           | basic.md
+2. 機率的概念     | prob.md
+3. 隨機變數       | randvar.md
+4. 機率分布       | distribution.md
+5. 期望值         | exp.md
+6. 聯合分布       | joint.md
+7. 敘述統計       | descriptive.md
+8. 中央極限定理   | CentralLimit.md
+9. 估計與檢定     | test1.md
+10. 再論檢定      | test2.md
+11. 變異數分析    | anova.md
+12. 迴歸分析      | regression.md
+13. 主成分分析    | PCA.md
+A. 離散分布       | discrete.md
+B. 連續分布       | continuous.md
+C. 機率公理系統   | axiom.md

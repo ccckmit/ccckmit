@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+input , textarea { width:80%; margin:10; padding:10; }
+a { color:blue; text-decoration:underline; }
+</style>
+</head>
+<body>
+<div>
+<div><input id="title" type="text" value="標題"/></div>
+<br/>
+<div><textarea id="text" style="height:300px">內文</textarea></div>
+<button onclick="save()">儲存</button>
+<div>
+<table id="list">
+</table>
+</div>
+<script>
+var oTitle = document.getElementById("title");
+var oText  = document.getElementById("text");
+var oList = document.getElementById("list");
+
+function save() {
+  var title = oTitle.value;
+  var text  = oText.value;
+  window.localStorage.setItem("notepad:"+title, text);
+  showList();
+}
+
+function showList() {
+  var rowHtml = "";
+  for (var title in window.localStorage) {
+    if (title.startsWith("notepad:")) {
+      rowHtml += "<tr><td><a onclick=\"loadDoc('"+title+"')\">"+title.substring(8)+"</a></td></tr>"
+    }
+  }
+  oList.innerHTML = rowHtml;
+}
+
+function loadDoc(title) {
+  oTitle.value = title.substring(8);
+  oText.value  = window.localStorage.getItem(title);
+}
+
+
+</script>
+</div>
+</body>
+</html>

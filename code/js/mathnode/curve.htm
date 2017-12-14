@@ -1,0 +1,132 @@
+﻿<html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" 
+    src="../excanvas.min.js"></script><![endif]-->
+    <script language="javascript" type="text/javascript" 
+    src="http://people.iola.dk/olau/flot/jquery.js"></script>
+    <script language="javascript" type="text/javascript" 
+    src="http://people.iola.dk/olau/flot/jquery.flot.js"></script>
+ </head>
+<body>
+
+<div id="placeholder" style="width:360px;height:240px;"></div>
+
+<div>
+from:<input id="from" type="text" value="-10" size="4"/>
+to:<input id="to" type="text" value="10" size="4"/>
+step:<input id="step" type="text" value="0.1" size="4"/>
+ymin:<input id="ymin" type="text" value="-10" size="4"/>
+ymax:<input id="ymax" type="text" value="10" size="4"/>
+</div>
+
+<textarea id="shell" cols="60" rows="10">
+sin(x)
+cos(x)
+cut(sin, -5, 0.01)
+f=function(x) { return 0.01*pow(x,3); }
+f(x)
+</textarea>
+
+<script type="text/javascript">
+
+var sin=Math.sin;
+var cos=Math.cos;
+var tan=Math.tan;
+var cot=Math.cot;
+var sec=Math.sec;
+var csc=Math.csc;
+var ceil=Math.ceil;
+var exp=Math.exp;
+var floor=Math.floor;
+var log=Math.log;
+var max=Math.max;
+var min=Math.min;
+var pow=Math.pow;
+var p=Math.pow;
+var random=Math.random;
+var round=Math.round;
+var abs=Math.abs;
+var sqrt=Math.sqrt;
+
+function cut(f, a, dx) {
+	var fa = f(a);
+	var fb = f(a+dx);
+	return function(x) { return fa + (fb-fa)/dx * (x-a); }
+}
+
+function ExpCurve(from, to, step) {
+  this.from = from;
+  this.to = to;
+  this.step = step;
+  this.plotsList = [];
+
+  this.curve = function(code, ymin, ymax) {
+    var plots = [];
+    for (var x = this.from; x < this.to; x += this.step) {
+		var y = eval(code);
+		if (x > this.from && abs(y-ylast)/this.step > 1000.0) // 斜率太大，近乎垂直，中斷處不畫
+			plots.push(null);
+		plots.push([x, y]);
+		if (y < ymin-100 || y > ymax+100) // 超出範圍，超出點不畫
+			plots.push(null);
+		ylast = y;
+	}
+    return { label: code, data: plots };
+  }
+
+  this.curveList = function(codeList, ymin, ymax) {
+    var size=this.plotsList.length;
+    for (var i=0; i<codeList.length; i++) {
+		if (codeList[i].indexOf("=") >=0) {
+			eval(codeList[i]);
+			this.plotsList[size+i] = {};
+		} else
+			this.plotsList[size+i] = this.curve(codeList[i], ymin, ymax);
+	}
+    return this.plotsList;    
+  }
+
+  return this;
+}
+
+function drawCurveList(target, codeList, from, to, ymin, ymax, step) {
+  eval("fx = function(x) { return x; }");
+  var c = new ExpCurve(from, to, step);
+  $.plot($(target), c.curveList(codeList, ymin, ymax), {
+		yaxis: { min: ymin, max: ymax }, 
+        series: {
+            lines: { show: true },
+            points: { show: false },
+			bars: { show: false, barWidth: step }, 
+        }  
+  });
+  return c;
+}
+
+function drawGraph() {
+    var from = eval($("#from").val());
+    var to   = eval($("#to").val());
+    var ymin = eval($("#ymin").val());
+    var ymax = eval($("#ymax").val());
+    var step = eval($("#step").val());
+    var codeList = $("#shell").val().split("\n");
+    return drawCurveList("#placeholder", codeList, from, to, ymin, ymax, step);
+}
+
+function keyEnter(event) {
+  if (event.which == 13) {
+//     event.preventDefault();
+     drawGraph();
+  }
+}
+
+$(drawGraph);
+$("#shell").keypress(keyEnter);
+$("#from").keypress(keyEnter);
+$("#to").keypress(keyEnter);
+$("#step").keypress(keyEnter);
+</script>
+
+ </body>
+</html>

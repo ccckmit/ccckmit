@@ -1,0 +1,10 @@
+port:8080
+portSsl:443
+home:/index.html
+signup:false
+useLocal:false
+db:{user:"root", password:"root", port:27017}
+users:
+user     | password 
+---------|-----------
+root     | root

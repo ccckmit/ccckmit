@@ -1,0 +1,50 @@
+<html>
+<body>
+<table width="100%"><tr><td style="vertical-align:top">
+<textarea id="mdBox" style="width:90%; height:300px">
+# 標題
+
+## 子標題
+
+### 子子標題
+ 
+內文, __底線__ , 
+*斜體*, **粗體** .
+
+水平線
+
+---
+
+無號項目
+
+  * 項目1
+  * 項目2
+  * 項目3
+
+編號項目
+
+  1. 項目1
+  2. 項目2
+  3. 項目3
+
+yahoo: [Yahoo](http://tw.yahoo.com/).
+
+</textarea>
+</td><td>
+<div id="htmlBox">
+htmlBox
+</div>
+</td></tr></table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.5.0/showdown.js"></script>
+<script>
+var mdBox = document.getElementById('mdBox');
+var htmlBox = document.getElementById('htmlBox');
+
+var converter = new showdown.Converter();
+converter.setOption('tables', true);
+var html = converter.makeHtml(mdBox.value);
+
+htmlBox.innerHTML = html;
+</script>
+</body>
+</html>

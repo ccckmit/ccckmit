@@ -1,0 +1,11 @@
+一 隻 狗 = a dog
+小 狗 = little dog
+小 黑 狗 = little black dog
+黑 狗 = black dog
+一 隻 小 黑 狗 = a little black dog
+一 隻 小 狗 = a little dog
+他 有 一 隻 狗 = he has a dog
+她 愛 貓 = she love cat
+他 愛 狗 = he love dog
+她 愛 小 貓 = she love little cat
+他 愛 小 花 貓 = she love little cat

@@ -1,0 +1,43 @@
+﻿<html>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8"> 
+<body>
+<H1>網頁書籤工具</H1>
+
+<p>
+<a href='javascript:(function(){s=document.createElement("script");s.type="text/javascript";s.src="http://www.diigo.com/javascripts/webtoolbar/diigolet_b_h_b.js";document.body.appendChild(s);})();'>Diigolet</a> -- Diigo 是一個可以記錄網址並且剪貼網頁內容的網站，Diigolet 則是用來快速記錄網址並剪貼用的快速書籤工具。
+</p>
+
+<p>
+<a href="javascript:(function(){s=document.createElement('script');s.type='text/javascript';s.src='http://ccc.kmit.edu.tw/bookmarklet/toolbar/toolbar.js';document.body.appendChild(s); })();">翻譯精靈</a> -- 陳鍾誠設計的書籤工具，可將選取範圍的文章翻譯成中文顯示，這是利用 Google 翻譯 API + JavaScript 所作的書籤小工具。
+</p>
+
+
+<p>
+<a href="javascript:var t=((window.getSelection&&window.getSelection())||(document.getSelection&&document.getSelection())||(document.selection&&document.selection.createRange&&document.selection.createRange().text));var e=(document.charset||document.characterSet);if(t!=''){location.href='http://translate.google.com/translate_t?text='+t+'&hl=en&langpair=auto|zh-TW&tbb=1&ie='+e;}else{location.href='http://translate.google.com/translate?u='+escape(location.href)+'&hl=en&langpair=auto|zh-TW&tbb=1&ie='+e;};">翻譯：中譯原註</a>：Google 翻譯的書籤工具，顯示翻譯後的中文網頁，並讓原文成為浮現式註解的顯示方式。
+</p>
+
+<p>
+<a href="javascript:var t=((window.getSelection&&window.getSelection())||(document.getSelection&&document.getSelection())||(document.selection&&document.selection.createRange&&document.selection.createRange().text));var e=(document.charset||document.characterSet);if(t!=''){location.href='http://translate.google.com/translate_t?text='+t+'&hl=en&langpair=auto|zh-TW&tbb=1&ie='+e;}else{location.href='http://translate.google.com/translate?u='+escape(location.href)+'&hl=en&langpair=auto|zh-TW&tbb=1&ie='+e+'&anno=2';};">翻譯：原文中註</a> -- Google 翻譯的書籤工具，顯示翻譯後的原文網頁，並讓中文成為浮現式註解的顯示方式。
+</p>
+
+<p>
+Hello ! This is John speaking. I would like to talk to Mr. Lee.
+</p>
+
+<p>
+方智誼 <a href="javascript:(function(){s=document.createElement('script');s.type='text/javascript';s.src='http://ccc.kmit.edu.tw/bookmarklet/map.js';document.body.appendChild(s);})();">嵌入地圖</a>
+</p>
+
+<p><a href="javascript:void%28s%3Dprompt%28%27Find%20text%3A%27%2C%27%27%29%29%3Bs%3D%27%28%27+s+%27%29%27%3Bx%3Dnew%20RegExp%28s%2C%27gi%27%29%3Brn%3DMath.floor%28Math.random%28%29*100%29%3Brid%3D%27z%27%20+%20rn%3Bb%20%3D%20document.body.innerHTML%3Bb%3Db.replace%28x%2C%27%3Cspan%20name%3D%27%20+%20rid%20+%20%27%20id%3D%27%20+%20rid%20+%20%27%20style%3D%5C%27color%3A%23000%3Bbackground-color%3Ayellow%3B%20font-weight%3Abold%3B%5C%27%3E%241%3C/span%3E%27%29%3Bvoid%28document.body.innerHTML%3Db%29%3Balert%28%27Found%20%27%20+%20document.getElementsByName%28rid%29.length%20+%20%27%20matches.%27%29%3Bwindow.scrollTo%280%2Cdocument.getElementsByName%28rid%29%5B0%5D.offsetTop%29%3B">搜尋本頁</a></p>
+
+<p><a href="javascript:(function(){var%20a=document.getElementsByTagName('a');for(var%20i=0,j=a.length;i%3Cj;i++){a[i].setAttribute('target','_blank');var%20img=document.createElement('img');img.setAttribute('class',%20'new-window');img.setAttribute('src','data:image/gif;base64,'+'R0lGODlhEAAMALMLAL66tBISEjExMdTQyBoaGjs7OyUlJWZmZgAAAMzMzP///////wAAAAAAAAAAAAAA'+'ACH5BAEAAAsALAAAAAAQAAwAAAQ/cMlZqr2Tps13yVJBjOT4gYairqohCTDMsu4iHHgwr7UA/LqdopZS'+'DBBIpGG5lBQH0GgtU9xNJ9XZ1cnsNicRADs=');img.setAttribute('style','width:16px!important;height:12px!important;border:none!important;');a[i].appendChild(img);}})();">開新視窗</a></p>
+
+<p><a href="javascript:Ai7Mg6P='';for%20(i7M1bQz=0;i7M1bQz%3Cdocument.images.length;i7M1bQz++){Ai7Mg6P+='%3Cimg%20src='+document.images[i7M1bQz].src+'%3E%3Cbr%3E'};if(Ai7Mg6P!=''){document.write('%3Ccenter%3E'+Ai7Mg6P+'%3C/center%3E');void(document.close())}else{alert('No%20images!')}">顯示所有圖片</a></p>
+
+<p><a href="javascript:var%20a='';for(var%20ln=0;ln%3Cdocument.links.length;ln++){var%20lk=document.links[ln];
+a+=ln+':%20%3Ca%20href=\''+lk+'\'%20title=\''+lk.text+'\'%3E'+lk+'%3C/a%3E%3Cbr%3E\n';}w=window.open('','Links','scrollbars,resizable,width=400,height=600');w.document.write(a);">顯示所有連結</a></p>
+
+<p><a href="javascript:var%20a='';for(var%20ln=0;ln%3Cdocument.links.length;ln++){var%20lk=document.links[ln];a+=ln+':%20%3Ca%20href=\''+lk+'\'%20title=\''+lk.text+'\'%3E'+lk+'%3C/a%3E%3Cbr%3E\n';}w=window.open('','Links','scrollbars,resizable,width=400,height=600');w.document.write(a);">區塊翻譯</a></p>
+
+</body>
+</html>

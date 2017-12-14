@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+<img id="ball" width="220" height="277" src="ball.jpg" alt="The Scream" style="display:none">
+<p>Canvas:</p>
+<canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;"/>
+<script>
+var img, ctx, c;
+var x=0, y=0;
+
+window.onload = function() {
+  c = document.getElementById("myCanvas");
+  ctx = c.getContext("2d");
+  img = document.getElementById("ball");
+}
+
+function draw() {
+  ctx.clearRect(0, 0, c.width, c.height);
+  ctx.drawImage(img, x, y);
+	x+=10; y+=10;
+  setTimeout(draw, 10);	
+}
+
+setTimeout(draw, 10);
+</script>
+
+</body>
+</html>

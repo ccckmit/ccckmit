@@ -1,0 +1,20 @@
+title:專為中學生寫的 C 語言程式書
+editor:ccc
+chapters:
+title        | link
+-------------|---------
+前言          | README.md
+基礎語法      | basic.md
+函數          | function.md
+陣列          | array.md
+字串          | string.md
+結構          | structure.md
+指標          | pointer.md
+參數傳遞      | parameter.md
+引用檔        | include.md
+模組化        | module.md
+回呼          | callback.md
+遞迴          | recursive.md
+範例：翻譯系統 | mt.md
+進階主題      | advance.md
+習題          | exam.md

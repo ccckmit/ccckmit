@@ -1,0 +1,19 @@
+title:人工智慧 -- 使用 JavaScript 實作
+editor:ccc
+chapters:
+title          | link
+---------------|---------
+序言           | README.md
+十分鐘系列     | slide.md
+1. 基礎        | chapter1.md
+2. 爬山算法    | chapter2.md
+3. 神經網路    | chapter3.md
+4. 圖形搜尋    | chapter4.md
+5. 電腦下棋    | chapter5.md
+6. 邏輯推論    | chapter6.md
+7. 機器學習    | chapter7.md
+8. 語言處理    | linguistics.md
+9. 影像處理    | image.md
+結語           | conclusion.md
+授權聲明       | ../ccc/license.md
+參考文獻       | reference.md

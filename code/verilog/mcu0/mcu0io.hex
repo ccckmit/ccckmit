@@ -1,0 +1,18 @@
+07F0  // 00    WAITK:  LD    0x7F0   ; wait keyboard
+9010  // 01            CMP   K0
+B000  // 02            JEQ   WAIT
+07F1  // 03            LD    0x7F1   ; read key
+1011  // 04            ST    KEY
+0010  // 05            LD    K0
+17F0  // 06            ST    0x7F0   ; release keyboard
+07F2  // 07    WAITS:  LD    0x7F2   ; wait screen
+0010  // 08            CMP   K0
+B007  // 09            JEQ   WAITS
+0011  // 0A            LD    KEY     ; print key
+17F3  // 0B            ST    0x7F3
+F001  // 0C            LDI   1
+17F2  // 0D            ST    0x7F2   ; eanble screen
+A000  // 0E            JMP   WAIT
+0000  // 0F
+0000  // 10    K0:     WORD  0
+0000  // 11    KEY:    WORD  0

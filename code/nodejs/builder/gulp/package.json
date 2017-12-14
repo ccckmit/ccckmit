@@ -1,0 +1,15 @@
+{
+  "name": "gulpTest",
+  "version": "0.0.1",
+  "description": "Gulp Test",
+  "main": "test.js",
+  "dependencies": {
+    "marked": "^0.3.6"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {},
+  "repository": {},
+  "license": "MIT"
+}

@@ -1,0 +1,14 @@
+00 16  // 00    LOOP:   LD    I    
+40 1A  // 02            CMP   N    
+50 12  // 04            JEQ   EXIT
+10 18  // 06            ADD   K1    
+30 16  // 08            ST    I    
+00 14  // 0A            LD    SUM    
+10 16  // 0C            ADD   I    
+30 14  // 0E            ST    SUM    
+20 00  // 10            JMP   LOOP
+20 12  // 12    EXIT:   JMP   EXIT
+00 00  // 14    SUM:    WORD  0    
+00 00  // 16    I:      WORD  0    
+00 01  // 18    K1:     WORD  1    
+00 0A  // 1A    N:      WORD  10    

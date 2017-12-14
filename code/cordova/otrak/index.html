@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta charset="utf-8">
+<!--    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+<!--        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;**script-src 'self' http://onlineerp.solution.quebec 'unsafe-inline' 'unsafe-eval';** ">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Otrak</title>
+    </head>
+    <body>
+<!-- mdbook -->        
+<div class="header pure-menu pure-menu-horizontal">
+    <ul id="topBar" class="pure-menu-list">
+        <li id="bookTitle" class="pure-menu-item"></li>
+        <i onclick="MDB.view()" class="fa fa-tablet" aria-hidden="true" title="View"></i>&nbsp;
+        <i onclick="MDB.edit()" class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"></i>&nbsp;
+        <i onclick="MDB.plugin('upload.html')" class="fa fa-upload" aria-hidden="true" title="Upload"></i>
+        <li id="opMenu" class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+        <a id="me" class="pure-menu-link mt" data-mt="{{#if user}}{{{user}}}{{else}}User{{/if}}"></a>
+        <ul class="pure-menu-children">
+            <li class="pure-menu-item"><a onclick="MDB.plugin('login.html')" class="pure-menu-link mt" data-mt="Login=登入">Login</a></li>
+            <li class="pure-menu-item"><a onclick="MDB.logout()" class="pure-menu-link mt" data-mt="Logout=登出">Logout</a></li>
+        </ul>
+        </li>
+        <li id="languageMenu" class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"> <!-- hidden -->
+        <a id="locale" class="pure-menu-link">Global</a>
+        <ul class="pure-menu-children">
+            <li class="pure-menu-item"><a onclick="MDB.render('Global')" class="pure-menu-link">Global</a></li>
+            <li class="pure-menu-item"><a onclick="MDB.render('English')" class="pure-menu-link">English</a></li>
+            <li class="pure-menu-item"><a onclick="MDB.render('繁體中文')" class="pure-menu-link">繁體中文</a></li>
+            <li class="pure-menu-item"><a onclick="MDB.render('简体中文')" class="pure-menu-link">简体中文</a></li>
+        </ul>
+        </li>
+    </ul>
+    </div>
+    
+    <div id="layout">
+        <a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+        <div id="menu">
+            <div id="sideMenu" class="pure-menu">
+                <div class="pure-menu-heading"><a href="/"><i class="fa fa-home" aria-hidden="true" title="Home"></i></a>
+                    <a href="book.mdo"><i class="fa fa-book" aria-hidden="true" title="Book"></i></a>
+                    <a href="#user"><i class="fa fa-user" aria-hidden="true" title="Author"></i></a>
+                </div>
+                <ul class="pure-menu-list" id="bookBox">
+                    <li class="pure-menu-item"><a href="#gmap" class="pure-menu-link mt">地圖檢視</a></li>
+                    <li class="pure-menu-item"><a href="#table" class="pure-menu-link mt">表格檢視</a></li>
+                    <li class="pure-menu-item"><a href="#add" class="pure-menu-link mt">新增物件</a></li>
+                    <li class="pure-menu-item"><a href="#search" class="pure-menu-link mt">搜尋物件</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="main"></div>
+    </div>
+</div>
+<!-- google map -->
+  
+<div id="map"></div>   
+
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+</script>
+<!-- <script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7q1j5qhyIKSzRs_86eNfKH-_HsGiRPH8&callback=initMap">
+</script>   -->
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7q1j5qhyIKSzRs_86eNfKH-_HsGiRPH8&callback=initMap">
+</script>
+<!-- cordova hello -->
+                       
+        <div class="app" style="display:none">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+       <!-- <script type="text/javascript" src="js/index.js"></script> -->
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/gmap.js"></script>        
+        <script type="text/javascript" src="js/purecss.js"></script>        
+        <script type="text/javascript" src="js/cordovaLib.js"></script>        
+        <script type="text/javascript" src="cordova.js"></script>
+
+    </body>
+</html>

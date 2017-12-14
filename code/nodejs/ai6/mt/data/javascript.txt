@@ -1,0 +1,20 @@
+function max(a,b) {
+  if (a>b)
+    return a;
+  else
+    return b;
+}
+
+m = max(9,5);
+console.log(m);
+
+function min(a,b) {
+  if (a<b)
+    return a;
+  else
+    return b;
+}
+
+x = min(9,5);
+console.log(x);
+

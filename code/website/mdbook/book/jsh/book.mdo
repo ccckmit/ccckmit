@@ -1,0 +1,19 @@
+title:專為中學生寫的 JavaScript 程式書
+editor:ccc
+chapters:
+title        | link
+-------------|---------
+前言         | README.md
+1. 程式入門  | chapter1.md
+2. 基本語法  | chapter2.md
+3. 字串      | chapterString.md
+4. 陣列      | chapter3.md
+5. 函數      | chapter4.md
+6. 字典與 JSON | chapter5.md
+7. 物件導向與原型  | chapter6.md
+8. 函式庫    | chapter7.md
+9. 模組      | chapter8.md
+10. 檔案與輸出入  | chapter9.md
+11. 資料庫   | chapter10.md
+12. 網路     | chapter11.md
+習題解答     | answer.md

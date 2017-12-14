@@ -1,0 +1,170 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link href="favicon.ico" rel="icon">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <link href="main.css" rel="stylesheet">
+  <title>簡易記事本 (MongoDB 資料庫版)</title>
+</head>
+<body onload="init()">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="navbar-header" style="color:#C0C0C0">
+        簡易記事本 (MongoDB 資料庫版)
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right">
+          <div class="form-group">
+            <input id="filepath" type="hidden" class="form-control" placeholder="filepath" aria-describedby="basic-addon1">
+            <button class="btn btn-success" type="button" onclick="list()">所有記事</button>
+            <button class="btn btn-success" type="button" onclick="newNote()">新增記事</button>
+          </div>
+        </form>     
+      </div>
+    </div>
+  </nav>
+
+  <div id="panelList" class="tab-pane panel">
+  </div>
+  <div id="panelEdit" class="tab-pane panel">
+    標題： <input id="editTitle" type="text" value="">
+    <br/>
+    <textarea id="editBody" class="form-control" style="width:100%; height:60%"></textarea>
+    <button class="btn btn-success" onclick="save()">儲存</button>
+  </div>
+  <div id="panelNew" class="tab-pane panel">
+    標題： <input id="newTitle" type="text" value="">
+    <br/>
+    <textarea id="newBody" class="form-control" style="width:100%; height:60%"></textarea>
+    <button class="btn btn-success" onclick="add()">新增</button>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>
+$('.panel').css( "display", "none");
+
+Server = {
+  timeout : 4000
+};
+
+Server.save=function(file, text) {
+  $.ajax({
+    type: "POST",
+    url: "/note/"+file,
+    timeout: this.timeout,
+    data: { text: text }
+  })
+  .done(function(data) {
+    alert( "存檔完成!");
+  })
+  .fail(function() {
+    alert( "存檔失敗！" );
+  });
+}
+
+Server.load=function(file) {
+  return $.ajax({
+    type: "GET",
+    url: "/note/"+file,
+    timeout: this.timeout,
+    data: {}
+  });
+}
+
+function init() {
+  list();
+}
+
+function switchPanel(name) {
+  $('.panel').css( "display", "none");
+  $('#'+name).css( "display", "block");
+}
+
+function list() {
+  switchPanel('panelList');
+  $.ajax({
+    type: "GET",
+    url: "/list",
+    timeout: this.timeout,
+    data: {}
+  })
+  .done(function(data) {
+    var notes = JSON.parse(data);
+		$('#panelList').empty();
+		$('#panelList').append("<ol>");
+    for (var i in notes) {
+      $('#panelList').append('<li><a href="javascript:edit(\''+notes[i]._id+'\')">'+notes[i].title+"</a></li>")
+    }
+		$('#panelList').append("</ol>");
+  });
+}
+
+var noteID;
+
+function edit(id) {
+  switchPanel('panelEdit');
+	noteID = id;
+  $.ajax({
+    type: "GET",
+    url: "/note/"+id,
+    timeout: this.timeout,
+    data: {}
+  })
+  .done(function(data) {
+    var note = JSON.parse(data);
+    $('#editTitle').val(note.title);
+    $('#editBody').val(note.body);
+  });
+}
+
+function save() {
+  var title = $('#editTitle').val();
+  var body  = $('#editBody').val();
+  $.ajax({
+    type: "POST",
+    url: "/note/"+noteID,
+    timeout: this.timeout,
+    data: {
+      title:title,
+			body:body
+    }
+  })
+  .done(function(data) {
+	  alert('存檔完成!');
+	});
+}
+
+function newNote() {
+  switchPanel('panelNew');
+  $('#editTitle').val('');
+  $('#editBody').val('');
+}
+
+function add() {
+  var title = $('#newTitle').val();
+  var body  = $('#newBody').val();
+  $.ajax({
+    type: "POST",
+    url: "/new",
+    timeout: this.timeout,
+    data: {
+      title:title,
+			body:body
+    }
+  })
+  .done(function(data) {
+	  alert('新增完成!');
+		list();
+	});
+}
+
+</script>
+</body>
+</html>
+

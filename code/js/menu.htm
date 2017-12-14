@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>範例 -- 功能表實作</title>
+<style>
+.menu   { background-color:black; color:white; padding:10px; 
+          vertical-align:top; width:100px; list-style-type:none; }
+.menu a { color:white; text-decoration:none; }
+</style>
+<script type="text/javascript">
+function show(id) {
+  document.getElementById(id).style.visibility='visible';
+}
+ 
+function hide(id) {
+  document.getElementById(id).style.visibility='hidden';
+}
+</script>    
+  </head>
+  <body onload="JavaScript:hide('popup1');hide('popup2');">
+      <ul onmouseover="show('popup1');"  onmouseout="hide('popup1')" 
+          style="position:absolute; left:100px; top:20px">
+        <li id="menu1" class="menu">menu1</li>
+        <ul id="popup1" class="menu">
+          <li><a href="JavaScript:alert('1.1');">menu 1.1</a></li>
+          <li><a href="JavaScript:alert('1.2');">menu 1.2</a></li>
+        </ul> 
+      </ul>
+      <ul onmouseover="show('popup2');" onmouseout="hide('popup2')" 
+          style="position:absolute; left:220px; top:20px">
+        <li id="menu2" class="menu">menu2</li>
+        <ul id="popup2" class="menu">
+          <li><a href="JavaScript:alert('2.1');">menu 2.1</a></li>
+          <li><a href="JavaScript:alert('2.2');">menu 2.2</a></li>
+          <li><a href="JavaScript:alert('2.3');">menu 2.3</a></li>
+        </ul>
+      </ul>
+  </body>
+</html>

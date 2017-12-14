@@ -1,0 +1,21 @@
+title:用 JavaScript 設計網站
+editor:ccc
+chapters:
+title              | link
+-------------------|---------
+1. 簡介            | README.md
+2. HTML            | html.md
+3. CSS             | css.md
+4. JavaScript      | javascript.md
+5. 前端網頁        | frontend.md
+6. 樣版引擎        | template.md
+7. 後端 Server     | backend.md
+8. 前後端通訊      | communication.md
+9. 完整專案        | project.md
+10. 上線營運        | online.md
+11. 網站維護       | running.md
+12. 進階框架       | framework.md
+附錄               | appendix.md
+a. Nginx 的用途    | nginx.md
+b. Digital Ocean   | digitalocean.md
+

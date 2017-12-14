@@ -1,0 +1,16 @@
+title:人造語言 和 機器翻譯
+editor:ccc
+chapters:
+title        | link
+-------------|---------
+簡介         | README.md
+人造語言     | asl.md
+語言模型     | model.md
+語言生成     | generate.md
+統計學習     | statistics.md
+深度學習     | deepLearning.md
+引入雜訊     | noice.md
+未知模型     | unknownModel.md
+擴大模型     | extendModel.md
+結語         | end.md
+參考文獻     | reference.md

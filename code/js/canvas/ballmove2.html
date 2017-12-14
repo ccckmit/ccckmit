@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+<img id="ball" src="ball.jpg" alt="The Scream" style="display:none">
+<p>Canvas:</p>
+<canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;"/>
+<script>
+var img, ctx, canvas;
+var x=0, y=0;
+
+window.onload = main;
+
+function update() {
+  x+=2; y+=2;
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(img, x, y);
+}
+
+function main() {
+  img = document.getElementById("ball");
+  canvas = document.getElementById("myCanvas");
+  ctx = canvas.getContext("2d");
+  var loop = function() {
+    update();
+    draw();
+    window.requestAnimationFrame(loop, canvas);
+  };
+  window.requestAnimationFrame(loop, canvas);
+}
+
+</script>
+
+</body>
+</html>

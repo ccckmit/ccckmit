@@ -1,0 +1,254 @@
+<html>
+<head>
+<meta charset="utf-8" />
+  <link rel="icon" href="favicon.ico">
+  <!-- Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="elearn.css" rel="stylesheet">
+  <title>英文學習測驗</title>
+</head>
+<body onload="load()">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" style="color:#cccc33;font-family:標楷體">英文學習測驗</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a id="dictname" class="dropdown-toggle" data-toggle="dropdown">字典:TOEIC<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a onclick="switchDict('小學三百字')">小學三百字</a></li>
+                <li><a onclick="switchDict('TOEIC')">TOEIC</a></li>
+                <li><a onclick="switchDict('程式人常唸錯的字')">程式人常唸錯的字</a></li>
+                <li><a onclick="switchDict('小四上')">小四上</a></li>
+              </ul>
+            </li>
+<!--          
+            <li id="login"><a href="#login">登入</a></li>
+            <li id="choose"><a href="#choose">選擇題</a></li>
+-->            
+            <li id="tabFill" class="tab"><a href="#fill" onclick="switchPanel('Fill')">開始測驗</a></li>
+            <li id="tabEdit" class="tab"><a href="#edit" onclick="switchPanel('Edit')">考題管理</a></li>
+            <li id="tabHelp" class="tab"><a href="#help" onclick="switchPanel('Help')">說明</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Begin page content : 填充題 -->
+    <div id="panelFill" class="container panel">
+      <div class="page-header"><h1>開始測驗 <span style="color:#336699" id="countMsg"></span></h1></div>
+      <audio id="audio" src="http://tts-api.com/tts.mp3?q=mother."></audio>
+      <p class="lead">
+        <form name="formFill" action="javascript:pass()" class="lead">
+          <input type="button" value="送出答案" onclick="pass()" class="btn btn-success"/>
+          <input type="button" onclick="playAudio('audio'); answer.focus();" value="發音" class="btn btn-primary">
+          <input id="answer" type="text" value="詞彙" style="width:200px" onkeydown="keydown()"/> 
+          <!-- onkeydown="keydown(e)"-->
+          = <span id="question"></span>
+        </form>
+      </p>
+      <p>提示：按 Enter 送出答案, 按斜線 / 發音！</p>
+      <p id="msg" class="lead" style="color:red">正確的答案是：?</p>
+    </div>
+
+    <!-- Begin page content : 編輯 -->
+    <div id="panelEdit" class="container panel lead">
+      <div class="page-header"><h1>考題管理</h1></div>
+        <form name="formEdit" action="javascript:pass()">
+          <div class="row">
+            <div class="col-md-3">
+              <select id="fileSelect" class="form-control">
+                <option value="codeReadError">內建字典</option>
+                <option value="codeReadError">程式人常唸錯的字</option>
+                <option value="TOEIC">TOEIC(多益）</option>
+                <option value="child4_1">小四上</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+     	      <input type="file" id="filebox" name="filebox" class="filestyle" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" data-buttonText="自訂字典"/>
+            </div> <!-- style="width:250px;font-size:x-large;vertical-align:top;" -->
+            <div class="col-md-2">
+              <input type="button" onclick="save()" value="修改後啟用" class="btn btn-primary">
+            </div> <!-- style="width:250px;font-size:x-large;vertical-align:top;" -->
+          </div>
+          <br/>
+          <textarea id="editbox" class="form-control" rows="15"></textarea>
+        </form>
+        </div>
+    </div>
+<script>
+var correct=0, wrong=0;
+var dictmap = {};
+var editbox = document.getElementById("editbox");
+var filebox = document.getElementById("filebox");
+
+function loadQA() {
+  editbox.value = editbox.value.trim().replace(/,[ ]*/g, "\n").replace(/\r\t/g, "");
+  qa = editbox.value.split("\n");
+  $("#countMsg").html("");
+  correct=0; wrong=0;
+}
+
+function save() {
+  loadQA();
+  test();
+}
+
+function fileboxChange(evt) {
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    editbox.value = reader.result;
+    save();
+  };
+  
+  filename = evt.target.files[0].name;
+  reader.readAsText(evt.target.files[0]);
+}
+
+function fileSelectChange(evt) {
+//  $( "#editbox" ).load(fileSelect.value, {}, function(response,status,xhr) {
+//    alert( "Load was performed. fileSelect="+fileSelect.value+" response="+response+" status="+status);
+//  });
+//  alert("fileSelect="+fileSelect.value);
+  editbox.value = dictmap[fileSelect.value];
+  save();
+}
+
+function switchDict(name) {
+  editbox.value = dictmap[name];
+  $("#dictname").html("字典:"+name);
+  save();
+}
+
+	
+filebox.addEventListener('change', fileboxChange, false);    
+fileSelect.addEventListener('change', fileSelectChange, false);
+</script>
+
+    <!-- Begin page content : 說明 -->
+    <div id="panelHelp" class="container panel">
+      <div class="page-header"><h1>說明</h1></div>
+      <p class="lead">
+        作者 ：陳鍾誠 <br/>
+        Email：ccckmit@gmail.com <br/>
+        授權 ：採用 Mozilla Public License
+      </p>
+    </div> 
+    
+  <script type="text/javascript">
+function rand(n) {
+  return Math.floor(Math.random()*n)
+}
+
+function selectQA() {
+  return qa[rand(qa.length)];
+}
+
+function A(s) {
+  return s.split("=")[0].trim();
+}
+
+function Q(s) {
+  var tokens = s.split("=");
+  if (tokens.length>1) return tokens[1].trim(); 
+  return "";
+}
+
+var answer, msg, audioTTS, formFill, isChecked = false
+
+function load() {
+  answer   = document.getElementById("answer");
+  msg      = document.getElementById("msg");
+  audioTTS = document.getElementById("audio");
+//  audioTTS.addEventListener('ended', function(){ this.currentTime = 0; }, false);
+//  var qaStr= "bed=床,chair=椅子,desk=書桌,sofa=沙發,table=桌子,on=在...上面,under=在...下面,where=在...哪裡?, book bag=書包, key=鑰匙, pencil box=鉛筆盒, watch=手錶, bottle=水壺,It is=Yes，___ __, It's not=No，___ ____, under=A mouse is _____ the chair";
+//  editbox.value = qaStr.trim().replace(/,\s*/g, "\n");
+//  loadQA();
+
+  switchDict('小學三百字');
+  switchPanel("Fill");
+  test();
+}
+
+function switchPanel(name) {
+  $(".panel" ).css( "display", "none" );
+  $("#panel"+name).css("display", "block");
+  $(".tab" ).removeClass("active");
+  $("#tab"+name).addClass("active");
+}
+
+function test() {
+  isChecked = false;
+  msg.innerHTML = "";
+  q = selectQA();
+  answer.value = "";
+  $("#question").html(Q(q));
+  audioTTS.src = 'http://tts-api.com/tts.mp3?q='+A(q)+'.';
+}
+
+function check() {
+  var Qa = A(q).toLowerCase();
+  var ans = answer.value.toLowerCase().trim();
+  if (isChecked) return (ans === Qa);
+  isChecked = true;
+  msg.innerHTML = ""
+  if (ans === Qa) {
+    msg.innerHTML += "答對了！"+A(q)+"="+Q(q);
+    correct ++;
+  } else {
+    msg.innerHTML += "答錯了！"+A(q)+"="+Q(q)+"，請更正！";
+    wrong ++;
+  }
+  $("#countMsg").html("答對 "+correct+" 題，答錯 "+wrong+" 題！");
+  return (ans === Qa);
+}
+
+function pass() {
+  if (check()) {
+    passDelay = 0;
+    setTimeout(function () {  test(); }, passDelay);
+  }
+}
+
+function playAudio(name) {
+  document.getElementById(name).play();
+}
+
+function keydown() {
+//  msg.innerHTML="event.keyCode="+event.keyCode;
+  if (event.keyCode===191) { // 191 = slash / 
+    event.preventDefault();
+    playAudio('audio'); 
+  }
+  
+  if (event.keyCode===13) $("#formFill").submit();  // 13=enter
+}
+
+dictmap = {
+  "小四上": "bed=床,chair=椅子,desk=書桌,sofa=沙發,table=桌子,on=在...上面,under=在...下面,where=在...哪裡?, book bag=書包, key=鑰匙, pencil box=鉛筆盒, watch=手錶, bottle=水壺,It is=Yes，___ __, It's not=No，___ ____, under=A mouse is _____ the chair", 
+  "程式人常唸錯的字": "null=空無, access=存取, administrator=管理員, architecture=架構, cache=快取, cancel=取消, confirm=確認, distributed=分散式, feature=特徵, format=格式, illustrator=插畫, infrastructure=基礎設施, maintenance=維修, modem=調製解調器, parameter=參數, power=電源, processor=處理器, programmer=程序員, standard=標準, suite=套件, variable=變數, word=詞彙, walk=走, exit=離開;出口, error=錯誤",
+  "小學三百字": "zero=零,one=一,two=二,three=三,four=四,five=五,six=六,seven=七,eight=八,nine=九,ten=十,eleven=十一,twelve=十二,thirteen=十三,fourteen=十四,fifteen=十五,sixteen=十六,seventeen=十七,eighteen=十八,nineteen=十九,twenty=二十,thirty=三十,forty=四十,fifty=五十,sixty=六十,seventy=七十,eighty=八十,ninety=九十,number=號碼,money=錢,dollar=美元,family=家庭,father=爸爸,mother=媽媽,brother=哥哥/弟弟,sister=姊姊/妹妹,boy=男孩,girl=女孩,baby=嬰兒,grandfather=祖父,grandmother=祖母,man=男人,woman=女人,Mr.=先生,Mrs.=太太,Ms.=小姐,teacher=老師,student=學生,doctor=醫生,driver=司機,friend=朋友,eye=眼睛,ear=耳朵,nose=鼻子,mouth=嘴巴,hair=頭髮,face=臉,body=身體,head=頭,hand=手掌,foot=腳掌,leg=腿,food=食物,breakfast=早餐,lunch=午餐,dinner=晚餐,juice=果汁,milk=牛奶,tea=茶,apple=蘋果,banana=香蕉,lemon=檸檬,orange=柳丁;橘色,egg=蛋,rice=米飯,chicken=雞肉;小雞,pizza=披薩,ice cream=冰淇淋,cake=蛋糕,hot dog=熱狗,hamburger=漢堡,fish=魚,pet=寵物,bear=熊,bird=鳥,cat=貓,dog=狗,lion=獅子,monkey=猴子,pig=豬,color=顏色,black=黑色,blue=藍色,green=綠色,red=紅色,pink=粉紅色,white=白色,yellow=黃色,draw=畫畫,hat=帽子,jacket=夾克,shirt=襯衫,T-shirt=圓領襯衫,pants=褲子,skirt=裙子,shoes=鞋子,watch=手錶,clock=時鐘,o'clock=點鐘,pen=原子筆,pencil=鉛筆,book=書,eraser=橡皮擦,homework=功課,ruler=尺,bag=包包,box=盒子,school=學校,class=班級;課程,door=門,window=窗戶,bed=床,house=房子,computer=電腦,telephone=電話,television=電視,room=房間,chair=椅子,desk=書桌,ball=球,baseball=棒球,basketball=籃球,doll=洋娃娃,card=卡片,e-mail=電子郵件,spring=春天,summer=夏天,fall=秋天,winter=冬天,time=時間,morning=早上,afternoon=下午,evening=傍晚,night=晚上,day=日子;天,birthday=生日,today=今天,week=星期,year=年", 
+  "TOEIC":"appointment=約會，約定,attendance=出席人數；出席,cabinet=櫥,calendar=日曆；月曆；行事曆,clerk=辦事員，書記,directory=人名住址薄,duplicate=複製；副本,filing=歸檔,in-tray=待處理文件盒,monitor=檢測；監視；追蹤,out-tray=已處理文件盒,partition=分隔；分隔物（如牆壁等）,postage=郵費,punctuality=準時；守時,schedule=時間表；計畫表,shift=換班；輪班；值班,staff=全體職員,strike=罷工,task=工作，任務,work force=工作人員；勞動人口,assignment=分配；工作，分派,bulletin=公報；告示；定期報告書,calculator=計算器,carbon copy=用複寫紙複製的副本,colleague=同事，同僚,document=文件，證件,extension=分機（電話）；延期,intercom=對講機,memo=便條；便箋；備忘錄,operator=接線生,overtime=加班的時間,portfolio=作品夾，公事包,printed matter=印刷品,receptionist=接待員,secretary=秘書,shorthand=速記，速記法,stapler=釘書機,tardy=遲緩；遲到的；遲延的,typist=打字員,xerox=影印,allocate=撥出；分配；配置,applicant=申請人,authorize=授權；委託,bonus=紅利；額外津貼；獎金,capability=能力；才幹；潛力；性能,collaboration=合作；通敵,consultation=諮詢；商量；商議；會議,curriculum vitae=履歷,eligible=合格的，合適的,employer=雇員,executive=行政或管理人員,income=收入或所得,lay off=（暫時）解雇,occupation=職業,part-time=兼任的；兼職的,permanent=不變的，永久的,promote=升遷；促銷,recruit=吸收；徵募,resume=履歷表,salary=薪水,amateur=業餘技術家；外行人；,appoint=任命；指定,benefit=有益於；受益,candidate=候選人,certificate=憑證；證書,competent=有能力的，勝任的,coordinate=協調；調整,deadline=截至期限,employee=受雇者,evaluation=評價；估價,expertise=專門技術或知識,interview=會面；面談,novice=生手；新手；初學者,overtime=超時,pension=養老金；退休金,personnel=全體人員；人事部門,recommendation=推薦；推薦書；勸告,resign=辭職,retire=退休,substitute=代理人；代用品,accrue=產生；增加,acquisition=獲得；習得,amplify=放大；加強；擴展,asset=有用的東西；優點；長處,buyout/buy out=買進全部產權或股權；收購全部,corporation=法人；公司,cutback=減少；取消,enterprise=企業,equity=公平；公正；扣除抵押 稅金後的剩餘財產價值,financier=財政家；金融業者；資本家；投資者,franchise=經銷權；加盟權,launch=開辦；展開；發起；開始,monopoly=壟斷；獨佔；專賣,phase=階段,profile=側面象；略轉；引人矚目的狀態,proposition=提案；建議；計畫,prospectus=計畫書；說明書；慕股書,rival=競爭者；對手；匹敵者；勢均力敵者,subsidiary=子公司,track record=過去的記錄,acquire=獲得,affiliate=支部；分會；子公司,assess=評估（財產價值）；評定,benchmark=基準；水準點；標準,carry out=執行；貫徹；完成,cut down=減；縮短,embezzle=盜用；挪用；侵佔（公款等）,entrepreneur=企業家；,expand=擴張；擴大,firm=公司；商行,integrate=統合；整合,merger=合併；併吞,pending=未決定的；待決定的；即將發生,preliminary=初步的，開始的,propose=提議；建議,prospect=期望或預見的事；展望；期望,prosperity=繁榮；成功；興隆,scheme=計畫；設計；圖謀,thrive=茂盛；興旺；繁榮,undervalue=低估價值；看輕,account=帳目；帳單；帳戶,balance=餘額；差額,bond=債券,chamber of commerce=商會,credit=信任；信用；信譽；功勞；榮譽；存款數額；融資；賒銷,debt=債；債務,deficit=赤字；虧損額,depreciation=跌價；貶值,devaluation=貶值,endorse=贊同；支持；簽名；背書（重點，考試時就碰到）,exempt=被免除的；豁免的,expense=消耗；消費,fluctuation=波動；起伏；漲落,gross=總共的；全部的,inflation=物價飛漲；通貨膨脹,overdraft=透支；透支額,profit=利潤；收益；營利,revenue=收益；歲入；稅收,stock=公債；證券；股票,withdraw=收回；取回；撤回；提款,accountant=會計師；會計員,bankrupt=破產的；倒閉的,capital=資金；資本,convert=轉換；改變,currency=貨幣；流通；通用,deduction=扣除；扣除額,deposit=付押金；付保證金,depression=不景氣；憂傷；消沉；沮喪,discrepancy=差異；不同；不一致,estimate=估計；估價,expenditure=消費；開銷,fiscal=財政的；會計的,fund=基金；專款,holding=土地；財產（常用複數）,ledger=總帳；分類帳,overdue=過期未付的,remuneration=報酬；酬勞,shareholder=股東,stockbroker=證券和股票經紀人,yield=(1)生產量；收益(2)生產；產生,bid=出價；投標；喊價,commercial=商業化；商用的；營利的,competitor=競爭者；對手,consolidate=結合；合併；強化；,contract=契約；合同,corporate=全體的；團體的；公司的；法人的,credible=可信的；可靠的,debit=借方；借項,earnings=薪水；工資；收益,export=輸出；出口,haggle=討價還價,import=輸入；進口,invoice=發票；發貨清單；完成工作的清單（明列數量和價錢）,long-range=長期的；遠程的,stock=現貨；存貨,payment=支付；付款,quote=報價,supply=供應品；供應物；庫存,tariff=關稅,voucher=保證人；憑證；憑單；折價券,bill of lading=提貨單,commodity=商品；農產品,consignee=收件人；受託人,consumer=消費者；顧客,contractor=立契約人；承包商,cost-effective=符合成本效益的,dealer=商人；業者,due=應付的；到期的；該發生的,endorse=背書；支持；贊同,forward=送到，轉號,headquarters=總公司；總部；司令部,inventory=詳細目錄；清單；存貨,letter of credit=信用狀,order=匯單;訂貨；訂單；匯票,patent=專利；取得…的專利,quota=定量；定額；配額,shipment=一批貨,surplus=(1)過剩的量；盈餘(2)過剩的；剩餘的,trademark=注冊商標,warehouse=倉庫；貨價；大商店,adjourn=暫時；休會；延期,agreement=同意；協定,amendment=修正,approval=贊成；同意,attentive=注意的；,board=理事會；委員會；董事會,brainstorm=腦力激蕩，集思廣益,concede=容忍；容許；讓步,conference=會議；協商；討論會,convention=例；常規；習俗；會議；,convince=使信服,cross-reference=前後參照；（使）前後參照,delegate=代表,demand=要,dispute=爭端；爭執；糾紛；,negotiation=協商；談判,persuade=說服；勸服,postpone=延遲；延期,reconcile=調和；調解,settlement=協議；支付,agenda=議程,alternative=可供選擇的事物、方式等,announce=通告；宣佈；宣告；公諸於眾,articulate=能清楚有力表達思想感情的；表達能力強的,attorney=律師,breakthrough=突破；重大進展,compromise=妥協；折衷；和解,conclusive=決定性的；勿庸置疑的,consensus=一致的意見；共識,converse=談話；交談,criterion=規；標準,decline=衰落；衰退；下降,demonstration=實證；（遊行）示威,diplomacy=外交手腕；交際手段,dissuade=勸阻,on behalf of=代表,petition=請願（書）；請願,premise=前提,seminar=研討會；討論課；講習會,statement=聲明；陳述,advance=前進；進展,capacity=容量；才能；能力,component=構成要素；成分；零件,device=裝置；設備；圖案；設計,engineer=工程師,facilitate=促進；使（更）容易,fuel=燃料,generator=發電機；產生器,innovative=創新；革新的,inventor=發明家,leading edge=居領先優勢的,malfunction=故障；發生故障，機能失常,mode=樣式；模式；方式；風尚；時尚,operate=操作；運轉；經營,outlet=出口；排水口；銷售店；商行；插座；銷路,portable=可攜帶的；輕便的,raw material=原料,satellite=衛星,specification=說明；詳述,substandard=標準以下的,automaton=自動操作裝置；機器人,cell(ular)phone=行動電話；手機,consecutive=連續的；連貫的,devise=設計；發明；策劃,equipment=裝備；設備,facility=便利的設施；設備,gadget=小巧的機械裝置；小玩意,hands-on=實地操作的h9,laboratory=實驗室,maintenance=維護；保養,manual=使用手冊，指南；手工的,network=網路系統；廣播,outage=電力中斷；斷電,petroleum=石油,procedure=程式；手續,reverse=相反的；顛倒的,solar=(源自)太陽的；依太陽而運行的,static=靜電干擾；靜止的；靜態的；靜電的,turn down=關小（聲）,access=進入；接近；使用；取得,automatically=無意識的；不自覺的；自動的,cable=纜線；電纜,compliance=順從；服從；附和；屈從,cutting edge=尖刻；尖銳；先鋒地位,delete=刪除,digital=數位的；數字顯示的,download=下載,hacker=熱衷電腦的人，駭客,input=輸入電腦,Internet=國際互聯網,laptop=筆記型電腦,multimedia=多媒體,retrieval=取回；恢復,search engine=搜尋引擎,shut down=使關閉；使停業,state-of-the-art=使用最先進技術的；達到最高水準的,terminology=專業術語；專有名詞,troubleshooting=檢修；解決困難的,up-to-date=最近的；最新的,activate=使活動；觸發；啟動,browse=流覽；隨便翻閱,command=指令；命令；掌握,configuration=結構；構造；配置,database=資料庫,desktop=桌上型的,downgrade=降級；使降職,floppy(disk)=軟碟,hyperlink=超連結,install=安裝；安置,know-how=技能；專業知識；竅門,modern=數據機,omit=忽略；刪除；疏忽,scanner=掃描器,server=伺服器,spreadsheet=電子製表軟體；試算表,switch=開關；驟變,transmission=傳輸；傳送,upgrade=升級；提升,virus=濾過性病毒；電腦病毒,advertisement=廣告,appendix=附錄,attach=貼上；附上；附加,campaign=戰役；競選活動；宣傳活動,cohesive=有粘著力的；有結合力的；凝聚性的,confidential=秘密的；機密的,correspondence=通信；信件,dictate=口述；支配；命令,elaborate=詳盡說明；詳盡的；精心製作的,forward=轉寄；發送,inquire=詢問,jot down=略記下；匆匆記下,leaflet=傳單,notify=通知；告知,promote=發揚；晉升；促進,publicity=公開；宣傳；盡人皆知,response=回應,revise=修訂；修改；校訂,slogan=口號；標語,urgent=緊急的；急迫的,affirm=堅稱；聲明；斷言；確認,ASAP=as soon as possible=越快越好,banner=標語；旗幟,circular=廣告；傳單；通告,composition=寫作；作品；作文；作曲,convene=集合；聚集；開會,courier=遞送急件的信差；郵物專遞公司,draft=草稿；匯票,enclose=裝入；放入封套,inform=通知；告知,issue=流出；放出；發行；發佈,layout=規劃；設計；編排,legible=（字跡）可以辨認的；易讀的,postage=郵資,proofread=校正；校對,regarding=關於；有關,restate=再聲明；重新敘述；重說,signature=簽字；簽名,stationery=文具；信紙；信箋,write-up =報告書,write up=詳細寫,accommodation=適應；住所；膳宿,boarding pass=登機牌,brochure=小冊子,checkout=結帳退房的時間,check out=辦理退房；結帳離開,confirmation=確認,customs=海關；關稅,departure=離開；出發,en route=在途中,expedition=探險；遠征隊,flight=飛行；航班；航程,itinerary=行程表；旅程,lodge=小屋；旅館,luxurious=奢華的；非常舒適的,motel=汽車旅館,packing=包裝；打包,peak season=旺季,reservation=預約；預訂；保,sightseeing=觀光；遊覽,suite=（旅館的）套房,valid=依法有效的；有效的,baggage claim=行李提領處,breathtaking=驚人的；驚豔的；驚險的,carry-on=登機行李；手提行李,concierge=管理員；門房,cruise=乘船遊覽,deluxe=豪華的；高級的,destination=目的地,exotic=異國風情的；異國的,fasten=系緊；拴住；扣住,flight attendant=空中服務員,jet lag=時差,luggage=行李,metal detector=金屬探測器,overseas=在海外的，國外的（注意一般使用時都有s）,passenger=乘客；旅客,porter=腳夫；門房,round-trip=來回的，雙程的,stopover=中途停,vacant=空的，未被佔用的,voyage=旅行；航行,accelerate=加速；促進；前進,aircraft=飛機；飛行器；航空器,arrival=到達；抵達,buckle up=系安全帶,cargo=貨物,convertible=敞篷車,crash landing=迫降,delay=耽擱；延遲,forbid=禁止,ground crew=地勤人員,jaywalk=不遵守交通規則穿越馬路；闖紅燈,launch=發射；開始,navigate=航行；駕駛,pilot=飛行員,route=路徑；路線,seat belt=安全帶,subway=地鐵,taxicab=計程車,transit=運輸；通過,vehicle=交通工具；車輛,acrophobia=恐高症,airliner=大型客機,aviation=飛行；航空學,cabin=小屋；客艙；機艙,commuter=通勤者,conveyance=運輸；交通工具,crossroads=十字路口,ferry=渡輪,freight=貨運；貨物,jeopardy=風險；危險；危難,life vest=救生衣,pedestrian=行人；步行者,restriction=限制；約束,runway=飛機跑,shortcut=近路；捷徑,take off=起飛,timetable=時間表；時刻表,transport=運輸；交通工具；運輸系,via=經由；借由,affordable=負擔的起的,bazaar=市場；集市,client=顧客；委託人,customer=顧客；客戶,discount=折扣,distributor=供應商；經銷商,expiration=終結；期滿,itemize=詳細列舉；分條列舉,latest=最新的,neon sign=霓虹燈招牌,pickpocket=扒手,pushcart=手推車,receipt=收據,reimburse=償還；補償,request=請；要,sample=樣品；樣本,solicit=請；懇；祈,trendy=時髦的；流行的,VIP=very important person =貴賓,wholesale=批發的；批發地,bargain=便宜貨；廉價品,cash register=手銀機,coupon=折價券；贈獎券,defective=有毛病的；有問題的，有瑕疵的,display=陳列；展示品,drugstore=兼賣雜貨的藥房,flea market=跳蚤市場,label=標籤；標記,modify=修改；變更,patron=顧客；贊助人,purchase=購買；購得之物,quantity=量；數量,refund=退款；退還；賠償,replacement=代替；替換,retailer=零售商,shopping mall=大型購物中心,thrift=節儉；節約,vender=小販,warranty=保證；保證書,workmanship=技巧；手藝,alcohol=酒精,appetite=胃口，食欲,artificial=人造的；模擬的,bland=淡而無味的；溫和的；無刺激性的,chef=廚；大廚,crave=渴望,delicacy=佳餚,digest=消化,fragrant=有香味的；芳香的,ingredient=成分；配料；配方,liquor=烈酒（如威士,munch=用力嚼；大聲咀嚼,palatable=美味的；順耳的；怡人的,pass up=放過；錯過,portion=部分；一份,ravenous=饑餓的；貪婪的,refreshment=茶點,silverware=銀器；鍍銀餐具,specialty=專攻；專業；專長；特製品,starve=餓死；挨餓,aperitif=飯前酒,appetizer=開胃菜,beverage=飲料,buffet=自助餐,chopsticks=筷子,cuisine=烹調,dessert=餐後甜點,entree=菜,hors d'oeuvre=開胃小菜,leftovers=剩飯剩菜,menu=菜單,napkin=餐巾,parched=焦幹的；極渴的,pastry=用麵團和油酥烤成的小甜點心,preservative=防腐劑,recipe=食譜；烹飪法；秘訣,seasoning=調味品；佐料,snack=小吃；點心,spice=香料；調味品,vegetarian=素食者,acceptance=接受；贊同,acquaintance=相識但是不是很熟的人,anniversary=周年紀念日,associate=(1)同事；夥伴 (2)聯想；交往,banquet=酒席；正式的宴會,commitment=承諾；許諾,courtesy=禮貌；禮儀；好意；殷勤,distinguished=卓越的；傑出的；著名的,embrace=擁抱；圍繞；包括,etiquette=禮節；規,farewell=一路平安；再見；告別,get-together={正式的社交）聚會,greeting=致敬；問候；（複數）致意；贊詞,hug=擁抱；緊抱,lavish=過分大方的；浪費的；豐富的,nosy=好管閒事的；愛打聽的,offensive=令人不快的；討厭的；冒犯的,protocol=外交禮儀；草約,regards=問候；致意,salute=向……打招呼；向……行軍禮；向……表示敬意,acknowledge=承認；承認…之存在；表示感謝,aggressive=挑釁的；有侵略性的；有進取心的；積極的,apologize=道歉,attractive=引人入勝；有吸引力的；迷人的,barrier=障礙；障礙物；隔閡,compliment=讚揚；恭維,criticize=批評；評論,eloquent=口才好的；雄辯的,encounter=相遇；,extend=延伸延續；擴大；延長；給予；提供,favorable=令人滿意的；博得贊許的；有幫助的；,gossip=閒話；流言；說閒話,hilarious=狂歡的；令人捧腹的,intrude=闖入；侵入；把……強加諸於,modest=謙遜的；適度的；樸實的；端莊的,nuisance=討厭之人事物,prompt=準時的；按時的；迅速的；立刻行動的,quarrel=爭吵；爭論,run into=偶遇；碰上,scandal=醜聞,amuse=使歡樂；使愉快；使發笑,audience=聽眾；觀眾,ballet=芭蕾舞,cable TV=有線電視,celebrity=名人；名聲,cinema=電影；影片；電影院；電影藝術；電影業,composer=作曲家,conductor=指揮家,cue=暗示；提示,drama=戲劇；劇本,fare=車費；票價,headline=（報紙的）標,newscast=新聞廣播,periodical=雜誌；期刊,premiere=首次公演；首映,rate=分級；分等,scenario=戲劇的情節,scriptwriter=劇作家；編劇,symphony=交響曲,ticket office=售票處,applaud=鼓掌,audition=試聽；試演,broadcast=廣播；宣傳,carnival=狂歡；歡宴；嘉年華會；巡迴娛樂表演,choreography=舞蹈設計；編舞,circus=馬戲團,concert=音樂會,critic=批評家；評論家；吹毛求疵的人,curtain call=謝幕,editorial=社論,finale=結局；樂曲的最後部分,media=媒體,performance=演出；表現；性能,playwright=劇作家,preview=試映；預告片,rehearsal=預演；排練,screen=隔板；螢幕；螢光屏,stunt=特技；噱頭,theater=戲院；劇院,violin=小提琴,aerobics=有氧運動,coach=教師；教練,compete=競爭；比賽,defeat=失敗；擊敗,fitness=適合；恰當；身體健,gym=健身房；體育館,league=聯盟；同盟,marathon=馬拉松；耐力比賽,mountaineering=登山運動,participate=參與；參加,recreation=娛樂；消遣,relaxation=鬆弛；緩和；休息；娛樂,rigor=嚴格；嚴苛；艱苦,soccer=足球,stadium=體育場,stroll=散步；閒逛,surrender=（向敵人）投降；放棄,time-out=暫停,trophy=獎品；獎盃；戰利品,usher=引座員；招待員,billiards=撞球,combative=好戰的；好鬥的,default=違約；棄權,defense=保護；防衛,forfeit=罰款；喪失,intensity=強度；強烈,leisure=空閒；閒暇時間,massage=按摩；揉捏,muscle=肌肉；力量,pastime=娛樂；消遣,referee=裁判員；仲裁者,replacement=代替的人或物,rnner-up=第二名；亞軍,spectator=觀眾；旁觀者,stretch=伸張；伸開；伸展,surfing=衝浪,tactic=戰略；策略（常用複數）,tournament=比賽；錦標賽,umpire=裁判；仲裁,volleyball=排球,alleviate=減輕；緩和,bacteria=細菌,collision=碰撞；抵觸,compensation=補償；賠償；報償,contagious=接觸傳染的,crash=相撞；碰撞；突然發出巨響,emergency room=急診室,expiration date=有效期限,general hospital=綜合醫院,immune=免除的；豁免的；免疫的,infection=感染,investigator=調查員,mandatory=命令的；強制的；義務的,option=選擇權；選擇之自由；可選擇的東西,outpatient=門診病人,premium=獎品；額外費用；保費,severe=嚴苛的；嚴格的；嚴重的,stroke=腦血管破裂或阻塞；中風,terms=條文；條款；付款條件；價錢,vital=常必要的；及其重要的；攸關生死的,antibiotic=抗生素,claim=聲稱,commission=傭金,comprehensive=全面的；廣泛的,coverage=報導,diagnose=診斷；判斷,excruciating=極痛苦的；極度的,fraud=詐騙；騙局；騙子,handicap=殘障；不利條件；障礙,indemnity=損害保障；損害賠償,intensive care unit=加護病房,liable=有義務的；易於……的；傾向於……的,nutrition=營養之供給或攝取；營養,organ donor=器官捐贈者,pharmaceutical=製藥的；藥品的,purification=洗淨；淨化,side effect=（藥物之）副作用,surgery=（外科）手術,trauma=外傷；心靈的傷,waive=放棄；棄權,appliance=設備；器具；工具；家用電器,burglar=竊賊；夜間入屋行竊的小偷,community=社區,electronics=電子學,fire extinguisher=滅火器,furniture=傢俱,garbage disposal=垃圾處理機,landlord=地主；房東,laundry=洗衣店；要洗或已洗好的衣物,lease=租約；出租；租用,mattress=床墊,mortgage=抵押貨（借）款,ornament=裝飾品,plumbing=水管設施,possession=所有；個人財產,real estate=不動產,renovate=更新；修復；恢復,rural=鄉下；田園,suburb=（常用複數）郊區；近郊,urban=都市的；都市式的,balcony=陽臺；包廂,chore=家務難事；困難繁瑣無趣的工作,down payment=頭期款；預付金；定金,fire alarm=火災警報器,furnishings=傢俱；室內陳設,garage=車庫；修車廠,kitchenware=廚房用具,laundromat=自助洗衣店,lawn=草坪；草地,loan shark=放高利貸者,messy=雜亂的；骯髒的,neighborhood=街坊；住宅區；臨近地區,playground=運動場；遊戲場；遊樂場,porch=門廊；遊廊,property=財產；地產,relocate=重新安置；遷徙,residence=住所；公館；居住,storage=儲藏；藏室,tenant=房客；承租人；佃戶,utility=公共實業；實用,affection=感情；鍾愛,anticipate=預見；期待；在……之前行動；預先考慮；提前使用,brag=自誇；吹噓,delighted=欣喜的；愉快的,detest=憎惡；痛恨；嫌惡,disgust=作嘔；厭惡；反感,distress=痛；貧困；危難,enthusiastic=熱心的；狂熱的,esteem=（1）好評；尊敬,fascination=入迷；著迷；強烈吸引力；魅力,gloomy=幽暗的；令人沮喪的；憂鬱的；沒希望的,impartial=不偏袒；無偏見的；公正的,impulsive=衝動的,irritated=被激怒的；發炎的；疼痛的,mad=發瘋的；瘋狂的；著迷的；愚蠢的；生氣的,objective=目標；客觀的,panic=恐慌；使恐慌,prejudice=偏見；歧視,repulsive=使人反感的；令人厭惡的,tranquility=平靜的；安寧,ambition=雄心；野心,attraction=吸引力；吸引人之物,contentment=滿意；滿足,despair=絕望；使人絕望的事物,devoted=摯愛的；忠實的；熱忱的,disposition=傾向；性格；氣質；性情,elegant=高雅的；有品味的；上等的,entice=誘惑；引誘,fancy=精心設計的；特技的；花俏的；昂貴的,fondness=鍾愛；溺愛；嗜好；癖好,hideous=醜的嚇人；不忍睹的；醜惡的；可憎的,impression=意念；印象；不太明確的感覺或想法,instinct=天性；本能；直覺,jealous=嫉妒的；羡慕的；唯恐失去的,nasty=骯髒的；不道德的；惡毒的；令人不愉快的；,optimistic=樂觀的,perceive=感知；察覺；理會,provoke=激怒；引起；激起,startle=驚嚇；使嚇一跳,upset=使心煩意亂；使不舒服；使失敗；打翻,aspect=面貌；方向；朝向,assumption=假定；假設,attempt=企圖；攻擊,call waiting=電話插播,declaration=宣佈；公佈；宣言,endeavor=努力；盡力,exceed=超過；超出；超越,identity=身份；本體；相同；同一,implication=含義；暗示；牽連,inspire=鼓舞；激發；引發,intention=意圖；目的,interrupt=打斷；中斷,manipulate=操作；操縱,obstacle=障礙物；阻礙,priority=優先權；優先考慮的事,prohibit=禁止；防止；阻止,reassure=使安心；使放心；使恢復信心；再保證,remind=提醒；使想起,sustain=維持；持續；支撐；蒙受,undertake=承擔；許諾；保證,alter=改變；修改,assurance=保證；擔保；自信；把握,clarify=澄清；使純淨,discard=拋棄；丟棄,entitle=定名；使有資格,exhibition=展覽會；表現,impact=碰撞力；影響；行動,incentive=鼓勵；誘因,instruct=教授；指導；下命令；指示,interfere=妨害；擾亂；介入；干涉,involve=使捲入；牽涉；伴隨（指必然結果）,merit=功勞；價值；優點,permit=許可證；執照,proceed=著手；繼續進行,protest=抗議；反對,register=?記錄；註冊；登記,risk=風險；危險,submit=認輸；使服從；提出,speculate=沉思；思索；猜測；推測；投機,verify=證明；證實；確認,absurd=荒謬的；不合理的；違反常理的,adequate=足夠的；適當的,ample=廣大的；寬敞的；充足的,decent=合宜的；得體的；適當的,dreadful=令人恐怖的；令人害怕的,exceptional=異常的；例外的；特別優秀,exquisite=精細的；精美的；敏銳的；細緻的,farfetched=牽強的；不大可信的；不自然的,in light of=按照；根據,ingenious=有巧思的；有創意的；靈敏的,instant=立即的；（食品）快速方便的,legitimate=合法的；正當的；婚生的,moderate=中等的；適度的；有節制的；溫和的,oblivious=遺忘的；遺忘的；不注意的；不在意的,random=隨便的；無目的的,relevant=有關的,substantially=相當大的；基本上；本質的,temporary=暫時的臨時的,unprecedented=史無前例的；空前的,versatile=多才多藝的；有多種用途的,accurate=準確的；正確無誤的；精確的,alert=警覺的；,approximately=大約；大概,distinctive=與眾不同的；有特色的；顯著的,dynamic=充滿活力的；動力的,excessive=過多的；過度的；過分的,extraordinary=特別的；格外的；值得注意的,fragile=易碎的；易損壞的；脆弱的,inferior=品質差的；下等的；下級的,initial=開始的；最初的,irresistible=極為誘人的；無法抗拒的,miscellaneous=不同種類的；各式各樣的；混雜的,noteworthy=值得注意的；顯著的,on and off=斷斷續續的；偶爾；有時,rapid=迅速的；快速的；快的,self-explanatory=不需要加以說明的；不言自明的,sufficient=足夠的,ultimately=最後；最終,vague=含糊不清的；模糊不清的,vivid=生龍活虎的；鮮豔的；鮮明的；生動逼真的"
+  };
+</script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-filestyle/1.2.1/bootstrap-filestyle.min.js"></script>
+</body>
+</html>
+
+  <!--http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Hi! This is the text to speech function of Google.-->

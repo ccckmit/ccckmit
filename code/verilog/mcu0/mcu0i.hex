@@ -1,0 +1,32 @@
+A00F  // 00    	       JMP   RESET
+A003  // 01    	       JMP   ERROR
+A004  // 02    	       JMP   IRQ
+A006  // 03    ERROR:  JMP   ERROR
+F300  // 04    IRQ:    PUSH  A
+F301  // 05            PUSH  LR
+F302  // 06            PUSH  SW
+001E  // 07            LD    TIMER
+F701  // 08            ADDI  1
+FA01  // 09            SWI   1
+101E  // 0A            ST    TIMER
+F402  // 0B            POP   SW
+F401  // 0C            POP   LR
+F400  // 0D            POP   A
+FF00  // 0E            IRET
+001F  // 0F    RESET:  LD    STACKEND
+F230  // 10            MOV   SP, A
+001C  // 11    LOOP:   LD    I
+901D  // 12            CMP   N
+B01A  // 13            JEQ   EXIT
+F701  // 14            ADDI  1
+101C  // 15            ST    I
+001B  // 16            LD    SUM
+201C  // 17            ADD   I
+101B  // 18            ST    SUM
+A011  // 19            JMP   LOOP
+A01A  // 1A    EXIT:   JMP   EXIT
+0000  // 1B    SUM:    WORD  0
+0000  // 1C    I:      WORD  0
+000A  // 1D    N:      WORD  10
+0000  // 1E    TIMER:  WORD  0
+007F  // 1F    STACKEND: WORD 127

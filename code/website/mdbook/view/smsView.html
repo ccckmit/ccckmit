@@ -1,0 +1,43 @@
+<div id="smsBox" class="content" style="height:80vh; overflow: auto">  
+  <textarea id="newPost" placeholder="Post new message !"></textarea>
+  <button type="button" class="pure-button pure-button-primary mt" data-mt="Post=留言" onclick="SMS.post(window.id('newPost').value)"></button>
+  <div id="posts">
+    {{#posts}}
+    {{!--postHtml--}}
+    <div id="post{{_id}}" class="postDiv">
+      <label class="mt" data-mt="Post=訊息"></label> : 
+      <div style="float:right">
+        <i class="fa fa-user" aria-hidden="true" title="Author"></i> <a href="/view/{{user}}">{{user}}</a> &nbsp;
+        <i class="fa fa-pencil-square-o" aria-hidden="true" title="edit" onclick="SMS.editPostToggle('{{_id}}')"></i> &nbsp;
+        <i class="fa fa-times" aria-hidden="true" title="delete" onclick="SMS.deletePost('{{_id}}')"></i> &nbsp;
+        <i class="fa fa-clock-o" aria-hidden="true" title="{{date}}"></i>
+      </div>
+      <div style="display:none">
+        <textarea id="postMd{{_id}}">{{msg}}</textarea>
+        <button type="button" class="pure-button mt" data-mt="Submit=送出修改" onclick="SMS.editPostSubmit('{{_id}}')"></button>
+      </div>
+      <div id="postHtml{{_id}}" class="postHtml">{{!--MDB.md2html(post.msg)--}}</div>
+      <div id="replyList{{_id}}">
+        {{#replys}}
+        {{!--replyHtml--}}
+        <div id="reply{{_id}}" class="reply">
+          <div contenteditable="true" class="replyMsg" onkeyup="SMS.replyEditKeyup('{{../_id}}', '{{_id}}', this.innerText, this)">{{msg}}</div>
+          <div style="float:right">
+            <i class="fa fa-user" aria-hidden="true" title="Author"></i>
+            <a href="/view/{{user}}">{{user}}</a>
+            {{#if (eq ../../user user)}}
+            {{!-- <i class="fa fa-pencil-square-o" aria-hidden="true" title="edit" onclick="SMS.editReply('{{../_id}}','{{_id}}')"></i> &nbsp; --}}
+            <i class="fa fa-times" aria-hidden="true" title="delete" onclick="SMS.deleteReply('{{../_id}}','{{_id}}')"></i> &nbsp;
+            {{/if}}
+            <i class="fa fa-clock-o" aria-hidden="true" title="{{date}}"></i>
+          </div>
+        </div>
+        {{/replys}}
+      </div>
+      <div>
+        <textarea id="replyArea{{_id}}" class="replyArea" onkeyup="SMS.replyAddKeyup('{{_id}}', this.value)" placeholder="Reply"></textarea>
+      </div>
+    </div>
+    {{/posts}}
+  </div>
+</div>

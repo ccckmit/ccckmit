@@ -1,0 +1,24 @@
+20 12  // 00    	JMP   RESET
+20 06  // 02    	JMP   ERROR
+20 08  // 04    	JMP   IRQ
+20 06  // 06    ERROR:  JMP   ERROR
+00 30  // 08    IRQ:    LD    TaskId
+10 2C  // 0A            ADDI  1
+10 2C  // 0A            CMP   TaskMax
+10 2C  // 0A            JNE   ELSE1
+                        LDI   0
+60 01  // 0C    ELSE1:  ST    TaskId
+			PUSH  0
+			PUSH  1
+			PUSH  2
+70 00  // 10            IRET
+60 00  // 12    RESET:  SWI   0
+00 28  // 1E    TASK1:  SWI   1
+20 14  // 24            JMP   TASK1
+00 28  // 1E    TASK2:  SWI   2
+20 14  // 24            JMP   TASK2
+00 00  // 30    TaskId:   WORD  0
+00 00  // 30    TaskMax:  WORD  2
+00 00  // 30    TaskBuf1: WORD  PC, LR, iA
+00 00  // 30    TaskBuf2: WORD  PC, LR, iA
+

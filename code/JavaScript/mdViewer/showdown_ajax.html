@@ -1,0 +1,49 @@
+<html>
+<body>
+<table width="100%"><tr><td style="vertical-align:top">
+<textarea id="mdBox" style="width:90%; height:300px">
+</textarea>
+</td><td>
+<div id="htmlBox">
+htmlBox
+</div>
+</td></tr></table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.5.0/showdown.js"></script>
+<script>
+var load=function(path) {
+  if (!path.startsWith("/")) path="/"+path;
+  return $.ajax({
+    type: "GET",
+    url: "/file"+path,
+    timeout: this.timeout,
+    data: {}
+  });    
+}
+
+var loadFile = function(path) {
+  load(path).done(function(content) {
+    var md;
+    if (typeof content === 'string')
+        md = content;
+    else
+        md = JSON.stringify(content, null, ' ');
+    $('#mdBox').val(md);
+    var html = converter.makeHtml(md);
+    $('#htmlBox').html(html);
+
+  })
+  .fail(function() {
+    $('#mdBox').val("error!");
+  });
+}
+
+window.onhashchange = function() {
+  var filepath = window.location.hash.substring(1);
+  loadFile(filepath);
+}
+
+var converter = new showdown.Converter();
+converter.setOption('tables', true);
+</script>
+</body>
+</html>

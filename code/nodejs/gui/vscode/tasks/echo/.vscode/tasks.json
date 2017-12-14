@@ -1,0 +1,21 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "command": "echo",
+    "isShellCommand": true,
+    "args": ["Hello World"],
+    "showOutput": "always",
+    "echoCommand": true,
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "hello",
+            "args": ["Hello World"]
+        },
+        {
+            "taskName": "bye",
+            "args": ["Good Bye"]
+        }
+    ]    
+}

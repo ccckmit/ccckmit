@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="browser.css">
+    <script src="browser.js"></script>
+  <body>
+    <div id="controls">
+
+      <button id="back" title="Go Back" disabled="true">&#9664;</button>
+      <button id="forward" title="Go Forward" disabled="true">&#9654;</button>
+      <button id="home" title="Go Home">&#8962;</button>
+      <button id="reload" title="Reload">&#10227;</button>
+
+      <form id="location-form">
+        <div id="center-column">
+          <input id="location" type="text" value="http://www.github.com/">
+        </div>
+        <input type="submit" value="Go">
+      </form>
+    </div>
+
+    <webview src="http://www.github.com/" style="width:640px; height:480px"></webview>
+  </body>
+</html>

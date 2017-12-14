@@ -1,0 +1,29 @@
+<div class="content">
+  <div style="width:50vw; margin-top:10vh">
+  <form class="pure-form pure-form-aligned"> 
+    <fieldset>
+      <div class="pure-control-group">
+        <label for="book" class="mt" data-mt="Book"></label>
+        <input id="book" type="text" placeholder="Book">
+      </div>
+      <div class="pure-controls">
+        <button type="button" class="pure-button pure-button-primary mt" data-mt="Create Book" onclick="MDB.createBook()"></button>
+      </div>
+    </fieldset>
+  </form>     
+  </div>
+</div>
+<!--
+<script>
+// redirectToSsl();
+
+function createBook() {
+  var bookBox = document.getElementById("book");
+  ajaxGet("/createbook/"+bookBox.value, function(status, msg) {
+    console.log("msg=", msg, " status=", status);
+    alert(msg);
+    if (status === 200) window.location.href='/view/'+bookBox.value+'/';
+  });
+}
+</script>
+-->

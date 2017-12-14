@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+<img id="ball" width="220" height="277" src="ball.jpg" alt="The Scream" style="display:none">
+<p>Canvas:</p>
+<canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;"/>
+<script>
+window.onload = function() {
+  var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("ball");
+  ctx.drawImage(img, 10, 100);
+  ctx.beginPath();
+  ctx.strokeStyle="red";
+  ctx.rect(20,20,40,40);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.fillStyle="#0000FF";
+  ctx.fillRect(80,20,50,50);
+  ctx.stroke();   
+  ctx.beginPath();
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 5;
+  ctx.arc(100,75,50,0,2*Math.PI);
+  ctx.stroke();   
+}
+</script>
+
+</body>
+</html>
