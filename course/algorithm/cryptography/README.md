@@ -1,7 +1,11 @@
 # 密碼學
 
+## 加解密
+
+* [Node.js加密算法库Crypto](http://blog.fens.me/nodejs-crypto/) (讚！)
 * https://nodejs.org/api/crypto.html
-* [Node.js加密算法库Crypto](http://blog.fens.me/nodejs-crypto/)
+* [維基百科:密碼雜湊函式](https://zh.wikipedia.org/wiki/%E5%AF%86%E7%A2%BC%E9%9B%9C%E6%B9%8A%E5%87%BD%E6%95%B8)
+  * https://en.wikipedia.org/wiki/Cryptographic_hash_function
 * [RSA and ECC in JavaScript](http://www-cs-students.stanford.edu/~tjw/jsbn/)
   * 包含 SHA1
 * [Which symmetric key algorithm does SSL use?
@@ -16,3 +20,11 @@
   * https://en.wikipedia.org/wiki/Linear_congruential_generator (x[n+1] = a x[n] + c mod M)
   * https://en.wikipedia.org/wiki/Lehmer_random_number_generator (x[n+1] = a x[n] mod M)
   * https://en.wikipedia.org/wiki/Yao%27s_test (偽隨機數通過此測試者，難以和真的隨機數做區分)
+
+## 區塊鏈
+
+* [A blockchain in 200 lines of code](https://medium.com/@lhartikk/a-blockchain-in-200-lines-of-code-963cc1cc0e54)
+  * https://github.com/lhartikk/naivechain
+* [Blockchain Demo](https://anders.com/blockchain/)
+* https://anders.com/blockchain/
+  * https://github.com/anders94/blockchain-demo/
