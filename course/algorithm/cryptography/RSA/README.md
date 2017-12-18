@@ -2,6 +2,14 @@
 
 參考： https://en.wikipedia.org/wiki/RSA_(cryptosystem)
 
+## 執行
+
+```
+$ node rsa.js
+M1= [ 65, 22, 37, 18, 29 ]
+M2= [ 65, 22, 37, 18, 29 ]
+```
+
 ## 數學背景
 
 1. n = pq       // p, q 均為質數
