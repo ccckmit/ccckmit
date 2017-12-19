@@ -1,27 +1,24 @@
 {
-  "name": "test",
+  "name": "ccckmit",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.16.2",
-    "express-static": "^1.2.5",
-    "google-translate-api": "^2.3.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.6.1",
-    "translate": "^1.0.0",
-    "translate-api": "^0.3.12",
-    "underscore": "^1.8.3"
+  "author": {
+    "name": "ccckmit",
+    "email": "ccckmit@gmail.com",
+    "url": "https://github.com/ccckmit/"
   },
+  "license": "GPLv3",
+  "dependencies": {},
   "devDependencies": {
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",   
     "gulp": "^3.9.1"
   }
 }
