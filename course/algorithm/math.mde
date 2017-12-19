@@ -1,0 +1,6 @@
+# 在 github 中顯示數學式
+
+* https://www.codecogs.com/latex/eqneditor.php
+  * https://latex.codecogs.com/gif.latex?\int%20f(x)%20dx
+
+$\int_{0}^{\infty} f(x) dx$

@@ -15,8 +15,13 @@
     "express": "^4.16.2",
     "express-static": "^1.2.5",
     "google-translate-api": "^2.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
     "translate": "^1.0.0",
     "translate-api": "^0.3.12",
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }

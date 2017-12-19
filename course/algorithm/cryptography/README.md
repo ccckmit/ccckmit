@@ -28,3 +28,5 @@
 * [Blockchain Demo](https://anders.com/blockchain/)
 * https://anders.com/blockchain/
   * https://github.com/anders94/blockchain-demo/
+
+* https://en.wikipedia.org/wiki/List_of_important_publications_in_cryptography
