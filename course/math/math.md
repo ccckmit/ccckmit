@@ -20,11 +20,11 @@ mimetex 支援的語法請參考：
 
 <img src="https://latex.codecogs.com/gif.latex?%5Cint_%7B0%7D%5E%7B%5Cinfty%7D%20f(x)%20dx"/>
 
-<center><img src="https://latex.codecogs.com/gif.latex?%5Cint_%7B0%7D%5E%7B%5Cinfty%7D%20f(x)%20dx"/></center>
+<p align="center"><img src="https://latex.codecogs.com/gif.latex?%5Cint_%7B0%7D%5E%7B%5Cinfty%7D%20f(x)%20dx"/></p>
 
-<center><img src="https://latex.codecogs.com/gif.latex?%5Cint_%7B0%7D%5E%7B%5Cinfty%7D%20f(x)%20dx"/></center>
+<p align="center"><img src="https://latex.codecogs.com/gif.latex?%5Cint_%7B0%7D%5E%7B%5Cinfty%7D%20f(x)%20dx"/></p>
 
-<center><img src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Bmatrix%7Da_1%26a_2%26a_3%5C%5Cb_1%26b_2%26b_3%5C%5Cc_1%26c_2%26c_3%5Cend%7Bmatrix%7D"/></center>
+<p align="center"><img src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Bmatrix%7Da_1%26a_2%26a_3%5C%5Cb_1%26b_2%26b_3%5C%5Cc_1%26c_2%26c_3%5Cend%7Bmatrix%7D"/></p>
 
-<center><img src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Barray%7D%7Blcr%7D%09a%26b%26c%20%5C%5C%20d%26e%26f%20%5C%5C%20etc%09%5Cend%7Barray%7D"/></center>
+<p align="center"><img src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Barray%7D%7Blcr%7D%09a%26b%26c%20%5C%5C%20d%26e%26f%20%5C%5C%20etc%09%5Cend%7Barray%7D"/></p>
 

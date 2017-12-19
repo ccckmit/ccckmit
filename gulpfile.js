@@ -12,7 +12,7 @@ gulp.task('mde2md', function(){
     }))
     .pipe(replace(/\$\$([\s\S]*?)\$\$/gmi, function(match, p1, offset, string) {
         p1 = p1.replace(/[\n\r]/gmi, '')
-        return `<center><img src="https://latex.codecogs.com/gif.latex?${encodeURIComponent(p1)}"/></center>`
+        return `<p align="center"><img src="https://latex.codecogs.com/gif.latex?${encodeURIComponent(p1)}"/></p>`
     }))
     .pipe(replace(/\$(.*?)\$/g, function(match, p1, offset, string) {
         return `<img src="https://latex.codecogs.com/gif.latex?${encodeURIComponent(p1)}"/>`
