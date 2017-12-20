@@ -1,0 +1,9 @@
+{
+  "name": "editor",
+  "version": "0.1.0",
+  "main": "main.js",
+  "dependencies": {
+    "markd": "^1.2.0",
+    "marked": "^0.3.6"
+  }
+}

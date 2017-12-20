@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+<script>
+  function calculate() {
+    var exp = document.getElementById('exp')
+    var result = document.getElementById('result')
+    result.innerText = eval(exp.value)
+  }
+</script>    
+    <input id="exp" type="text" value="3*9+2"/> = <label id="result"></label><br/><br/>
+    <button onclick="calculate()">計算</button>
+  </body>
+</html>

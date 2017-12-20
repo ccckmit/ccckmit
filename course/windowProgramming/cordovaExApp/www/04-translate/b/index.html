@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+input { width:400px }
+    </style>
+    <title>小翻譯系統</title>
+  </head>
+  <body>
+<script>
+  var e2c = {cat: "貓", dog: "狗", a: "一隻", the: "這隻", chase:"追", eat:"吃"}
+  function mt() {
+    var english = document.getElementById('english')
+    var chinese = document.getElementById('chinese')
+    var e = english.value.split(/\s+/)
+    var c = []
+    for (var i=0; i < e.length; i++) {
+      c.push(e2c[e[i]])
+    }
+    chinese.innerText = c.join(' ')
+  }
+</script>    
+    <input id="english" type="text" value="a cat chase a dog"/>
+    <button onclick="mt()">翻譯</button><br/><br/>
+    <label id="chinese"></label>
+  </body>
+</html>

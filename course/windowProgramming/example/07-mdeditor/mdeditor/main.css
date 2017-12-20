@@ -1,0 +1,321 @@
+#main {
+  margin-left: 10px;
+}
+
+#map {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#homeBtn {
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  font-size: x-large;
+  margin-left: 10px;
+}
+
+#userController {
+  font-size:30px;
+  cursor:pointer;
+  float:right;
+  z-index:1;
+}
+
+/* ------------------ Navigation Bar (Top) ------------------------*/
+
+body {margin: 0;}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #4CAF50;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right, 
+    ul.topnav li {float: none;}
+}
+
+/* -----------------  Dropdown Button  (Menu) --------------------*/
+.dropbtn {
+/*  background-color: #ffffff; */
+  background-color:transparent;
+  color: #888888;
+/*  padding: 16px; */
+  font-size: x-large;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+/*  background-color: #; */
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  font-size: 14px;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+/* -------------- Nice Look Form Control --------*/
+.center {
+  margin: auto;
+/*  width: 60%; */
+  padding: 10px;
+}
+
+.right {
+  float:right;
+}
+
+.maxwidth {
+  width: 100%;
+}
+
+.container {
+  padding: 16px;
+}
+
+form {
+  border: 3px solid #f1f1f1;
+/*  display: inline-block; */
+  margin-left:auto;
+  margin-right:auto;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.success {  
+  background-color: #4CAF50; /* Green */
+}
+
+.green {background-color: #4CAF50;} /* Green */
+.blue  {background-color: #008CBA;} /* Blue */
+.red   {background-color: #f44336;} /* Red */ 
+.gray  {background-color: #e7e7e7; color: black;} /* Gray */ 
+.black {background-color: #555555;} /* Black */
+
+button , .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+/* ------------- side bar -----------------------*/
+#sideBarController {
+  float:left;
+  background-color:transparent;
+  position:relative;
+  font-size:x-large;
+  cursor:pointer;
+  z-index:1;
+}
+
+#sidebar {
+/*  margin-top: 10px; */
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+/*  font-family: Tahoma, 標楷體; */
+  }
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: large;
+    color: #c1c1c1;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: large;
+    margin-left: 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 10px;}
+  .sidenav a {font-size: large; }
+}
+
+/* ------------------------ mdbook.css ----------------------------- */
+body {
+    color: #777;
+    overflow-y:scroll;
+}
+
+code {
+  font-family:MingLiU, monospace;
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+pre {
+  border: 1px dotted #686868;
+  padding: 0px;
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+blockquote {
+  padding: 10px;
+  border: 3px double #373737;
+  color:#333333;  
+}
+
+a { 
+  color:#336699; 
+	text-decoration:none;
+}
+
+textarea {
+  width:100%;
+  height:70vh;
+  margin:10px;
+  font-family:MingLiU, monospace;
+  padding:10px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+
+h1 { font-size: 1.8em; color:#050505; text-align:center; margin:1em; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h2 { font-size: 1.6em; color:#8B008B; margin-top:1em; margin-bottom:1em; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h3 { font-size: 1.4em; color:#000080; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h4 { font-size: 1.2em;  color:#4B0082; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h5 { font-size: 1.1em;  color:#708090; font-weight: bold; font-family: 'DFKai-sb', 'Tahoma'; }
+
+h6 { font-size: 1.0em; color:#000080; }
+
+h1, h2, h3, h4, h5, h6:first-letter {
+/* text-transform:capitalize; */
+}
+
+p:first-letter {
+/* text-transform:capitalize; */
+}
+
+p {
+  font-family: 'Tahoma', 'Pmingliu';
+  margin: 15px 0px 15px 0px;
+  font-size:100%;
+  color:#555555;
+	line-height:180%;
+}
+
+table, th, td, p { 
+  line-height:180% 
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #686868;
+  margin-bottom: 20px;
+  text-align: left;
+  margin-left:auto; 
+  margin-right:auto;
+}
+
+th {
+  padding: 10px;
+  background-color:black;
+  color:white;
+}
+
+td  {
+  padding: 10px 15px 10px 15px;
+  vertical-align: middle;
+  border: 1px solid #a0a0a0;
+}
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+input { width:30px }      
+    </style>
+    <title>小字典</title>
+  </head>
+  <body>
+<script>
+  var e2c = {cat: "貓", dog: "狗", a: "一隻", chase:"追", eat:"吃"}
+  function mt() {
+    var e = document.getElementById('english')
+    var c = document.getElementById('chinese')
+    c.innerText = e.value + ' = ' + e2c[e.value]
+  }
+</script>    
+    <input id="english" type="text" value="cat"/>
+    <button onclick="mt()">查詢</button><br/><br/>
+    <label id="chinese"></label>
+  </body>
+</html>

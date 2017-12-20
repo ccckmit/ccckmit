@@ -1,0 +1,13 @@
+html, body, .container-fluid {
+  height: 100%;
+  background-color: #111;
+}
+
+html {
+  /* This allows the window to be dragged when the hidden-inset option is used */
+  -webkit-app-region: drag;
+}
+
+.container-fluid {
+  padding: 25px;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+input { width:30px }      
+    </style>
+    <title>小時鐘</title>
+  </head>
+  <body>
+<script>
+function lpad(s, len) {
+  var spad = "0000000000000000000" + s
+  return spad.substring(spad.length - len)
+}
+function printTime() {
+  var time = document.getElementById('time')
+  var d = new Date()
+  time.innerText = lpad(d.getHours(), 2) + ':' + lpad(d.getMinutes(), 2) + ':' + lpad(d.getSeconds(), 2)
+  setTimeout(printTime, 1000);
+}
+
+setTimeout(printTime, 1000);
+</script>    
+    <label id="time"></label>
+  </body>
+</html>
