@@ -7,7 +7,6 @@ gulp.task('ext2md', function(){
     .pipe(rename(function (path) {
        console.log('path=%j', path)
        path.basename = path.basename.replace(/^(.*)\.ext$/, '$1')
-       console.log('path.basename=%j', path.basename)
        path.extname = ".md";
     }))
     .pipe(replace(/\$\$([\s\S]*?)\$\$/gmi, function(match, p1, offset, string) {
