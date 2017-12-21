@@ -1,5 +1,8 @@
 # 最小擴展樹算法
 
+* https://en.wikipedia.org/wiki/Prim%27s_algorithm
+* [普林演算法 (Prim's algorithm)](http://nthucad.cs.nthu.edu.tw/~yyliu/personal/nou/04ds/prim.html)
+
 ## 執行
 
 ```

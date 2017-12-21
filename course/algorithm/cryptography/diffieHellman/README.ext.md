@@ -17,7 +17,24 @@ Bob.K   = 2
 
 ## 數學
 
-定理： (g^a %p)^b %p = g^ab %p = (g^b %p)^a %p
+定理： $(g^a)^b = g^{ab} = (g^b)^a (mod\;p)$
+
+
+```puml
+@startuml
+Alice -> Alice: choose g, p, a
+Alice -> Alice: A=g^a%p
+Alice -> Bob: g, p, A
+Bob -> Bob: choose b
+Bob -> Bob: B = g^b %p
+Bob -> Bob: K = A^b %p = g^ab %p
+Bob -> Alice: B
+Alice -> Alice: K=B^a % p = g^ab % p
+@enduml
+```
+
+<!--
+(g^a %p)^b %p = g^{ab} %p = (g^b %p)^a %p
 
 ```
 Alice                       Bob
@@ -26,4 +43,5 @@ A = g^a % p    =(g,p,A)=>   B = g^b % p
 K = B^a % p     <=(B)=      K = A^b % p
   = g^ab %p                   = g^ab %p
 ```
+-->
 
