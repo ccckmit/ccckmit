@@ -1,5 +1,9 @@
 # 密碼學
 
+## 理論基礎
+
+* [維基百科:有限體](https://zh.wikipedia.org/wiki/%E6%9C%89%E9%99%90%E5%9F%9F)
+  * https://en.wikipedia.org/wiki/Finite_field
 ## 加解密
 
 * [Node.js加密算法库Crypto](http://blog.fens.me/nodejs-crypto/) (讚！)

@@ -7,3 +7,8 @@
 * [JavaScript 語言實作](javascript.md)
 * [動畫展示](visualize.md)
 * [線上課程](onlineCourse.md)
+
+## 紙本書
+
+* [演算法圖鑑：26種演算法 + 7種資料結構，人工智慧、數據分析、邏輯思考的原理和應用全圖解](http://www.books.com.tw/products/0010771263)
+* [改變世界的九大演算法 : 讓今日電腦無所不能的最強概念 (Nine Algorithms That Changed the Future: The Ingenious Ideas That Drive Today’s Computers) ](https://www.tenlong.com.tw/products/9789866031557)
