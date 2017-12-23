@@ -6,5 +6,5 @@
 
 * http://khaledm.com/projects/huffman/ (線上展示)
   * https://github.com/KhaledMohamedP/huffman
-
 * https://gist.github.com/1995eaton/86f10f4d0247b4e4e65e
+* https://github.com/sbryant31/huffman-tree

@@ -4,7 +4,11 @@
   "description": "KoaStaticServer",
   "main": "staticServer",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "koa": "^2.4.1",
+    "koa-logger": "^3.1.0",
+    "koa-static": "^4.0.2"
+  },
   "scripts": {
     "test": "mocha"
   },
