@@ -28,7 +28,7 @@ Bob.receive = function (sender, g, p, A) {
   Bob.send(sender, B)
 }
 
-Bob.send = function(receiver, B) {
+Bob.send = function (receiver, B) {
   receiver.receive(Bob, B)
 }
 

@@ -2,7 +2,7 @@ var crypto = require('crypto')
 
 // 加密
 function encrypt(algorithm, key, plainText) {
-    var list = [];
+    var list = []
     var encrypter = crypto.createCipher(algorithm, key)
     list.push(encrypter.update(plainText, 'binary', 'hex'))
     list.push(encrypter.final('hex'))
