@@ -91,13 +91,13 @@ module RAM64(input[15:0] in, input clock, load, input[5:0] address, output[15:0]
 endmodule
 
 module ROM32K(input[14:0] address, output[15:0] out);
-  reg[15:0] m[0:2**14-1];
+  reg[15:0] m[0:2**15-1];
   
   assign out = m[address];
 endmodule
 
 module RAM8K(input[15:0] in, input clock, load, input[12:0] address, output[15:0] out);
-  reg[15:0] m[0:2**12-1];
+  reg[15:0] m[0:2**13-1];
   
   assign out = m[address];
   
@@ -107,7 +107,7 @@ module RAM8K(input[15:0] in, input clock, load, input[12:0] address, output[15:0
 endmodule
 
 module RAM16K(input[15:0] in, input clock, load, input[13:0] address, output[15:0] out);
-  reg[15:0] m[0:2**13-1];
+  reg[15:0] m[0:2**14-1];
   
   assign out = m[address];
   
