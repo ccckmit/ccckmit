@@ -49,8 +49,8 @@ endmodule
 
 module ALU(input[15:0] x, y, input zx,nx,zy,ny,f,no, output[15:0] out, output zr, ng);
   wire[15:0] x1, notx1, x2, y1, noty1, y2, andxy, addxy, o1, noto1, o2;
-	wire orLow, orHigh, notzr;
-	
+  wire orLow, orHigh, notzr;
+  
   Mux16 g1(x,  16'b0, zx, x1);   // if (zx == 1) set x = 0  
   Not16 g2(x1, notx1);
   Mux16 g3(x1, notx1, nx, x2);   // if (nx == 1) set x = !x

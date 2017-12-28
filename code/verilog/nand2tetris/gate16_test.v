@@ -13,7 +13,7 @@ begin
   $monitor("a  =%b\nb  =%b\nnot=%b\nand=%b\nor =%b", a, b, aNot, abAnd, abOr);
   a  = 16'b0011;
   b  = 16'b0101;
-	$finish;
+  $finish;
 end
 
 endmodule

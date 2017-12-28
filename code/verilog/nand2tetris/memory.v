@@ -11,14 +11,14 @@ Please contact the application's support team for more information.
 
 module DFF (input in, clock, load, output out);
   reg q;
-	assign out = q;
+  assign out = q;
   always @(posedge clock) begin
-	  if (load) q = in;
+    if (load) q = in;
   end
 endmodule
 
 module Bit(input in, clock, load, output out);
-	DFF dff1(in, clock, load, out);
+  DFF dff1(in, clock, load, out);
 endmodule
 
 module Register(input[15:0] in, input clock, load, output[15:0] out);
@@ -42,7 +42,7 @@ endmodule
 
 module PC(input[15:0] in, input clock, load, inc, reset, output[15:0] out);
   wire[15:0] if1, if2, if3, oInc, o;
-	
+  
   Or g1(load, inc, loadInc);
   Or g2(loadInc, reset, loadIncReset);
 
@@ -58,7 +58,7 @@ endmodule
 
 module RAM8(input[15:0] in, input clock, load, input[2:0] address, output[15:0] out);
   wire[15:0] o0,o1,o2,o3,o4,o5,o6,o7;
-	
+  
   DMux8Way g0(load, address, L0, L1, L2, L3, L4, L5, L6, L7);
   
   Register r0(in, clock, L0, o0);
@@ -75,7 +75,7 @@ endmodule
 
 module RAM64(input[15:0] in, input clock, load, input[5:0] address, output[15:0] out);
   wire[15:0] o0,o1,o2,o3,o4,o5,o6,o7;
-	
+  
   DMux8Way g0(load, address[5:3], L0, L1, L2, L3, L4, L5, L6, L7);
   
   RAM8 m0(in,  clock, L0, address[2:0], o0);
@@ -92,15 +92,15 @@ endmodule
 
 module ROM32K(input[14:0] address, output[15:0] out);
   reg[15:0] m[0:2**14-1];
-	
+  
   assign out = m[address];
 endmodule
 
 module RAM8K(input[15:0] in, input clock, load, input[12:0] address, output[15:0] out);
   reg[15:0] m[0:2**12-1];
-	
+  
   assign out = m[address];
-	
+  
   always @(posedge clock) begin
     if (load) m[address] = in;
   end
@@ -108,9 +108,9 @@ endmodule
 
 module RAM16K(input[15:0] in, input clock, load, input[13:0] address, output[15:0] out);
   reg[15:0] m[0:2**13-1];
-	
+  
   assign out = m[address];
-	
+  
   always @(posedge clock) begin
     if (load) m[address] = in;
   end

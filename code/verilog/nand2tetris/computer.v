@@ -2,7 +2,7 @@
 
 module Memory(input[15:0] in, input clock, load, input[14:0] address, output[15:0] out);
   wire[15:0] outM, outS, outK, outSK;
-	
+  
   Not g1(address[14], N14);
   And g2(N14, load, Mload);
   And g3(address[14], load, Sload);
@@ -33,7 +33,7 @@ module CPU(input[15:0] inM, I, input clock, reset, output[15:0] outM, output wri
   ALU alu(Dout, AorM, I[11], I[10], I[9], I[8], I[7], I[6], ALUout, zr, ng);
   
   PC pc1(Aout, clock, PCload, 1'b1, reset, pcOut);
-	assign pc = pcOut[14:0];
+  assign pc = pcOut[14:0];
   
   // A register
   Not g10(I[15], Atype);
@@ -48,15 +48,15 @@ module CPU(input[15:0] inM, I, input clock, reset, output[15:0] outM, output wri
   Register D(ALUout, clock, Dload, Dout);
   
   // output
-	assign addressM = Aout[14:0];
+  assign addressM = Aout[14:0];
   And g16(I[15], I[3], writeM); // writeM = I[15] & d3
   And16 g17(ALUout, ALUout, outM);
 endmodule
 
 module Computer(input clock, reset);
   wire[15:0] inM, outM, I;
-	wire[14:0] addressM, pc;
-	
+  wire[14:0] addressM, pc;
+  
   Memory ram(inM, !clock, loadM, addressM, outM);
   ROM32K rom(pc, I);
   CPU    cpu(outM, I, clock, reset, inM, loadM, addressM, pc);	

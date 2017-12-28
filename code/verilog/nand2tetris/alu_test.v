@@ -11,14 +11,14 @@ ALU alu1(x,y, zx,nx,zy,ny,f,no, out, zr,ng);
 initial
 begin
   $monitor("%4dns x=%d y=%d zx=%b nx=%b zy=%b ny=%b f=%b no=%b out=%d zr=%b ng=%b", $stime, x, y, zx, nx, zy, ny, f, no, out, zr, ng);
-	x = 9;
-	y = 15;
-	zx = 0;
-	nx = 0;
-	zy = 0;
-	ny = 0;
-	f  = 0;
-	no = 0;
+  x = 9;
+  y = 15;
+  zx = 0;
+  nx = 0;
+  zy = 0;
+  ny = 0;
+  f  = 0;
+  no = 0;
 end
 
 always #320 begin

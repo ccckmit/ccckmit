@@ -23,7 +23,7 @@ begin
   f  = 16'h5;
   g  = 16'h6;
   h  = 16'h7;
-	sel = 0;
+  sel = 0;
 end
 
 always #50 begin
