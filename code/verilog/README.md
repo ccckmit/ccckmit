@@ -24,3 +24,8 @@ $ vvp alu_test.o
 $ iverilog -o computer_test.o computer_test.v
 $ vvp computer_test.o
 ```
+
+## 學習資源
+
+* [Verilog HDL 教學講義](https://www.gitbook.com/book/hom-wang/verilog-hdl/details)
+* [免費電子書：Verilog 電路設計](http://ccckmit.wikidot.com/ve:main)
