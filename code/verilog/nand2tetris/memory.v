@@ -9,16 +9,18 @@ Please contact the application's support team for more information.
 所以我們在記憶體容量大的時候改用 verilog 的陣列型寫法，這樣就不會當機了。 */
 `include "alu.v"
 
-module DFF (input in, clock, load, output out);
+module DFF (input in, clock, output out);
   reg q;
   assign out = q;
   always @(posedge clock) begin
-    if (load) q = in;
+    q = in;
   end
 endmodule
 
 module Bit(input in, clock, load, output out);
-  DFF dff1(in, clock, load, out);
+  wire dffin;
+  Mux m1(out, in, load, dffin);
+  DFF dff1(dffin, clock, out);
 endmodule
 
 module Register(input[15:0] in, input clock, load, output[15:0] out);
