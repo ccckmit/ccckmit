@@ -59,16 +59,16 @@ endmodule
 module RAM8(input[15:0] in, input clock, load, input[2:0] address, output[15:0] out);
   wire[15:0] o0,o1,o2,o3,o4,o5,o6,o7;
 	
-  DMux8Way g0(1'b1, address, E0, E1, E2, E3, E4, E5, E6, E7);
+  DMux8Way g0(load, address, L0, L1, L2, L3, L4, L5, L6, L7);
   
-  And a0(load, E0, L0); Register r0(in, clock, L0, o0);
-  And a1(load, E1, L1); Register r1(in, clock, L1, o1);
-  And a2(load, E2, L2); Register r2(in, clock, L2, o2);
-  And a3(load, E3, L3); Register r3(in, clock, L3, o3);
-  And a4(load, E4, L4); Register r4(in, clock, L4, o4);
-  And a5(load, E5, L5); Register r5(in, clock, L5, o5);
-  And a6(load, E6, L6); Register r6(in, clock, L6, o6);
-  And a7(load, E7, L7); Register r7(in, clock, L7, o7);
+  Register r0(in, clock, L0, o0);
+  Register r1(in, clock, L1, o1);
+  Register r2(in, clock, L2, o2);
+  Register r3(in, clock, L3, o3);
+  Register r4(in, clock, L4, o4);
+  Register r5(in, clock, L5, o5);
+  Register r6(in, clock, L6, o6);
+  Register r7(in, clock, L7, o7);
   
   Mux8Way16 g1(o0, o1, o2, o3, o4, o5, o6, o7, address, out);
 endmodule
@@ -76,16 +76,16 @@ endmodule
 module RAM64(input[15:0] in, input clock, load, input[5:0] address, output[15:0] out);
   wire[15:0] o0,o1,o2,o3,o4,o5,o6,o7;
 	
-  DMux8Way g0(1'b1, address[5:3], E0, E1, E2, E3, E4, E5, E6, E7);
+  DMux8Way g0(load, address[5:3], L0, L1, L2, L3, L4, L5, L6, L7);
   
-  And a0(load, E0, L0); RAM8 m0(in,  clock, L0, address[2:0], o0);
-  And a1(load, E1, L1); RAM8 m1(in,  clock, L1, address[2:0], o1);
-  And a2(load, E2, L2); RAM8 m2(in,  clock, L2, address[2:0], o2);
-  And a3(load, E3, L3); RAM8 m3(in,  clock, L3, address[2:0], o3);
-  And a4(load, E4, L4); RAM8 m4(in,  clock, L4, address[2:0], o4);
-  And a5(load, E5, L5); RAM8 m5(in,  clock, L5, address[2:0], o5);
-  And a6(load, E6, L6); RAM8 m6(in,  clock, L6, address[2:0], o6);
-  And a7(load, E7, L7); RAM8 m7(in,  clock, L7, address[2:0], o7);
+  RAM8 m0(in,  clock, L0, address[2:0], o0);
+  RAM8 m1(in,  clock, L1, address[2:0], o1);
+  RAM8 m2(in,  clock, L2, address[2:0], o2);
+  RAM8 m3(in,  clock, L3, address[2:0], o3);
+  RAM8 m4(in,  clock, L4, address[2:0], o4);
+  RAM8 m5(in,  clock, L5, address[2:0], o5);
+  RAM8 m6(in,  clock, L6, address[2:0], o6);
+  RAM8 m7(in,  clock, L7, address[2:0], o7);
 
   Mux8Way16 g1(o0, o1, o2, o3, o4, o5, o6, o7, address[5:3], out);
 endmodule
