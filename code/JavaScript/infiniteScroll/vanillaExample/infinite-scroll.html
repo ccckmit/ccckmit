@@ -1,60 +1,18 @@
 <html>
+<head>
+<style>
+#main { padding:30px; }
+.post { margin:10px; padding:10px; height:30vh; width: 90%; background-color:blanchedalmond; }
+</style>
+</style>
+</head>
 <body>
 <div id="main">
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
-<div>xxx</div>
+<div class="post">xxx</div>
+<div class="post">xxx</div>
+<div class="post">xxx</div>
+<div class="post">xxx</div>
+
 </div>
 <script src="infinite-scroll.js"></script>
 <script>
@@ -64,8 +22,9 @@ var options = {
   distance: 50,
   callback: function(done) {
     size = size + 1
-    node = document.createElement("div");
-    node.innerHTML = 'i = ' + size;
+    node = document.createElement("div")
+    node.className = "post"
+    node.innerHTML = 'i = ' + size
     mainNode.appendChild(node)
     // 1. fetch data from the server
     // 2. insert it into the document
