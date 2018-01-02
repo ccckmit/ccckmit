@@ -1,0 +1,82 @@
+<html>
+<body>
+<div id="main">
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+<div>xxx</div>
+</div>
+<script src="infinite-scroll.js"></script>
+<script>
+var mainNode = document.getElementById('main')
+var size = 0
+var options = {
+  distance: 50,
+  callback: function(done) {
+    size = size + 1
+    node = document.createElement("div");
+    node.innerHTML = 'i = ' + size;
+    mainNode.appendChild(node)
+    // 1. fetch data from the server
+    // 2. insert it into the document
+    // 3. call done when we are done
+    done();
+  }
+}
+    
+// setup infinite scroll
+infiniteScroll(options)
+</script>
+</body>
+</html>
+

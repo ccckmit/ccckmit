@@ -1,8 +1,0 @@
-C:\ccc\Painter\Painter\obj\Debug\ResolveAssemblyReference.cache
-C:\ccc\Painter\Painter\obj\Debug\Painter.FormPainter.resources
-C:\ccc\Painter\Painter\obj\Debug\Painter.Properties.Resources.resources
-C:\ccc\Painter\Painter\obj\Debug\Painter.csproj.GenerateResource.Cache
-C:\ccc\Painter\Painter\bin\Debug\Painter.exe
-C:\ccc\Painter\Painter\bin\Debug\Painter.pdb
-C:\ccc\Painter\Painter\obj\Debug\Painter.exe
-C:\ccc\Painter\Painter\obj\Debug\Painter.pdb
