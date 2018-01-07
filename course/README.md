@@ -16,8 +16,8 @@
 [人工智慧]:ai
 [軟體工程]:softwareEngineering
 
-[Nand2tetris]:nand2tetris
-[Verilog]:verilog
+[Nand2tetris]:computerOrganization/nand2tetris
+[Verilog]:computerOrganization/verilog
 [電腦效能]:computerOrganization/performance.md
 
 [Electron.js]:windowProgramming/electron
