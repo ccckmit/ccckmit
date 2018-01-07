@@ -1,0 +1,19 @@
+<html>
+<body>
+  <div id="app">
+    <input v-model="item" type="text">
+    <div v-square="item"></div>
+  </div>
+<script src="https://vuejs.org/js/vue.js"></script>
+<script>
+Vue.directive('square', function (el, binding) {
+  el.innerHTML = Math.pow(binding.value, 2);
+});
+
+new Vue({
+  el: '#app',
+  data: { item: 42 }
+});
+</script>
+</body>
+</html>

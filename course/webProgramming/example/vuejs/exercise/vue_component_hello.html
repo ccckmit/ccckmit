@@ -1,0 +1,25 @@
+<html>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="example">
+    <child message="hello!"></child>
+    <child message="hello!"></child>
+    <child message="How are you ?"></child>
+</div>
+
+<script>
+Vue.component('child', {
+  // 声明 props
+  props: ['message'],
+  // 就像 data 一样，prop 也可以在模板中使用
+  // 同样也可以在 vm 实例中通过 this.message 来使用
+  template: '<div>{{ message }}</div>'
+})
+
+new Vue({
+  el: '#example'
+})
+</script>
+</body>
+</html>

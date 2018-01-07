@@ -15,10 +15,12 @@
     "url": "https://github.com/ccckmit/"
   },
   "license": "GPLv3",
-  "dependencies": {},
+  "dependencies": {
+    "semantic-ui": "^2.2.13"
+  },
   "devDependencies": {
     "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.6.1",   
+    "gulp-replace": "^0.6.1",
     "gulp": "^3.9.1"
   }
 }

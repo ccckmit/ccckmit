@@ -1,0 +1,80 @@
+<html>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="example">
+  <!-- message -->
+  <div>
+      <input v-model="message" placeholder="edit me">
+      => Message is: {{ message }}
+  </div>
+
+  <!-- checked -->
+  <div>
+      <input type="checkbox" id="checkbox" v-model="checked">
+      <label for="checkbox">{{ checked }}</label>
+  </div>
+
+  <!-- checked , 3 options -->
+  <div>
+      <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+      <label for="jack">Jack</label>
+      <input type="checkbox" id="john" value="John" v-model="checkedNames">
+      <label for="john">John</label>
+      <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+      <label for="mike">Mike</label>
+      <span>Checked names: {{ checkedNames }}</span>  
+  </div>
+  <div>
+      <input type="radio" id="one" value="One" v-model="picked">
+      <label for="one">One</label>
+
+      <input type="radio" id="two" value="Two" v-model="picked">
+      <label for="two">Two</label>
+
+      <span> => Picked: {{ picked }}</span>    
+  </div>
+  <div>
+      <select v-model="selected">
+          <option disabled value="">请选择</option>
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+        </select>
+        <span> => Selected: {{ selected }}</span>    
+  </div>
+  <div>
+      <select v-model="multiSelected" multiple style="width: 50px;">
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+        </select>
+        <span>multiSelected: {{ multiSelected }}</span>
+  </div>
+  <div>
+      <select v-model="bloodType">
+        <option v-for="option in bloodOptions" v-bind:value="option">
+          {{ option }}
+        </option>
+      </select>
+      <span>bloodType: {{ bloodType }}</span>    
+  </div>
+</div>
+
+<script>
+  var vm = new Vue({
+    el: '#example',
+    data: {
+      message: 'Hello',
+      checked: false,
+      checkedNames: [],
+      picked: '',
+      selected: '',
+      multiSelected: [],
+      bloodOptions: ['A', 'B', 'AB', 'O'],
+      bloodType: 'A',
+    }
+  })
+</script>
+</body>
+</html>

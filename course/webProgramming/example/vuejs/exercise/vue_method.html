@@ -1,0 +1,32 @@
+<html>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="example">
+  <p>Original message: "{{ message }}"</p>
+  <p>Reversed message (Computed): "{{ reversedMessage }}"</p>
+  <p>Reversed message (Method) : "{{ reverseMessage() }}"</p>
+</div>
+
+<script>
+  var vm = new Vue({
+    el: '#example',
+    data: {
+      message: 'Hello'
+    },
+    computed: { // 计算属性是基于它们的依赖进行缓存的。只有相关依赖发生改变时才会重新求值。只要 message 还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数。
+      // 计算属性的 getter
+      reversedMessage: function () {
+        // `this` 指向 vm 实例
+        return this.message.split('').reverse().join('')
+      }
+    },
+    methods: {
+        reverseMessage: function () {
+          return this.message.split('').reverse().join('')
+      }
+    }
+  })
+</script>
+</body>
+</html>

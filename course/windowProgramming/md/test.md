@@ -7,6 +7,8 @@
   * https://github.com/electron/spectron
 * https://github.com/twolfson/karma-electron
 * https://macacajs.com/zh/
+* http://www.nightmarejs.org/
+  * Nightmare: a high-level browser automation library (Electron.js)
 
 
 ## 影片
