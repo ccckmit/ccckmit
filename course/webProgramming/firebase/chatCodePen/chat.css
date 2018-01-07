@@ -1,0 +1,71 @@
+  body {
+    font: normal 400 16px Arial, Helvetica, sans-serif;
+    color: #333;
+  }
+  
+  div.list-messages {
+    width: 600px;
+    margin: 20px auto 0;
+    background: #f3f3f3;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  div.list-messages ul {
+    margin: 0;
+    padding: 20px;
+    list-style: none;
+  }
+  div.list-messages ul li {
+    width: 560px;
+    display: inline-block;
+    margin-top: 20px;
+    box-sizing: border-box;
+  }
+  div.list-messages ul li:first-child {
+    margin-top: 0;
+  }
+  div.list-messages ul li p {
+    float: left;
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+  }
+  div.list-messages ul li p.name {
+    width: 110px;
+    vertical-align: top;
+    font-weight: 700;
+  }
+  div.list-messages ul li p.text {
+    width: 440px;
+    margin-left: 10px;
+  }
+  
+  div.new-message {
+    width: 600px;
+    height: 80px;
+    margin: 20px auto 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  div.new-message input {
+    width: 110px;
+    height: 20px;
+    float: left;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  div.new-message input:focus {
+    border-color: rgba(72, 163, 232, 0.3);
+    box-shadow: 0 0 8px rgba(72, 163, 232, 0.4);
+    outline: 0;
+  }
+  div.new-message input[name="text"] {
+    width: 390px;
+    margin-left: 10px;
+  }
