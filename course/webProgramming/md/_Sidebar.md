@@ -1,6 +1,0 @@
-* [HTML](html)
-* [CSS](css)
-* [JavaScript](javascript)
-* [經典排版](layout)
-* [node.js](nodejs)
-* [server](server)
