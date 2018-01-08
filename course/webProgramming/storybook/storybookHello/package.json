@@ -1,0 +1,22 @@
+{
+  "name": "storybooktest",
+  "version": "1.0.0",
+  "description": "* https://storybook.js.org\r   * Interactive UI component dev & test: React, React Native, Vue, Angular",
+  "main": "index.js",
+  "scripts": {
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@storybook/vue": "^3.3.4"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "vue": "^2.5.13",
+    "vue-loader": "^13.6.2",
+    "vue-template-compiler": "^2.5.13",
+    "vuex": "^3.0.1"
+  }
+}

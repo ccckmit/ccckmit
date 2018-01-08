@@ -6,6 +6,13 @@
 ## Block Chain
 * [你才區塊鍊，你全家都區塊鍊](https://www.slideshare.net/secret/ivCM5TVclW5HAg)
 
+## Business
+
+* [兩個月成就 8,000 萬交易額的心法解析](https://medium.com/@linyiru/%E5%85%A9%E5%80%8B%E6%9C%88%E6%88%90%E5%B0%B1-8-000-%E8%90%AC%E4%BA%A4%E6%98%93%E9%A1%8D%E7%9A%84%E5%BF%83%E6%B3%95%E8%A7%A3%E6%9E%90-8845b9b09984)
+  * xdite: Rails、Project Management、Growth Hacking、Cognitive Psychology、Gamification (遊戲化)、Scalability
+  * ccc : Node.js, ...
+  * [Redmine 基本功能介紹](https://blog.longwin.com.tw/2011/03/redmine-intro-function-2011/)
+
 ## 硬體加速挖礦技術
 
 * [YouTube: Bitcoin Mining with FPGAs (EC551 Final Project)](https://www.youtube.com/watch?v=HIGu8MTDLfc)
