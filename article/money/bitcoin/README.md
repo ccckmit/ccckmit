@@ -12,6 +12,7 @@
   * xdite: Rails、Project Management、Growth Hacking、Cognitive Psychology、Gamification (遊戲化)、Scalability
   * ccc : Node.js, ...
   * [Redmine 基本功能介紹](https://blog.longwin.com.tw/2011/03/redmine-intro-function-2011/)
+* [Xdite 2018 GrowthHack 實戰分享：成長2368%的創業項目-OTCBTC](https://medium.com/@elvisliou/xdite-2018-growthhack-%E5%88%86%E4%BA%AB%E6%9C%83%E5%BF%83%E5%BE%97-c9e542665d87)
 
 ## 硬體加速挖礦技術
 
@@ -24,3 +25,4 @@
 ## 虛擬幣
 
 * [【瑞波幣瘋漲】用一樣嘢「秒殺」比特幣　創辦人身家擊敗誠哥](https://www.hk01.com/%E7%B6%93%E6%BF%9F/147002/-%E7%91%9E%E6%B3%A2%E5%B9%A3%E7%98%8B%E6%BC%B2-%E7%94%A8%E4%B8%80%E6%A8%A3%E5%98%A2-%E7%A7%92%E6%AE%BA-%E6%AF%94%E7%89%B9%E5%B9%A3-%E5%89%B5%E8%BE%A6%E4%BA%BA%E8%BA%AB%E5%AE%B6%E6%93%8A%E6%95%97%E8%AA%A0%E5%93%A5)
+* [虛擬貨幣的分類](https://www.facebook.com/groups/bitcoin.tw/permalink/1482892765141964/)

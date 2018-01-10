@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vueit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+    <link rel="stylesheet" href="book.css">
+</head>
+<body>
+<div id="app">
+  <div class="header pure-menu pure-menu-horizontal">
+    <ul id="topBar" class="pure-menu-list">
+      <li id="type" class="pure-menu-item">
+        <a @click="go('list')" class="pure-menu-link">訊息</a>
+<!--        <router-link to="/domain/list" class="pure-menu-link">訊息</router-link> -->
+      </li>
+      <li id="type" class="pure-menu-item">
+        <router-link :to="{ name: 'domain', params: { domain: domain}" class="pure-menu-link">地圖</router-link>
+        :to="{ name: 'person', params: { id: person.guid }}">{{ person.name }}
+      </li>
+      <li id="title" class="pure-menu-item">
+        <router-link to="/people/ccc/" class="pure-menu-link">{{user}}</router-link>
+      </li>
+      <li class="pure-menu-item">
+          <router-link to="/domain/home" class="pure-menu-link"> {{ $route.params.domain }} </router-link>
+      </li>
+      <li class="pure-menu-item">
+          <router-link to="/setting" class="pure-menu-link">設定</router-link>
+      </li>
+      <li class="pure-menu-item">
+          <router-link to="/locale" class="pure-menu-link">語言</router-link>
+      </li>      
+  <!-- <li id="bookTitle" class="pure-menu-item"><a href="README.html" class="pure-menu-link">${bookTitle}</a></li> -->
+    </ul>
+  </div>
+  
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+    <div id="menu">
+      <div id="sideMenu" class="pure-menu">
+        <div id="home" class="pure-menu-heading">
+          <router-link to="/home">⮌ Home</router-link>
+        </div>
+        <ul class="pure-menu-list" id="bookBox">
+          <li class="pure-menu-item"><router-link class="pure-menu-link" to="/message">動態</router-link></li>
+          <li class="pure-menu-item"><router-link class="pure-menu-link" to="/people">人物</router-link></li>
+          <li class="pure-menu-item"><router-link class="pure-menu-link" to="/book">書籍</router-link></li>
+          <li class="pure-menu-item"><router-link class="pure-menu-link" to="/object">物品</router-link></li>
+        </ul>
+      </div>
+    </div>
+    <div id="main">
+      <div class="content">
+        <router-view></router-view>        
+      </div>
+      <div style="text-align:center">
+        <span class="footnote">{{footer}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="book.js"></script>
+
+<script>
+  const Domain = {
+    template: `
+      <div class="domain">
+        <h2>Domain {{ $route.params.domain }}</h2>
+        <router-view></router-view>
+      </div>
+    `
+  }
+  
+  const DomainHome = { template: '<div>Domain Home</div>' }
+  const DomainList = { template: '<div>Domain List</div>' }
+  const DomainMap  = { template: '<div>Domain Map</div>' }
+  
+  const router = new VueRouter({
+    routes: [
+      { 
+        path: '/:domain', component: Domain,
+/*        name: 'root', */
+        children: [
+          { path: '', component: DomainHome },
+          { path: 'list', component: DomainList },
+          { path: 'map', component:  DomainMap }
+        ]
+      }
+    ]
+  })
+  
+  const app = new Vue({ 
+    router ,
+    data: {
+      user: 'ccc',
+      footer: 'Copyright @Vueit'
+    },
+    methods: {
+      go: function (action) {
+        console.log('router=', router)
+        window.location.hash = '#/' + router.params.domain + '/' + action + '/'
+      }
+    }
+  }).$mount('#app')
+</script>
+</body>
+</html>

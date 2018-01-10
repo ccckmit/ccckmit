@@ -1,0 +1,79 @@
+<!-- 這是 1.0 版的 https://codepen.io/chasebank/pen/qZQbOP -->
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<main id="app">
+    <nav>
+        <ul>
+            <li><a v-link="{path: '/lannisters'}">Lannisters</a></li>
+            <li><a v-link="{path: '/starks'}">Starks</a></li>
+        </ul>
+    </nav>
+
+    <router-view keep-alive></router-view>
+</main>
+
+<template id="lannisters-template">
+    <h3>House Lannister</h3>
+    <ul class="list">
+        <li v-for="person in lannisters"><a v-link="{path: 'lannisters/' + person.name, params: { title: person.name }}">{{ $index }}  -  {{ person.name }}</a></li>
+    </ul>
+    <p v-if="lannisters.length == 0">No items in list. Create some items!</p>
+    <input type="text" v-model="itemTitle">
+    <button type="button" v-on:click="createLannister">Add new Lannister</button>
+</template>
+
+
+<template id="lannister-template">
+    <h4>{{ text }}</h4>
+    <h2>{{ $route.params.name }}</h2>
+
+    <ul class="list" v-for="person in lannisters | name $route.params.name">
+        <li v-for="attributes in person.attributes">{{ attributes.attribute }}</li>
+    </ul>
+</template>
+
+<template id="starks-template">
+    <div class="box">
+        <pre><small>Checking to see if data is persistent</small></pre>
+        <h4>House Lannister</h4>
+        <ul class="list">
+            <li v-for="person in lannisters">{{ person.name }}</li>
+        </ul>
+        <p v-if="family.length == 0">No items in list. Create some items!</p>
+    </div>
+    <h3>House Stark</h3>
+    <ul class="list">
+        <li v-for="person in starks">
+            <a v-link="{path: 'starks/' + person.name, params: { title: person.name }}">{{ person.name }}</a>
+            <!-- <ul>
+                <li v-for="attributes in person.attributes">{{ attributes.attribute }}</li>
+            </ul> -->
+        </li>
+    </ul>
+    <p v-if="secondList.length == 0">No items in list. Create some items!</p>
+    <input type="text" v-model="itemTitle" name="new-item">
+    <button type="button" v-on:click="createStark">Add new Stark</button>
+    <button type="button" v-on:click="createLannister">Add new Lannister</button>
+    <button type="button" v-on:click="createBoth">Add person to BOTH</button>
+</template>
+
+<template id="stark-template">
+    <h4>{{ text }}</h4>
+    <h2>{{ $route.params.name }}</h2>
+
+    <ul class="list" v-for="person in starks | name $route.params.name">
+        <li v-for="attributes in person.attributes">{{ attributes.attribute }}</li>
+    </ul>
+</template>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.13/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.7/vue-router.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

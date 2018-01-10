@@ -1,0 +1,41 @@
+<!-- https://codepen.io/lorelea/pen/zNgzqL -->
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+        <div class="app-wrapper" id="app">
+                <div class="menu">
+                  <div class="menu--app">
+                    <div class="user-card"></div>
+                    <ul class="menu--routes">
+                      <!-- <li><a href="#">Home</a></li>
+                      <li><a href="#about">About</a></li>
+                      <li><a href="#contact">Contact</a></li> -->
+                      <li><router-link to="/">Home</router-link></li>
+                      <li><router-link to="/foo">Go to Foo</router-link></li>
+                      <li><router-link to="/bar">Go to Bar</router-link></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="layout">
+                  <div class="header">
+                    <div class="menu-icon"><i class="material-icons">menu</i></div>
+                  </div>
+                  <div class="content">
+                    <div class="card">
+                      <router-view></router-view>
+                      <!-- <people-listing></poeple-listing> -->
+                      <!-- <person-detail></person-detail> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.2.1/vue-router.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

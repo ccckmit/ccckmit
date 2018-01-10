@@ -1,0 +1,32 @@
+<!-- https://codepen.io/anxgang/pen/MoBbzG -->
+<html>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+    <my-component></my-component>
+    <my-component :text="message"></my-component>
+  </div>
+
+<script>
+Vue.component('my-component', {
+  props: ['text'],
+  template: `
+    <div>
+      <h2>傳進來的Prop:</h2>
+      {{text || '沒有傳'}}
+    </div>
+  `
+})
+
+new Vue({
+  el: "#app",
+  data() {
+    return {
+      message: '我是message'
+    }
+  }
+})
+</script>
+</body>
+</html>

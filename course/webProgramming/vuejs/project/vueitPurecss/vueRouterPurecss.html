@@ -1,0 +1,108 @@
+<!-- https://jsfiddle.net/yyx990803/L7hscd8h/ -->
+<!--
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+<div id="app">
+  <p>
+    <router-link to="/user/foo">/user/foo</router-link>
+    <router-link to="/user/foo/profile">/user/foo/profile</router-link>
+    <router-link to="/user/foo/posts">/user/foo/posts</router-link>
+  </p>
+  <router-view></router-view>
+</div>
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${bookTitle} >> ${mdTitle}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+    <link rel="stylesheet" href="book.css">
+</head>
+<body>
+<div id="app">
+  <div class="header pure-menu pure-menu-horizontal">
+    <ul id="topBar" class="pure-menu-list">
+      <li id="bookTitle" class="pure-menu-item"><router-link to="/user/foo" class="pure-menu-link">title</router-link></li>
+  <!-- <li id="bookTitle" class="pure-menu-item"><a href="README.html" class="pure-menu-link">${bookTitle}</a></li> -->
+    </ul>
+  </div>
+  
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+    <div id="menu">
+      <div id="sideMenu" class="pure-menu">
+        <div id="home" class="pure-menu-heading">
+          <router-link to="./index.html">Home</router-link>
+  <!--        <a href="${site.root}/index.html">⮌</a> -->
+        </div>
+        <ul class="pure-menu-list" id="bookBox">
+          <router-link to="/user/foo">/user/foo</router-link>
+          <router-link to="/user/foo/profile">/user/foo/profile</router-link>
+          <router-link to="/user/foo/posts">/user/foo/posts</router-link>  
+        </ul>
+      </div>
+    </div>
+    <div id="main">
+      <div class="content" id="viewBox">
+        <router-view></router-view>
+  <!-- <div id="mdBox">${htmlMain}</div> -->
+        <div style="text-align:center">
+          <span class="footnote">
+          ${footer}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="book.js"></script>
+
+<script>
+  const User = {
+    template: `
+      <div class="user">
+        <h2>User {{ $route.params.id }}</h2>
+        <router-view></router-view>
+      </div>
+    `
+  }
+  
+  const UserHome = { template: '<div>Home</div>' }
+  const UserProfile = { template: '<div>Profile</div>' }
+  const UserPosts = { template: '<div>Posts</div>' }
+  
+  const router = new VueRouter({
+    routes: [
+      { path: '/user/:id', component: User,
+        children: [
+          // UserHome will be rendered inside User's <router-view>
+          // when /user/:id is matched
+          { path: '', component: UserHome },
+          
+          // UserProfile will be rendered inside User's <router-view>
+          // when /user/:id/profile is matched
+          { path: 'profile', component: UserProfile },
+  
+          // UserPosts will be rendered inside User's <router-view>
+          // when /user/:id/posts is matched
+          { path: 'posts', component: UserPosts }
+        ]
+      }
+    ]
+  })
+  
+  const app = new Vue({ router }).$mount('#app')
+</script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,50 @@
+#app {
+    padding: 0 1rem;
+  }
+  
+  nav {
+    background: lightgray;
+    margin: 0 -1rem;
+    padding: 0;
+  }
+  nav ul {
+    margin: 0;
+    padding: 0 1rem;
+  }
+  nav li {
+    display: inline-block;
+  }
+  nav a {
+    display: block;
+    padding: 1rem;
+    cursor: pointer;
+    color: black;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+  }
+  nav a:hover {
+    background: #eee;
+  }
+  
+  .box {
+    background: lightgray;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid gray;
+    opacity: .5;
+  }
+  
+  .v-link-active,
+  a:hover.v-link-active {
+    color: white;
+    background: #343434;
+  }
+  
+  .list {
+    margin: 0 0 1rem 1rem;
+    padding: 0;
+  }
+  .list li + li {
+    margin-top: 1rem;
+  }
+  

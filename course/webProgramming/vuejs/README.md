@@ -3,6 +3,15 @@
 ## 學習資源
 
 * [菜鳥教程 Vue.js 入門](http://www.runoob.com/vue2/vue-tutorial.html)
+* codePen
+  * Vue.js + LokiJS -- https://codepen.io/chasebank/pen/YZKJBO
+  * Modal with vue router -- https://codepen.io/chasebank/pen/JXmqBg
+  * Vue router with modal -- https://codepen.io/chasebank/pen/XMmZqQ
+  * Vue router with page transition - scroll issue demo -- https://codepen.io/chasebank/pen/QvboLN
+
+## 開發工具
+
+* https://github.com/vuejs/vue-devtools
 
 ## 搭配的 CSS 框架
 
@@ -37,6 +46,11 @@
 
 * iView 讲堂 -- https://www.iviewui.com/live
 
+## Example
+
+* CodePen
+  * (Vue2 + Vue-router) basic skelet -- https://codepen.io/lorelea/pen/zNgzqL
+  * CodeVember 11/14 Vue2 Router Transitions -- https://codepen.io/jarrodthibodeau/pen/PbzjKe
 
 ## Boilerplate
 

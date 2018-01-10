@@ -5,6 +5,8 @@
   * 範例:动态路由匹配 -- https://jsfiddle.net/yyx990803/4xfa2f19/
   * 範例:嵌套路由 -- https://jsfiddle.net/yyx990803/L7hscd8h/
   * 範例:命名视图 -- https://jsfiddle.net/posva/6du90epg/
+* codepen 
+  * 多 panel 完整範例 VueJS Playgroud -- https://codepen.io/chasebank/pen/qZQbOP
 
 ## router-link
 
