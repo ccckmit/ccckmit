@@ -52,6 +52,10 @@
   * (Vue2 + Vue-router) basic skelet -- https://codepen.io/lorelea/pen/zNgzqL
   * CodeVember 11/14 Vue2 Router Transitions -- https://codepen.io/jarrodthibodeau/pen/PbzjKe
 
+## 入門專案
+  * [Github:nodejh -- 快速入门 - Vue2 Tutorials (一)] (讚!)(https://github.com/nodejh/vue2-tutorials/blob/master/01.QuickStart/)
+  * [Github:nodejh -- 实现一个 TodoList - Vue2 Tutorials (二)](https://github.com/nodejh/vue2-tutorials/tree/master/02.TodoList)
+
 ## Boilerplate
 
 * [How to do real Server Side Rendering with Vue 2](https://medium.com/@codingfriend/how-to-do-real-server-side-rendering-with-vue-2-5ec6f0efd041)
