@@ -2,6 +2,7 @@
 
 * https://vuetifyjs.com/
   * Sandbox -- https://vuetifyjs.com/examples/layouts/sandbox
+  * https://github.com/vuetifyjs/vuetifyjs.com
 
 ## 樣版專案 boilerplate
 
