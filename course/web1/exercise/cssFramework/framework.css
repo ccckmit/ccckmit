@@ -1,0 +1,73 @@
+* {
+  margin:0;
+  padding:0;
+  line-height: 160%;
+}
+
+/* CSS 如何讓 整個頁面秀出的高度:100% -- https://blog.longwin.com.tw/2015/09/css-set-html-height-100-2015/ */
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-color:#cccccc;
+}
+
+#headbar {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background-color:black;
+  color:#bbbbbb;
+  z-index:1;
+  padding: 10px 20px 10px 20px;
+}
+
+#bodypart {
+  min-height:100%;
+  width:100%;
+  padding-top: 2em;
+}
+
+#sidemenu {
+  width:10em;
+  height:100vh;
+  float:left;
+  padding-top: 2em;
+  background-color:#336699;
+  transition: all 1s ease 0.5s;
+  -webkit-transition: all 1s ease 0.5s;
+/*  transition: display 1s linear; */
+}
+
+#content {
+  width: auto;
+  height: 100vh;
+  overflow:hidden;
+}
+
+#main {
+  width: 100%;
+}
+
+#footer {
+  font-size: small;
+  text-align: center;
+}
+
+#sidemenu li {
+  list-style-type: none;
+}
+
+#sidemenu a {
+  color: #dddddd;
+  text-decoration: none;
+}
+
+#sidemenu, #main, #footer {
+  padding: 20px;
+}
+
+.hide { display:none; }

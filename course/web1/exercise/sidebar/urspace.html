@@ -1,0 +1,130 @@
+<!-- from : https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="urspace.css">
+<style>
+.dropdown {
+  float: right;
+  overflow: hidden;
+  margin: 0px 10px;
+  background-color: inherit;
+}
+
+.dropdown .dropbtn {
+  border: none;
+  color:inherit;
+  background-color: inherit;
+  font-size:inherit;
+}
+
+.dropdown:hover .dropbtn {
+  color: rgb(250, 235, 153);
+}
+
+.dropdown-content {
+  background-color: inherit;
+  display: none;
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  background-color: inherit;
+  float: none;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+  background-color: inherit;
+}
+
+.dropdown-content a:hover {
+/*  background-color: #ddd; */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+<div id="headbar">
+  <a href="#" onclick="menuToggle()">&#9776;</a> &nbsp;
+  <a href="#home">Home</a>
+  <div class="dropdown">&nbsp;</div>
+  <div class="dropdown">
+    <button class="dropbtn">繁體中文</button>
+    <div class="dropdown-content">
+      <a href="#">English</a>
+      <a href="#">繁體中文</a>
+      <a href="#">简体中文</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">追蹤</button>
+    <div class="dropdown-content">
+      <a href="#">追蹤</a>
+      <a href="#">鄰近</a>
+      <a href="#">最新</a>
+      <a href="#">隨機</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">User</button>
+    <div class="dropdown-content">
+      <a href="#">登入</a>
+      <a href="#">登出</a>
+      <a href="#">註冊</a>
+      <a href="#">設定</a>
+    </div>
+  </div>
+</div>      
+<div id="bodypart">
+  <div id="sidenav">
+    <div id="sidebar">
+      <a href="#">追蹤</a>
+      <a href="#">人員</a>
+      <a href="#">物品</a>
+      <a href="#">文章</a>
+      <a href="#">圖像</a>
+      <a href="#">影音</a>
+    </div>
+  </div>
+  <div id="content">
+    <div id="main">
+        <p>1. xxxxxxxxxxxxxx</p>
+        <p>2. xxxxxxxxxxxxxx</p>
+        <p>3. xxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxx</p>
+        <p>1. xxxxxxxxxxxxxx</p>
+        <p>2. xxxxxxxxxxxxxx</p>
+        <p>3. xxxxxxxxxxxxxx</p>
+        <p>1. xxxxxxxxxxxxxx</p>
+        <p>2. xxxxxxxxxxxxxx</p>
+        <p>3. xxxxxxxxxxxxxx</p>
+        <p>1. xxxxxxxxxxxxxx</p>
+        <p>2. xxxxxxxxxxxxxx</p>
+        <p>3. xxxxxxxxxxxxxx</p>
+  
+      </div>
+      <div id="footer">footer</div>
+  </div>
+</div>
+
+<script>
+var sidenav = document.getElementById('sidenav')
+function menuToggle() {
+  sidenav.style.width = (sidenav.style.width === '0px') ? '200px' : '0px'
+  sidebar.style.width = (sidebar.style.width === '0px') ? '200px' : '0px'
+//  sidebar.style.display = (sidebar.style.display === 'none') ? 'block' : 'none'
+}
+</script>
+     
+</body>
+</html> 

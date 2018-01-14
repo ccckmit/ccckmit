@@ -1,0 +1,108 @@
+<!-- from : https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin:0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  background-color: #336699;
+  color: white;
+}
+
+#headbar {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background-color: #333333;
+  color:#bbbbbb;
+  z-index:1;
+  padding: 10px 20px 10px 20px;
+  font-size: large;
+}
+
+#bodypart {
+  min-height:100vh;
+  padding: 30px 0px 0px 0px;
+}
+
+.sidenav {
+  margin:0;
+  width: 200px;
+  float:left;
+  top: 0; 
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 20px;
+  color:white;
+  background-color:#336699;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: large;
+  display: block;
+  transition: 0.3s;
+  color: #dddddd;
+}
+
+#content {
+  overflow:hidden; 
+  width: auto;  
+  background-color: #dddddd;
+  padding: 20px;
+  color: #333333;
+}
+</style>
+</head>
+<body>
+<div id="headbar">
+  <span id="menuIcon" onclick="menuToggle()">&#9776;</span>
+</div>
+<div id="bodypart">
+  <div id="mySidenav" class="sidenav">
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+  <div id="content">
+    <div id="main">
+        <p>1. xxxxxxxxxxxxxx</p>
+        <p>2. xxxxxxxxxxxxxx</p>
+        <p>3. xxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxx</p>
+        <p>1. xxxxxxxxxxxxxx</p>
+        <p>2. xxxxxxxxxxxxxx</p>
+        <p>3. xxxxxxxxxxxxxx</p>
+        <p>1. xxxxxxxxxxxxxx</p>
+        <p>2. xxxxxxxxxxxxxx</p>
+        <p>3. xxxxxxxxxxxxxx</p>
+        <p>1. xxxxxxxxxxxxxx</p>
+        <p>2. xxxxxxxxxxxxxx</p>
+        <p>3. xxxxxxxxxxxxxx</p>
+  
+      </div>
+      <div id="footer">footer</div>
+  </div>
+</div>
+
+<script>
+var sidenav = document.getElementById('mySidenav')
+var menuicon = document.getElementById('menuIcon')
+function menuToggle() {
+  sidenav.style.width = (sidenav.style.width === '0px') ? '200px' : '0px'
+}
+</script>
+     
+</body>
+</html> 

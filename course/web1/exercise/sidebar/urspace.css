@@ -1,0 +1,82 @@
+body {
+  margin:0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  background-color: #336699;
+  color: white;
+}
+
+/* ================ headbar ===============*/
+#headbar {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background-color: #333333;
+  color:#bbbbbb;
+  z-index:1;
+  padding: 10px 20px 10px 20px;
+  font-size: normal;
+}
+
+#headbar a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#headbar a:hover {
+  color: rgb(250, 235, 153);
+}
+
+.right {
+  float: right;
+}
+
+#bodypart {
+  min-height:100vh;
+  padding: 30px 0px 0px 0px;
+}
+
+/* ================ sidenav ===============*/
+#sidenav , #sidebar {
+  margin:0;
+  width: 200px;
+  float:left;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 20px;
+  color:white;
+  background-color:#336699;
+}
+
+#sidebar {
+  position: fixed;
+  top: 30px;
+  white-space:nowrap;
+}
+
+#sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: large;
+  display: block;
+  transition: 0.3s;
+  color: #dddddd;
+}
+
+/* ================ content ===============*/
+#content {
+  overflow:hidden; 
+  width: auto;  
+  background-color: #dddddd;
+  padding: 20px;
+  color: #333333;
+}
+
+#footer {
+  text-align: center;
+  font-size: small;
+  color: #333333;
+}

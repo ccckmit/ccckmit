@@ -1,0 +1,44 @@
+<html>
+<head>
+  <meta charset='utf-8'>
+  <link rel="stylesheet" type="text/css" href="framework.css">
+</head>
+<body>
+  <div id="headbar">Headbar <a id="menuToggle">(Menu)</a></div>
+  <div id="bodypart">
+    <div id="sidemenu">
+      <ul>
+        <li><a href="#">Item1</a></li>
+        <li><a href="#">Item2</a></li>
+        <li><a href="#">Item3</a></li>
+        <li><a href="#">Item4</a></li>
+        <li><a href="#">Item5</a></li>
+      </ul>
+      </div>
+    <div id="content">
+      <div id="main">
+        <p>1. main</p>
+        <p>2. main</p>
+        <p>3. main</p>
+        <p>4. main</p>
+        <p>5. main</p>
+        <p>6. main</p>
+      </div>
+      <div id="footer">
+        footer
+      </div>
+    </div>
+  </div>
+<script>
+// 參考: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav
+var menu = document.querySelector('#sidemenu')
+document.querySelector('#menuToggle').addEventListener("click", function (e) {
+  menu.classList.toggle("hide")
+}, true);
+/*
+var menuToggle = function() {
+  menu.classList.toggle("hide")
+}*/
+</script>
+</body>
+</html>
