@@ -8,6 +8,9 @@
   * Modal with vue router -- https://codepen.io/chasebank/pen/JXmqBg
   * Vue router with modal -- https://codepen.io/chasebank/pen/XMmZqQ
   * Vue router with page transition - scroll issue demo -- https://codepen.io/chasebank/pen/QvboLN
+* 紙本書
+  * [Vue.js實戰](https://www.tenlong.com.tw/products/9787302484929) (9.5 折 $450)
+  * [Vue2实践揭秘](https://www.tenlong.com.tw/products/9787121310683) (9.5 折 $450)
 
 ## 開發工具
 
