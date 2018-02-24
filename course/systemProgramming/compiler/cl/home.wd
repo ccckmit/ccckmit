@@ -1,0 +1,19 @@
+<table>
+<tr><th colspan="2" style="text-align:center">計算語言學</th></tr>
+<tr><td> [[第 0 講]](ccc:courseMap) </td><td> [[陳鍾誠的課程地圖]](course:home) </td></tr>
+<tr><td> [[第 1 講]](videoBasic) </td><td> 計算語言學簡介 </td></tr>
+<tr><td> [[第 2 講]](videoGenerate) </td><td> 語言生成 </td></tr>
+<tr><td> [[第 3 講]](videoEncode) </td><td> 字元編碼 </td></tr>
+<tr><td> [[第 4 講]](videoDictionary) </td><td> 詞彙與詞典 </td></tr>
+<tr><td> [[第 5 講]](videoGrammar) </td><td> 語法剖析 </td></tr>
+<tr><td> [[第 6 講]](videoSemantics) </td><td> 語意辨識 </td></tr>
+<tr><td> [[第 7 講]](videoMatch) </td><td> 語法比對 </td></tr>
+<tr><td> [[第 8 講]](videoNLP) </td><td> 自然語言處理 </td></tr>
+<tr><td> [[第 9 講]](videoMT) </td><td> 機器翻譯 </td></tr>
+<tr><td> [[附錄]](videoArtificialLanguage) </td><td> 人造語言 </td></tr>
+<tr><td> [[詞典]](videoDictionary) </td><td> [[Dicitonary]](dictonary) </td></tr>
+<tr><td> [[八極語]](8gL:home) </td><td> Taiji </td></tr>
+<tr><td> [[世界語]](videoEsperanto) </td><td> Esperanto </td></tr>
+<tr><td> [[邏輯語]](videoLojban) </td><td> Lojban </td></tr>
+<tr><td> [[道本語]](videoTokiPona) </td><td> TokiPona </td></tr>
+</table>

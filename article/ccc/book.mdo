@@ -1,0 +1,15 @@
+title:Home of C.C.Chen=陳鍾誠的網站
+editor:ccc
+locale:繁體中文
+chapters:
+title                 | link
+----------------------|--------------
+C.C.Chen=陳鍾誠       | README.md
+Course=課程地圖       | course.md
+Book=書籍著作         | booklist.md
+Code=程式作品         | codelist.md
+Novel=小說故事        | novel.md
+Article=散文記事      | article.md
+Paper=論文研究        | paper.md
+Slide=十分鐘系列      | ../slide/
+License=授權聲明      | license.md

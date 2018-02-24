@@ -1,0 +1,162 @@
+# MCU0 超簡易虛擬機
+
+## 程式碼
+
+檔案：vm0m.c
+
+```CPP
+#include "mcu0m.h"
+#define MSIZE 4096 // 最大的記憶體大小為 4096 個 WORD (8192 BYTE)
+// 開始執行記憶體 m 中的機器碼程式
+int run(UINT16 *m) {
+  UINT16 PC=0, IR, A, SW, op, addr;
+  while (1) {
+    IR = m[PC];
+    op = (IR&0xF000)>>12; //
+    addr = (IR&0x0FFF);
+		printf("PC=%04x IR=%04x ", PC, IR);
+		PC = PC + 1;
+    switch (op) {
+      case LD:
+        A = m[addr];
+        break;
+      case ADD:
+        A = A+m[addr];
+        break;
+      case JMP:
+        PC = addr;
+        break;
+			case ST:
+				m[addr] = A;
+				break;
+			case CMP:
+				if (A < m[addr]) SW = 0x8000;
+				else if (A == m[addr]) SW = 0x4000;
+				else SW = 0x0000;
+				break;
+			case JEQ:
+				if (SW & 0x4000) {
+					PC = addr;
+				}
+				break;
+			case RET:
+			  return;
+			default:
+				printf("Error: %1x is not a op!", op);
+				exit(1);
+		}
+		printf(" SW=%04x A=%04x=%4d\n", SW, A, A);
+  }
+}
+// 虛擬機的主程式
+int main(int argc, char *argv[]) {
+  if (argc != 2) { printf("vm0m <objFile>\n"); exit(1); }
+	FILE *objFile = fopen(argv[1], "rb");
+	UINT16 m[MSIZE];
+	int len = fread(m, sizeof(UINT16), MSIZE, objFile); // 讀取目的檔到記憶體 m
+  run(m); // 開始執行記憶體 m 中的機器碼程式
+}
+
+```
+
+## 執行結果
+
+```
+nqu-192-168-61-142:mcu0 mac020$ gcc vm0m.c -o vm0m
+nqu-192-168-61-142:mcu0 mac020$ vm0m sum.ob0m
+-bash: vm0m: command not found
+nqu-192-168-61-142:mcu0 mac020$ ./vm0m sum.ob0m
+PC=0000 IR=000b  SW=0000 A=0000=   0
+PC=0001 IR=400d  SW=8000 A=0000=   0
+PC=0002 IR=5009  SW=8000 A=0000=   0
+PC=0003 IR=100c  SW=8000 A=0001=   1
+PC=0004 IR=300b  SW=8000 A=0001=   1
+PC=0005 IR=000a  SW=8000 A=0000=   0
+PC=0006 IR=100b  SW=8000 A=0001=   1
+PC=0007 IR=300a  SW=8000 A=0001=   1
+PC=0008 IR=2000  SW=8000 A=0001=   1
+PC=0000 IR=000b  SW=8000 A=0001=   1
+PC=0001 IR=400d  SW=8000 A=0001=   1
+PC=0002 IR=5009  SW=8000 A=0001=   1
+PC=0003 IR=100c  SW=8000 A=0002=   2
+PC=0004 IR=300b  SW=8000 A=0002=   2
+PC=0005 IR=000a  SW=8000 A=0001=   1
+PC=0006 IR=100b  SW=8000 A=0003=   3
+PC=0007 IR=300a  SW=8000 A=0003=   3
+PC=0008 IR=2000  SW=8000 A=0003=   3
+PC=0000 IR=000b  SW=8000 A=0002=   2
+PC=0001 IR=400d  SW=8000 A=0002=   2
+PC=0002 IR=5009  SW=8000 A=0002=   2
+PC=0003 IR=100c  SW=8000 A=0003=   3
+PC=0004 IR=300b  SW=8000 A=0003=   3
+PC=0005 IR=000a  SW=8000 A=0003=   3
+PC=0006 IR=100b  SW=8000 A=0006=   6
+PC=0007 IR=300a  SW=8000 A=0006=   6
+PC=0008 IR=2000  SW=8000 A=0006=   6
+PC=0000 IR=000b  SW=8000 A=0003=   3
+PC=0001 IR=400d  SW=8000 A=0003=   3
+PC=0002 IR=5009  SW=8000 A=0003=   3
+PC=0003 IR=100c  SW=8000 A=0004=   4
+PC=0004 IR=300b  SW=8000 A=0004=   4
+PC=0005 IR=000a  SW=8000 A=0006=   6
+PC=0006 IR=100b  SW=8000 A=000a=  10
+PC=0007 IR=300a  SW=8000 A=000a=  10
+PC=0008 IR=2000  SW=8000 A=000a=  10
+PC=0000 IR=000b  SW=8000 A=0004=   4
+PC=0001 IR=400d  SW=8000 A=0004=   4
+PC=0002 IR=5009  SW=8000 A=0004=   4
+PC=0003 IR=100c  SW=8000 A=0005=   5
+PC=0004 IR=300b  SW=8000 A=0005=   5
+PC=0005 IR=000a  SW=8000 A=000a=  10
+PC=0006 IR=100b  SW=8000 A=000f=  15
+PC=0007 IR=300a  SW=8000 A=000f=  15
+PC=0008 IR=2000  SW=8000 A=000f=  15
+PC=0000 IR=000b  SW=8000 A=0005=   5
+PC=0001 IR=400d  SW=8000 A=0005=   5
+PC=0002 IR=5009  SW=8000 A=0005=   5
+PC=0003 IR=100c  SW=8000 A=0006=   6
+PC=0004 IR=300b  SW=8000 A=0006=   6
+PC=0005 IR=000a  SW=8000 A=000f=  15
+PC=0006 IR=100b  SW=8000 A=0015=  21
+PC=0007 IR=300a  SW=8000 A=0015=  21
+PC=0008 IR=2000  SW=8000 A=0015=  21
+PC=0000 IR=000b  SW=8000 A=0006=   6
+PC=0001 IR=400d  SW=8000 A=0006=   6
+PC=0002 IR=5009  SW=8000 A=0006=   6
+PC=0003 IR=100c  SW=8000 A=0007=   7
+PC=0004 IR=300b  SW=8000 A=0007=   7
+PC=0005 IR=000a  SW=8000 A=0015=  21
+PC=0006 IR=100b  SW=8000 A=001c=  28
+PC=0007 IR=300a  SW=8000 A=001c=  28
+PC=0008 IR=2000  SW=8000 A=001c=  28
+PC=0000 IR=000b  SW=8000 A=0007=   7
+PC=0001 IR=400d  SW=8000 A=0007=   7
+PC=0002 IR=5009  SW=8000 A=0007=   7
+PC=0003 IR=100c  SW=8000 A=0008=   8
+PC=0004 IR=300b  SW=8000 A=0008=   8
+PC=0005 IR=000a  SW=8000 A=001c=  28
+PC=0006 IR=100b  SW=8000 A=0024=  36
+PC=0007 IR=300a  SW=8000 A=0024=  36
+PC=0008 IR=2000  SW=8000 A=0024=  36
+PC=0000 IR=000b  SW=8000 A=0008=   8
+PC=0001 IR=400d  SW=8000 A=0008=   8
+PC=0002 IR=5009  SW=8000 A=0008=   8
+PC=0003 IR=100c  SW=8000 A=0009=   9
+PC=0004 IR=300b  SW=8000 A=0009=   9
+PC=0005 IR=000a  SW=8000 A=0024=  36
+PC=0006 IR=100b  SW=8000 A=002d=  45
+PC=0007 IR=300a  SW=8000 A=002d=  45
+PC=0008 IR=2000  SW=8000 A=002d=  45
+PC=0000 IR=000b  SW=8000 A=0009=   9
+PC=0001 IR=400d  SW=8000 A=0009=   9
+PC=0002 IR=5009  SW=8000 A=0009=   9
+PC=0003 IR=100c  SW=8000 A=000a=  10
+PC=0004 IR=300b  SW=8000 A=000a=  10
+PC=0005 IR=000a  SW=8000 A=002d=  45
+PC=0006 IR=100b  SW=8000 A=0037=  55
+PC=0007 IR=300a  SW=8000 A=0037=  55
+PC=0008 IR=2000  SW=8000 A=0037=  55
+PC=0000 IR=000b  SW=8000 A=000a=  10
+PC=0001 IR=400d  SW=4000 A=000a=  10
+PC=0002 IR=5009  SW=4000 A=000a=  10
+```

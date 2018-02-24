@@ -1,0 +1,58 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+</head>
+<body>
+<script src="../../gospa.js"></script>
+<title> 陳鍾誠  / 課程  / 計算語言學 / 英語的語法</title>
+
+ [[陳鍾誠]](ccc:home)  / [[課程]](course:home)  / [[計算語言學]](cl1:home) 
+
+<h1 id="">英語的語法</h1>
+
+<pre><code>SENTENCE: STATEMENT | QUESTION | COMMAND 
+STATEMENT: ADJ+[] ADVERB+[] (SUBJECT) ADJECTIVE+[] (VERB)
+QUESTION: ADJ+[] ADVERB+[] (DO SUBJECT) ADJECTIVE+[] (VERB)
+COMMAND: ADJ+[] ADVERB+[] (VERB)
+
+ADVERB: ADV
+| WHEN (STATEMENT)
+| IF (STATEMENT) 
+| GERUND 
+| PREPLY NP
+ADJECTIVE: GERUND | PREPISH NP | ADJ
+WHEN: "when" | "whereby" | "until" | "unless" 
+IF: ["not"] ("if" | "only if" | "because") 
+AND: "and" | "but" | "or"
+PREPLY: [not] ("to"|"onto"|"into"|"of"|"out of"|"in"|"within"|"by"|"with"|"without")
+PREPISH: [not] ("to"|"of"|"in"|"by"|"with"|"without")
+ADJ: ADJ ("and"|",") ADJ | GERUND
+NP: (("a"|"the") (ADJ+[] SNP))} WHICH CLAUSE
+CLAUSE: ADJECTIVE+[] ADVERB+[] SUBJECT VERB
+| ADJECTIVE+[] ADVERB+[] SUBJECT VERB PREP 
+SUBJECT: NP
+OBJECT: NP
+WHICH: "that" | ""
+GERUND: FOGHORN GER
+FOGHORN: (PREPLY "-" NP)[] "-" OBJECT
+ADJ: ADJ AND ADJ|
+"purple"| "smelly"| "happy"| "windy" | "unbelievable" etc.
+ADV: ADV AND ADV |
+"quicky" | "slowly" | "happily"
+NOUN: "cat" | "dog" | "man" | etc.
+VERB: ("berate" [OBJECT]) | ("stop" [OBJECT]) | ("flee" [OBJECT]) | ("put" OBJECT) LOCATION+ ...
+GER: "berating" | "stopping" | "fleeing" | "putting" etc.
+</code></pre>
+
+<h2 id="">參考文獻</h2>
+
+<ul>
+<li><a href="http://able2know.org/topic/30765-1">English Defined as a Formal Grammar</a>
+<ul><li><a href="http://www.scientificpsychic.com/grammar/enggram1.html">http://www.scientificpsychic.com/grammar/enggram1.html</a></li></ul></li>
+<li><a href="http://www.cs.pomona.edu/classes/cs181NLP/text/">http://www.cs.pomona.edu/classes/cs181NLP/text/</a>
+<ul><li><a href="http://www.cs.pomona.edu/classes/cs181NLP/text/12.pdf">Chapter 12. Formal Grammars of English (pdf)</a></li></ul></li>
+<li><a href="http://english.stackexchange.com/questions/32447/is-there-an-ebnf-that-covers-all-of-english">Is there an EBNF that covers all of English</a></li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+LOOP:   LD    I    
+        CMP   K10  
+        JEQ   EXIT
+        ADD   K1   
+        ST    I    
+        LD    SUM  
+        ADD   I    
+        ST    SUM  
+        JMP   LOOP
+EXIT:	RET
+
+SUM:    WORD  0    
+I:      WORD  0    
+K1:     WORD  1    
+K10:    WORD  10   

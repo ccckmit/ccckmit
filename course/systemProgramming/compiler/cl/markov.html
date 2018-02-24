@@ -1,0 +1,58 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+</head>
+<body>
+<script src="../../gospa.js"></script>
+<title> 陳鍾誠  / 課程  / 計算語言學 / 馬可夫語言產生器</title>
+
+ [[陳鍾誠]](ccc:home)  / [[課程]](course:home)  / [[計算語言學]](cl:home) 
+
+<h1 id="">馬可夫語言產生器</h1>
+
+<p>檔案： <a href="db/cl/jscode/genMarkov.js" class="innerLink">genMarkov.js</a></p>
+
+<pre><code class="javascript">/* N    V     P
+N  0.3  0.5   0.2
+V  0.7  0.1   0.2
+P  0.6  0.1   0.3 */
+
+var Q = [
+    [0.3, 0.5, 0.2],
+    [0.7, 0.1, 0.2],
+    [0.6, 0.1, 0.3]
+];
+
+var states = ["N", "V", "P"];
+
+function genState(state) {
+    var r = Math.random();
+    var psum = 0;
+    for (var toState=0; toState&lt;Q[state].length; toState++) {
+        psum += Q[state][toState];
+        if (r &lt; psum) {
+            return toState;
+        }
+    }
+}
+
+function markov(state, max) {
+    var sequence=[];
+    for (var t=0; t&lt;max; t++) {
+        sequence.push(states[state]);
+        var state = genState(state);
+    }
+    return sequence;
+}
+
+console.log(markov(0, 100).join(''));
+</code></pre>
+
+<p>執行結果</p>
+
+<pre><code>nqu-192-168-61-142:jscode mac020$ node genMarkov
+NVNVNVPPNVVNNVNNVNNNVNVNNNVNVNVPNVNVNVNNVNVNNVNPNVNVNPVNPVNVNNPNVNNNNVNVNPPNNNVNPNVPNNNNNNNNNVNNVNVP
+</code></pre>
+
+</body>
+</html>

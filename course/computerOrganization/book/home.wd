@@ -1,0 +1,12 @@
+# Nand2tetris -- 硬體部分
+
+| 課堂（影片+習題） | 課程內容（文章） |
+|--------|-----------|
+| [[第 0 講]](video0) | [[陳鍾誠的課程地圖]](course:home) |
+| [[第 1 講]](video1) | [Boolean Logic](http://nand2tetris.org/chapters/chapter%2001.pdf) |
+| [[第 2 講]](video2) | [Boolean Arithmetic](http://nand2tetris.org/chapters/chapter%2002.pdf) |
+| [[第 3 講]](video3) | [Sequential Logic](http://nand2tetris.org/chapters/chapter%2003.pdf) |
+| [[第 4 講]](video4) | [Machine Language](http://nand2tetris.org/chapters/chapter%2004.pdf) |
+| [[第 5 講]](video5) | [Computer Architecture](http://nand2tetris.org/chapters/chapter%2005.pdf) |
+| [[習題]](assignment) | [Homework](http://nand2tetris.org/course.php) |
+| [[工具]](tool) | [[數位設計的相關工具]](tool) |

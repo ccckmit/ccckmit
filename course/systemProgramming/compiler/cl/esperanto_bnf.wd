@@ -1,0 +1,61 @@
+# BNF for Esperanto
+
+Robin Wilson 9 years ago
+PermalinkRaw MessageReport
+I have looked at the grammar rules of Esperanto and have attempted to write
+a BNF which I will require for my Esperanto SDE.
+
+Please can you give me your comments.
+Thanks!
+
+Robin
+
+```
+<article> ::= "la" *
+<male-noun> ::= <word> + "o"
+<female-noun> ::= <word> + "in" + "o"
+<noun> ::= <male-noun> | <female-noun>
+<noun> ::= <verb> + "il" + "o"
+<plural> ::= <word> + "n"
+<opposite> ::= "mal" + <word>
+<intransitive-verb> ::= "estas" *
+<singular-pronoun> ::= mi | vi | li | si | gi *
+<plural-pronoun> ::= ni | vi | ili
+<pronoun> ::= <singular-pronoun> | <plural-pronoun>
+<accusative-pronoun> ::= <pronoun> + "n"
+<reflexive-pronoun> ::= <pronoun> <verb> <pronoun>
+<reflexive-plural-pronoun> ::= <pronoun> <verb> <pronoun> + "n"
+<indefinite-personal-pronoun> ::= "oni"
+<indefinite-personal-pronoun-sentence> ::= <indefinite-personal-pronoun>
+<verb> *
+<demonstrative-pronoun> ::= "tiu" | "ci tiu"
+<possessive-demonstrative-pronoun> ::= "ties" | "ci ties"
+<demonstrative-pronoun-sentence> ::= <demonstrative-pronoun> <verb> *
+<demonstrative-adjective> ::= "tia" + <noun>
+<possessive-adjective> ::= <pronoun> + "a"
+<possessive-noun> ::= <noun> + <whitespace> + "de"
+<infinitive-verb> ::= <verb> + "I" *
+<past-tense> ::= <verb> + "is" *
+<future-tense> ::= <verb> + "os" *
+<negative> ::= <noun> <neg> "ne" <verb> *
+<sentence> ::= [<article>] <adjective> <verb>
+<sentence> ::= [<article>] <adjective> <noun> <verb>
+<sentence> ::= <noun> <verb> <conjunction> <noun> <verb> <EOL>
+<sentence> ::= <noun> <intransitive-verb> <noun> <EOL>
+<sentence> ::= <article> <noun> <intransitive-verb> <noun> <EOL>
+<interrogative> ::= <interrogative> "cu" <sentence> *
+<plural> ::= <noun> + "j" *
+<plural-sentence> ::= <noun> + "j" <verb> + "j"
+<plural-sentence> ::= <article> <noun> + "j" <verb> + "j"
+<plural-sentence> ::= <noun> + "j" <intransitive-verb> <adjective> + "j"
+<accusative-sentence> ::= <article> <noun> <intransitive-verb> <noun> + "n"
+<accusative-plural-sentence> ::= <article> <noun> <intransitive-verb>
+<noun> + "j" + "n"
+<pronoun> ::= <singular-pronoun> | <plural-pronoun>
+<conjugation> ::= <article> <conj> "kai" <verb> <conj> "kai" <verb>
+<negative-conjugation> ::= <pronoun> <neg-conj> "nek" <verb> <neg-conj>
+"nek" <verb>
+<indirect-statement> ::= "ke"
+<indirect-sentence> ::= * <verb> <indirect-statement> *
+<away> ::= "for" + <verb>
+```

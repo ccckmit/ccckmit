@@ -1,0 +1,128 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+</head>
+<body>
+<script src="../../gospa.js"></script>
+<title> 陳鍾誠  / 教科書  / 編譯器設計 / 如何用 jison 生成編譯器</title>
+
+ [[陳鍾誠]](ccc:home)  / [[教科書]](book:home)  / [[編譯器設計]](cd:home) 
+
+<h1 id="jison">如何用 jison 生成編譯器</h1>
+
+<p>用 JavaScript 語言撰寫的 jison 是一款類似 bison （開源版本的 YACC) 的 compiler compiler. 當您輸入正確的 BNF 語法檔之後，可以用來產生 parser, 若加上觸發動作，那就可以直接生成編譯器。</p>
+
+<p>如果您想學習 jison 的使用方法，可以先閱讀 <a href="https://zaach.github.io/jison/docs/">『 jison 的官方說明文件』</a> ，但是必須注意的是，若您要下載 jison 的原始碼，必須使用下列指令，而非官方說明中的 git://github.com/zaach/jison.git。</p>
+
+<pre><code>git clone https://github.com/zaach/jison.git
+</code></pre>
+
+<p>官方說明文件裡，透過一個數學式運算器來說明如何使用 jison 建置編譯器的方法，這是一個非常經典的範例，值得仔細研究閱讀。</p>
+
+<p>但是如果我們想建構其他種類的 parser 或 compiler，就必須稍微瞭解一下 jison 所產生的程式碼，以下我們用官方範例中的一個 HTML 解析器作為範例，說明 jison 的運作原理。</p>
+
+<p>首先讓我們看看 HTML 解析器的語法檔案，到底長得什麼樣子。</p>
+
+<p>檔案： phraser.jison</p>
+
+<pre><code>/* description: Parses words out of html, ignoring html in the parse, but returning it in the end */
+
+/* lexical grammar */
+%lex
+%%
+"&lt;"(.|\n)*?"&gt;"                        return 'TAG'
+[a-zA-Z0-9]+                        return 'WORD'
+(.|\n)                                return 'CHAR'
+&lt;&lt;EOF&gt;&gt;                                return 'EOF'
+
+
+/lex
+
+%start html
+
+%% /* language grammar */
+
+html
+ : contents EOF
+     {return $1;}
+ ;
+
+contents
+ : content
+    {$ = $1;}
+ | contents content
+    {$ =  $1 + $2;}
+ ;
+
+content
+    : TAG
+        {
+            if (!yy.lexer.tagHandler) yy.lexer.tagHandler = function(tag) {return tag;};
+            $ = yy.lexer.tagHandler(yytext);
+        }
+    | WORD
+        {
+            if (!yy.lexer.wordHandler) yy.lexer.wordHandler = function(word) {return word;};
+            $ = yy.lexer.wordHandler(yytext);
+        }
+    | CHAR
+        {
+            if (!yy.lexer.charHandler) yy.lexer.charHandler = function(char) {return char;};
+            $ = yy.lexer.charHandler(yytext);
+        }
+ ;
+</code></pre>
+
+<p>有了這個輸入檔，只要您已經用 <code>npm install jison -g</code> 安裝過 jison，那麼就可以使用下列指令將語法檔轉換為 compiler，然後將其過程如下：</p>
+
+<pre><code>nqu-192-168-61-142:code mac020$ jison phraser.jison
+nqu-192-168-61-142:code mac020$ echo "&lt;html&gt;&lt;body&gt;hello&lt;/body&gt;&lt;/html&gt;" &gt; test.html
+nqu-192-168-61-142:code mac020$ node phraser.js test.html
+nqu-192-168-61-142:code mac020$ 
+</code></pre>
+
+<p>問題是，上述 <code>node phraser.js test.html</code> 執行完了之後，完全沒有輸出，這樣我們怎麼知道程式到底運作得如何呢？ 我們又怎麼取的程式的輸出呢？</p>
+
+<p>關於這個問題，經過我研究 <a href="#cd:code/phraser.js" class="innerLink">phraser.js</a> 的原始碼之後，看到程式最後的部分如下：</p>
+
+<pre><code>if (typeof require !== 'undefined' &amp;&amp; typeof exports !== 'undefined') {
+exports.parser = parser;
+exports.Parser = parser.Parser;
+exports.parse = function () { return parser.parse.apply(parser, arguments); };
+exports.main = function commonjsMain(args) {
+    if (!args[1]) {
+        console.log('Usage: '+args[0]+' FILE');
+        process.exit(1);
+    }
+    var source = require('fs').readFileSync(require('path').normalize(args[1]), "utf8");
+    return exports.parser.parse(source);
+};
+if (typeof module !== 'undefined' &amp;&amp; require.main === module) {
+  exports.main(process.argv.slice(1));
+}
+}
+</code></pre>
+
+<p>對 node.js 熟悉的人應該可以一眼看出，最後整個模組會放在 exports 這個物件裏傳回，因此我們可以透過下列程式引入 phraser.js 並加以使用。</p>
+
+<p>檔案： <a href="#cd:code/htmlparser.js" class="innerLink">htmlparser.js</a></p>
+
+<pre><code class="javascript">var p = require("./phraser");
+
+var tree = p.main(process.argv.slice(1));
+
+console.log("%j", tree);
+</code></pre>
+
+<p>接著我們就可以執行 htmlparser.js 來觀察程式的真正輸出了，以下是執行結果。</p>
+
+<pre><code>nqu-192-168-61-142:code mac020$ node htmlparser test.html
+"&lt;html&gt;&lt;body&gt;hello&lt;/body&gt;&lt;/html&gt;\n"
+</code></pre>
+
+<p>這樣，我們就完成了一個 HTML 解析器。</p>
+
+<p>透過這個範例，相信您對 jison 的運作已經有基本的概念了。</p>
+
+</body>
+</html>

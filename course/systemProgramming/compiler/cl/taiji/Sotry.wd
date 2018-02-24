@@ -1,0 +1,87 @@
+# 太極語
+
+陳鍾誠試圖創造用來進行『可程式翻譯』溝通的一種語言，具有最簡單的 BNF 語法和盡可能明確的語意。
+
+```
+* = * C *
+STMT = S V O (P F)*
+S = 主詞
+V = 動詞
+O = 受詞
+P = 關係
+F = 填充語
+```
+
+The North Wind and the Sun
+
+The North Wind and the  Sun  were disputing  which was the stronger, 
+(北風           與      太陽)      爭論      誰        比較  強
+               NP                  V          
+
+North wind     and     Sun       dispute   who       more strong
+NP             與      NP        V         N              ADJ??
+
+when a    traveler came along wrapped in a warm cloak.
+當   一個 旅行者   來         穿著    溫暖 外套
+
+They agreed that the one who first succeeded in making the traveler take his cloak off should be considered stronger than the other.
+
+Then the North Wind blew as hard as he could, but the more he blew the more closely did the traveler fold his cloak around him;
+
+and at last the North Wind gave up the attempt. Then the Sun shined out warmly, and immediately the traveler took off his cloak.
+
+And so the North Wind was obliged to confess that the Sun was the stronger of the two.
+
+
+
+## 英語為主
+
+```
+Y = 是 S
+S = NP VP PP*
+NP = O? D ADJ* N*
+NP = NP 與 NP
+VP = V NP
+PP = P NP
+O = N 的 
+P = 用 | 拿
+```
+
+是 = do 
+用 = with
+與 = and
+
+// 你喝酒嗎？
+是 你 喝 酒
+do you drink wine 
+Y = ? S = ? NP VP = ? N V N = ? 你 喝 酒
+
+// 他用榔頭敲我的腳
+他 敲 我 的 腳 用 榔頭
+S = NP VP PP = N (V NP) (P NP) = 他 (敲 (我 的 腳)) (用 榔頭)
+
+// 誰比較強？
+誰 
+
+## 文章：北風與太陽
+
+// 
+The North Wind and the Sun
+
+北風與太陽
+
+The North Wind and the Sun  were disputing which was the stronger, 
+北風           與      太陽      爭論      誰        比較  強
+North wind     and     Sun       dispute   who       more strong
+NP             與      NP        V         N              ADJ??
+
+when a    traveler came along wrapped in a warm cloak.
+當   一個 旅行者   來         穿著    溫暖 外套
+
+They agreed that the one who first succeeded in making the traveler take his cloak off should be considered stronger than the other.
+
+Then the North Wind blew as hard as he could, but the more he blew the more closely did the traveler fold his cloak around him;
+
+and at last the North Wind gave up the attempt. Then the Sun shined out warmly, and immediately the traveler took off his cloak.
+
+And so the North Wind was obliged to confess that the Sun was the stronger of the two.

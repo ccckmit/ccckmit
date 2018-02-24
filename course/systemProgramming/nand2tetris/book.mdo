@@ -1,0 +1,21 @@
+title:Nand2tetris -- 動手設計電腦的軟硬體
+editor:ccc
+chapters:
+title           | link
+----------------|---------
+課程            | README.md
+十分鐘系列      | slide.md
+1. 布林邏輯     | chapter1.md
+2. 算術電路     | chapter2.md
+3. 記憶電路     | chapter3.md
+4. 組合語言     | chapter4.md
+5. 計算機結構   | chapter5.md
+6. 組譯器       | chapter6.md
+7. 虛擬機 (1)   | chapter7.md
+8. 虛擬機 (2)   | chapter8.md
+9. 高階語言     | chapter9.md
+10. 編譯器 (1)  | chapter10.md
+11. 編譯器 (2)  | chapter11.md
+12. 作業系統    | chapter12.md
+補充            | appendix.md
+補充投影片      | bookSlide.md

@@ -1,0 +1,73 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+</head>
+<body>
+<script src="../../gospa.js"></script>
+<title> 陳鍾誠  / 教科書  / 語言處理 / BNF for Esperanto</title>
+
+ [[陳鍾誠]](ccc:home)  / [[教科書]](book:home)  / [[語言處理]](cl:home) 
+
+<h1 id="bnfforesperanto">BNF for Esperanto</h1>
+
+<p>Robin Wilson 9 years ago
+PermalinkRaw MessageReport
+I have looked at the grammar rules of Esperanto and have attempted to write
+a BNF which I will require for my Esperanto SDE.</p>
+
+<p>Please can you give me your comments.
+Thanks!</p>
+
+<p>Robin</p>
+
+<pre><code>&lt;article&gt; ::= "la" *
+&lt;male-noun&gt; ::= &lt;word&gt; + "o"
+&lt;female-noun&gt; ::= &lt;word&gt; + "in" + "o"
+&lt;noun&gt; ::= &lt;male-noun&gt; | &lt;female-noun&gt;
+&lt;noun&gt; ::= &lt;verb&gt; + "il" + "o"
+&lt;plural&gt; ::= &lt;word&gt; + "n"
+&lt;opposite&gt; ::= "mal" + &lt;word&gt;
+&lt;intransitive-verb&gt; ::= "estas" *
+&lt;singular-pronoun&gt; ::= mi | vi | li | si | gi *
+&lt;plural-pronoun&gt; ::= ni | vi | ili
+&lt;pronoun&gt; ::= &lt;singular-pronoun&gt; | &lt;plural-pronoun&gt;
+&lt;accusative-pronoun&gt; ::= &lt;pronoun&gt; + "n"
+&lt;reflexive-pronoun&gt; ::= &lt;pronoun&gt; &lt;verb&gt; &lt;pronoun&gt;
+&lt;reflexive-plural-pronoun&gt; ::= &lt;pronoun&gt; &lt;verb&gt; &lt;pronoun&gt; + "n"
+&lt;indefinite-personal-pronoun&gt; ::= "oni"
+&lt;indefinite-personal-pronoun-sentence&gt; ::= &lt;indefinite-personal-pronoun&gt;
+&lt;verb&gt; *
+&lt;demonstrative-pronoun&gt; ::= "tiu" | "ci tiu"
+&lt;possessive-demonstrative-pronoun&gt; ::= "ties" | "ci ties"
+&lt;demonstrative-pronoun-sentence&gt; ::= &lt;demonstrative-pronoun&gt; &lt;verb&gt; *
+&lt;demonstrative-adjective&gt; ::= "tia" + &lt;noun&gt;
+&lt;possessive-adjective&gt; ::= &lt;pronoun&gt; + "a"
+&lt;possessive-noun&gt; ::= &lt;noun&gt; + &lt;whitespace&gt; + "de"
+&lt;infinitive-verb&gt; ::= &lt;verb&gt; + "I" *
+&lt;past-tense&gt; ::= &lt;verb&gt; + "is" *
+&lt;future-tense&gt; ::= &lt;verb&gt; + "os" *
+&lt;negative&gt; ::= &lt;noun&gt; &lt;neg&gt; "ne" &lt;verb&gt; *
+&lt;sentence&gt; ::= [&lt;article&gt;] &lt;adjective&gt; &lt;verb&gt;
+&lt;sentence&gt; ::= [&lt;article&gt;] &lt;adjective&gt; &lt;noun&gt; &lt;verb&gt;
+&lt;sentence&gt; ::= &lt;noun&gt; &lt;verb&gt; &lt;conjunction&gt; &lt;noun&gt; &lt;verb&gt; &lt;EOL&gt;
+&lt;sentence&gt; ::= &lt;noun&gt; &lt;intransitive-verb&gt; &lt;noun&gt; &lt;EOL&gt;
+&lt;sentence&gt; ::= &lt;article&gt; &lt;noun&gt; &lt;intransitive-verb&gt; &lt;noun&gt; &lt;EOL&gt;
+&lt;interrogative&gt; ::= &lt;interrogative&gt; "cu" &lt;sentence&gt; *
+&lt;plural&gt; ::= &lt;noun&gt; + "j" *
+&lt;plural-sentence&gt; ::= &lt;noun&gt; + "j" &lt;verb&gt; + "j"
+&lt;plural-sentence&gt; ::= &lt;article&gt; &lt;noun&gt; + "j" &lt;verb&gt; + "j"
+&lt;plural-sentence&gt; ::= &lt;noun&gt; + "j" &lt;intransitive-verb&gt; &lt;adjective&gt; + "j"
+&lt;accusative-sentence&gt; ::= &lt;article&gt; &lt;noun&gt; &lt;intransitive-verb&gt; &lt;noun&gt; + "n"
+&lt;accusative-plural-sentence&gt; ::= &lt;article&gt; &lt;noun&gt; &lt;intransitive-verb&gt;
+&lt;noun&gt; + "j" + "n"
+&lt;pronoun&gt; ::= &lt;singular-pronoun&gt; | &lt;plural-pronoun&gt;
+&lt;conjugation&gt; ::= &lt;article&gt; &lt;conj&gt; "kai" &lt;verb&gt; &lt;conj&gt; "kai" &lt;verb&gt;
+&lt;negative-conjugation&gt; ::= &lt;pronoun&gt; &lt;neg-conj&gt; "nek" &lt;verb&gt; &lt;neg-conj&gt;
+"nek" &lt;verb&gt;
+&lt;indirect-statement&gt; ::= "ke"
+&lt;indirect-sentence&gt; ::= * &lt;verb&gt; &lt;indirect-statement&gt; *
+&lt;away&gt; ::= "for" + &lt;verb&gt;
+</code></pre>
+
+</body>
+</html>
